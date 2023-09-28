@@ -10,6 +10,22 @@ struct Valor {
     int coluna;
 };
 
+int _cmp_valor_position(Valor v1, Valor v2)
+{
+    return (v1.linha == v2.linha && v1.coluna == v2.coluna);
+}
+
+Valor _mult_valores(Valor v1, Valor v2)
+{
+    Valor v;
+
+    v.linha = v1.linha;
+    v.coluna = 1;
+    v.valor = v1.valor * v2.valor;
+
+    return v;
+}
+
 struct Matriz {
     Valor *valores;
     int qtd_nnz, qtdLinhas, qtdColunas;
@@ -30,9 +46,24 @@ Matriz *matriz_construct(int qtd_nnz, int qtdLinhas, int qtdColunas)
     return m;
 }
 
+void _mult_vetor_add_value(Matriz *m, Valor v)
+{
+    for (int i = 0; i < m->size; i++)
+    {
+        if (_cmp_valor_position(m->valores[i], v))
+        {
+            m->valores[i].valor += v.valor;
+            return;
+        }
+    }
+
+    m->valores[m->size] = v;
+    m->size++;
+}
+
 void matriz_add_value(Matriz *m, Valor v)
 {
-    if (m->size == m->qtd_nnz || v.valor == 0)
+    if (m->size == m->qtd_nnz)
         return;
 
     m->valores[m->size] = v;
@@ -140,9 +171,31 @@ Matriz *matriz_read_txt(char *filePath)
 
 Matriz *matriz_multiply_by_vector(Matriz *m, Matriz *vetor)
 {
-    // Para ser feita ainda
+    if (m->qtdColunas != vetor->qtdLinhas)
+        return NULL;
+    
+    Matriz *resultado = matriz_construct(m->qtdLinhas, m->qtdLinhas, 1); // Resultado sempre será um vetor
 
-    return NULL;
+    Valor valor_resultado;
+    Valor v_m, v_vetor;
+
+    for (int i = 0; i < m->qtd_nnz; i++) // Analisa todos os nnz da matriz
+    {
+        for (int k = 0; k < vetor->qtd_nnz; k++) // Analisa todos os nnz do vetor
+        {
+            v_m = m->valores[i];
+            v_vetor = vetor->valores[k];
+            
+            if (v_m.coluna == v_vetor.linha) // Se existir um valor correspondente os dois serão multiplicados
+            {
+                valor_resultado = _mult_valores(v_m, v_vetor);
+                _mult_vetor_add_value(resultado, valor_resultado);
+                break;
+            }
+        }
+    }
+
+    return resultado;
 }
 
 void matriz_print_esparse(Matriz *m)

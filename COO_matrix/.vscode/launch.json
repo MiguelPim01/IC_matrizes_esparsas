@@ -10,7 +10,7 @@
             "request": "launch",
             "cwd": ".",
             "program": "${fileDirname}/main",
-            "args": ["../matrizes/494_bus.mtx"],
+            "args": ["../matrizes/cage3.mtx", "vetor_cage3.txt"],
             "preLaunchTask": "compilacao",
         }
     ]

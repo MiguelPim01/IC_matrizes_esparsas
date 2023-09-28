@@ -7,7 +7,7 @@
 int main(int argc, char *argv[])
 {
     if (argc < 3)
-        exit(printf("Argumentos insuficientes, RUN: ./main <filePath>\n"));
+        exit(printf("Argumentos insuficientes, RUN: ./main <filePath_matriz> <filePath_vetor>\n"));
 
     char caminho[100];
 
@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 
     Matriz *vetor = matriz_read_txt(caminho);
 
-    Matriz *resultado = matriz_multiply_by_vector_version1(m, vetor);
+    Matriz *resultado = matriz_multiply_by_vector(m, vetor);
 
     matriz_print_esparse(m);
     printf("\n");

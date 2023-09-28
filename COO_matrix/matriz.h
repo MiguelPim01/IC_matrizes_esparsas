@@ -13,7 +13,7 @@ Matriz *matriz_read_mtx(char *filePath);
 
 Matriz *matriz_read_txt(char *filePath);
 
-Matriz *matriz_multiply_by_vector_version1(Matriz *matriz, Matriz *vector);
+Matriz *matriz_multiply_by_vector(Matriz *matriz, Matriz *vector);
 
 void matriz_print_esparse(Matriz *m);
 
