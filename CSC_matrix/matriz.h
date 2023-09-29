@@ -9,6 +9,8 @@ Matriz *matriz_construct(int qtd_nnz, int qtdLinhas, int qtdColunas);
 
 void matriz_add_value(Matriz *m, Valor v, int linha);
 
+Matriz *matriz_multiply_by_vector(Matriz *m, Matriz *vetor);
+
 Matriz *matriz_read_mtx(char *filePath);
 
 Matriz *matriz_read_txt(char *filePath);

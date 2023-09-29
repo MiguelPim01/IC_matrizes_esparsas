@@ -17,6 +17,21 @@ struct Valor {
     int linha;
 };
 
+int _cmp_valor(Valor v1, Valor v2)
+{
+    return (v1.linha == v2.linha);
+}
+
+Valor _mult_valores(Valor v1, Valor v2)
+{
+    Valor v;
+
+    v.linha = v1.linha;
+    v.valor = v1.valor * v2.valor;
+
+    return v;
+}
+
 struct Matriz {
     Valor *valores;
     int *ptr_coluna;
@@ -43,6 +58,21 @@ Matriz *matriz_construct(int qtd_nnz, int qtdLinhas, int qtdColunas)
     return m;
 }
 
+void _mult_vetor_add_value(Matriz *vetor, Valor v)
+{
+    for (int i = vetor->ptr_coluna[0]; i < vetor->ptr_coluna[1]; i++)
+    {
+        if (_cmp_valor(vetor->valores[i], v))
+        {
+            vetor->valores[i].valor += v.valor;
+            return;
+        }
+    }
+
+    vetor->valores[vetor->size] = v;
+    vetor->size++;
+}
+
 void matriz_add_value(Matriz *m, Valor v, int coluna)
 {
     int ind_coluna = m->ptr_coluna[coluna-1];
@@ -54,6 +84,38 @@ void matriz_add_value(Matriz *m, Valor v, int coluna)
 
     m->valores[m->size] = v;
     m->size++;
+}
+
+Matriz *matriz_multiply_by_vector(Matriz *m, Matriz *vetor)
+{
+    if (m->qtdColunas != vetor->qtdLinhas)
+        return NULL;
+    
+    Matriz *resultado = matriz_construct(m->qtdLinhas, m->qtdLinhas, 1);
+
+    Valor v_m, v_vetor, v_resultado;
+
+    for (int i = 0; i < m->qtdColunas; i++)
+    {
+        for (int k = m->ptr_coluna[i]; k < m->ptr_coluna[i+1]; k++)
+        {
+            v_m = m->valores[k];
+
+            for (int q = vetor->ptr_coluna[0]; q < vetor->ptr_coluna[1]; q++)
+            {
+                v_vetor = vetor->valores[q];
+
+                if (i+1 == v_vetor.linha)
+                {
+                    v_resultado = _mult_valores(v_m, v_vetor);
+                    _mult_vetor_add_value(resultado, v_resultado);
+                    break;
+                }
+            }
+        }
+    }
+
+    return resultado;
 }
 
 Matriz *matriz_read_mtx(char *filePath)
