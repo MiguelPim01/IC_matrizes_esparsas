@@ -215,3 +215,9 @@ void matriz_destroy(Matriz *m)
     free(m->valores);
     free(m);
 }
+
+
+int matriz_qtd_colunas(Matriz *m)
+{
+    return m->qtdColunas;
+}

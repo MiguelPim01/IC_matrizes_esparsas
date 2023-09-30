@@ -19,4 +19,7 @@ void matriz_print_esparse(Matriz *m);
 
 void matriz_destroy(Matriz *m);
 
+
+int matriz_qtd_colunas(Matriz *m);
+
 #endif

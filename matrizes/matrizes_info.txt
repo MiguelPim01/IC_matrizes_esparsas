@@ -1,0 +1,21 @@
+Arquivo para guardar as informações de cada matriz dessa pasta:
+
+"cage3.mtx":
+	numero de linhas -> 5
+	numero de colunas -> 5
+	numero de nnz -> 19
+
+"d_ss.mtx":
+	numero de linhas -> 53
+	numero de colunas -> 53
+	numero de nnz -> 144
+
+"bcsstm01.mtx":
+	numero de linhas -> 48
+	numero de colunas -> 48
+	numero de nnz -> 24
+
+"curtis54.mtx":
+	numero de linhas -> 54
+	numero de colunas -> 54
+	numero de nnz -> 291
