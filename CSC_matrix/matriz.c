@@ -60,7 +60,7 @@ Matriz *matriz_construct(int qtd_nnz, int qtdLinhas, int qtdColunas)
 
 void _mult_vetor_add_value(Matriz *vetor, Valor v)
 {
-    for (int i = vetor->ptr_coluna[0]; i < vetor->ptr_coluna[1]; i++)
+    for (int i = vetor->ptr_coluna[0]; i < vetor->ptr_coluna[1] && i != -1; i++)
     {
         if (_cmp_valor(vetor->valores[i], v))
         {
@@ -69,6 +69,7 @@ void _mult_vetor_add_value(Matriz *vetor, Valor v)
         }
     }
 
+    vetor->ptr_coluna[0] = 0;
     vetor->valores[vetor->size] = v;
     vetor->size++;
 }

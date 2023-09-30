@@ -18,10 +18,15 @@ int main(int argc, char *argv[])
 
     Matriz *vetor = matriz_read_txt(caminho);
 
+    Matriz *resultado = matriz_multiply_by_vector(m, vetor);
+
     matriz_print_esparso(m);
     printf("\n");
     matriz_print_esparso(vetor);
+    printf("\n");
+    matriz_print_esparso(resultado);
 
+    matriz_destroy(resultado);
     matriz_destroy(m);
     matriz_destroy(vetor);
 
