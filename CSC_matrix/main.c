@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #include "matriz.h"
 
@@ -18,13 +19,11 @@ int main(int argc, char *argv[])
 
     Matriz *vetor = matriz_read_txt(caminho);
 
+    clock_t start = clock();
     Matriz *resultado = matriz_multiply_by_vector(m, vetor);
+    clock_t end = clock();
 
-    matriz_print_esparso(m);
-    printf("\n");
-    matriz_print_esparso(vetor);
-    printf("\n");
-    matriz_print_esparso(resultado);
+    printf("Time spent: %lf\n", (double)(end - start)/CLOCKS_PER_SEC);
 
     matriz_destroy(resultado);
     matriz_destroy(m);
