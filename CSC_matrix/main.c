@@ -19,13 +19,32 @@ int main(int argc, char *argv[])
 
     Matriz *vetor = matriz_read_txt(caminho);
 
+    clock_t tempo_total;
+
     clock_t start = clock();
     Matriz *resultado = matriz_multiply_by_vector(m, vetor);
     clock_t end = clock();
 
-    printf("Time spent: %lf\n", (double)(end - start)/CLOCKS_PER_SEC);
+    tempo_total = (end - start);
 
-    matriz_destroy(resultado);
+    Matriz *aux;
+
+    for (int i = 0; i < 1000000; i++)
+    {
+        start = clock();
+        aux = matriz_multiply_by_vector(m, resultado);
+        end = clock();
+
+        matriz_destroy(resultado);
+        resultado = aux;
+
+        tempo_total += (end - start);
+    }
+
+    matriz_destroy(aux);
+
+    printf("time spent: %lf\n", (double)tempo_total/CLOCKS_PER_SEC);
+
     matriz_destroy(m);
     matriz_destroy(vetor);
 
