@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 
     Matriz *aux;
 
-    for (int i = 0; i < 1000000; i++)
+    for (int i = 0; i < 5; i++)
     {
         start = clock();
         aux = matriz_multiply_by_vector(m, resultado);
