@@ -58,20 +58,32 @@ Matriz *matriz_construct(int qtd_nnz, int qtdLinhas, int qtdColunas)
     return m;
 }
 
-void _mult_vetor_add_value(Matriz *vetor, Valor v)
+Matriz *vetor_construct(int qtd_nnz)
 {
-    for (int i = vetor->ptr_coluna[0]; i < vetor->ptr_coluna[1] && i != -1; i++)
+    Matriz *v = (Matriz *)malloc(sizeof(Matriz));
+
+    v->valores = (Valor *)malloc(sizeof(Valor) * qtd_nnz);
+    v->ptr_coluna = (int *)malloc(sizeof(int) * 2);
+
+    v->qtd_nnz = qtd_nnz;
+    v->qtdLinhas = qtd_nnz;
+    v->qtdColunas = 1;
+    v->size = qtd_nnz;
+
+    v->ptr_coluna[0] = 0; v->ptr_coluna[1] = qtd_nnz;
+
+    for (int i = 0; i < qtd_nnz; i++)
     {
-        if (_cmp_valor(vetor->valores[i], v))
-        {
-            vetor->valores[i].valor += v.valor;
-            return;
-        }
+        v->valores[i].linha = i+1;
+        v->valores[i].valor = 0;
     }
 
-    vetor->ptr_coluna[0] = 0;
-    vetor->valores[vetor->size] = v;
-    vetor->size++;
+    return v;
+}
+
+void _vetor_add_value(Matriz *vetor, Valor v)
+{
+    vetor->valores[v.linha-1].valor += v.valor;
 }
 
 void matriz_add_value(Matriz *m, Valor v, int coluna)
@@ -92,7 +104,7 @@ Matriz *matriz_multiply_by_vector(Matriz *m, Matriz *vetor)
     if (m->qtdColunas != vetor->qtdLinhas)
         return NULL;
     
-    Matriz *resultado = matriz_construct(m->qtdLinhas, m->qtdLinhas, 1);
+    Matriz *resultado = vetor_construct(m->qtdLinhas);
 
     Valor v_m, v_vetor, v_resultado;
 
@@ -101,18 +113,10 @@ Matriz *matriz_multiply_by_vector(Matriz *m, Matriz *vetor)
         for (int k = m->ptr_coluna[i]; k < m->ptr_coluna[i+1]; k++)
         {
             v_m = m->valores[k];
+            v_vetor = vetor->valores[i];
 
-            for (int q = vetor->ptr_coluna[0]; q < vetor->ptr_coluna[1]; q++)
-            {
-                v_vetor = vetor->valores[q];
-
-                if (i+1 == v_vetor.linha)
-                {
-                    v_resultado = _mult_valores(v_m, v_vetor);
-                    _mult_vetor_add_value(resultado, v_resultado);
-                    break;
-                }
-            }
+            v_resultado = _mult_valores(v_m, v_vetor);
+            _vetor_add_value(resultado, v_resultado);
         }
     }
 
