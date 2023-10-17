@@ -46,19 +46,30 @@ Matriz *matriz_construct(int qtd_nnz, int qtdLinhas, int qtdColunas)
     return m;
 }
 
-void _mult_vetor_add_value(Matriz *m, Valor v)
+Matriz *vetor_construct(int qtd_nnz)
 {
-    for (int i = 0; i < m->size; i++)
+    Matriz *v = (Matriz *)malloc(sizeof(Matriz));
+
+    v->valores = (Valor *)malloc(sizeof(Valor) * qtd_nnz);
+
+    v->qtd_nnz = qtd_nnz;
+    v->qtdLinhas = qtd_nnz;
+    v->qtdColunas = 1;
+    v->size = qtd_nnz;
+
+    for (int i = 0; i < v->qtdLinhas; i++)
     {
-        if (_cmp_valor_position(m->valores[i], v))
-        {
-            m->valores[i].valor += v.valor;
-            return;
-        }
+        v->valores[i].valor = 0;
+        v->valores[i].coluna = 1;
+        v->valores[i].linha = i+1;
     }
 
-    m->valores[m->size] = v;
-    m->size++;
+    return v;
+}
+
+void _vetor_add_value(Matriz *vetor, Valor v)
+{
+    vetor->valores[v.linha-1].valor += v.valor;
 }
 
 void matriz_add_value(Matriz *m, Valor v)
@@ -174,25 +185,18 @@ Matriz *matriz_multiply_by_vector(Matriz *m, Matriz *vetor)
     if (m->qtdColunas != vetor->qtdLinhas)
         return NULL;
     
-    Matriz *resultado = matriz_construct(m->qtdLinhas, m->qtdLinhas, 1); // Resultado sempre será um vetor
+    Matriz *resultado = vetor_construct(m->qtdLinhas);
 
     Valor valor_resultado;
     Valor v_m, v_vetor;
 
     for (int i = 0; i < m->qtd_nnz; i++) // Analisa todos os nnz da matriz
     {
-        for (int k = 0; k < vetor->qtd_nnz; k++) // Analisa todos os nnz do vetor
-        {
-            v_m = m->valores[i];
-            v_vetor = vetor->valores[k];
-            
-            if (v_m.coluna == v_vetor.linha) // Se existir um valor correspondente os dois serão multiplicados
-            {
-                valor_resultado = _mult_valores(v_m, v_vetor);
-                _mult_vetor_add_value(resultado, valor_resultado);
-                break;
-            }
-        }
+        v_m = m->valores[i];
+        v_vetor = vetor->valores[v_m.coluna-1];
+
+        valor_resultado = _mult_valores(v_m, v_vetor);
+        _vetor_add_value(resultado, valor_resultado);
     }
 
     return resultado;
