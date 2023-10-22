@@ -25,8 +25,6 @@ int main(int argc, char *argv[])
     Matriz *resultado = matriz_multiply_by_vector(m, vetor);
     clock_t end = clock();
 
-    matriz_print_esparso(resultado);
-
     tempo_total = (end - start);
 
     Matriz *aux;

@@ -1,4 +1,4 @@
-Arquivo para guardar as informações de cada matriz dessa pasta:
+Arquivo para guardar as informações de cada matriz dessa pasta (ordenadas em ordem crescente de dimensão):
 
 "cage3":
 	numero de linhas -> 5
@@ -26,11 +26,26 @@ Arquivo para guardar as informações de cada matriz dessa pasta:
 	numero de nnz -> 6027
 
 "sstmodel":
-	numero de linhas -> 3345
-	numero de colunas -> 3345
-	numero de nnz -> 13047
+	numero de linhas -> 3.345
+	numero de colunas -> 3.345
+	numero de nnz -> 13.047
 
 "e40r5000":
-	numero de linhas -> 17281
-	numero de colunas -> 17281
-	numero de nnz -> 553956
+	numero de linhas -> 17.281
+	numero de colunas -> 17.281
+	numero de nnz -> 553.956
+
+"bcsstk31":
+	numero de linhas -> 35.588
+	numero de colunas -> 35.588
+	numero de nnz -> 608.502
+
+"s3dkt3m2":
+	numero de linhas -> 90.449
+	numero de colunas -> 90.449
+	numero de nnz -> 1.921.995
+
+"s3dkq4m2":
+	numero de linhas -> 90.449
+	numero de colunas -> 90.449
+	numero de nnz -> 2.455.670
