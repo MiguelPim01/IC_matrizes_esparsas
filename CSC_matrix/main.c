@@ -9,44 +9,31 @@ int main(int argc, char *argv[])
     if (argc < 3)
         exit(printf("Argumentos insuficientes!\n"));
 
-    char caminho[100];
+    Matriz *m = matriz_read_mtx(argv[1]);
 
-    sscanf(argv[1], "%s", caminho);
+    Vetor *v = vector_read_txt(argv[2]);
 
-    Matriz *m = matriz_read_mtx(caminho);
+    Vetor *mult = v;
 
-    sscanf(argv[2], "%s", caminho);
+    clock_t start, end;
+    double total = 0.0;
 
-    Matriz *vetor = matriz_read_txt(caminho);
-
-    clock_t tempo_total;
-
-    clock_t start = clock();
-    Matriz *resultado = matriz_multiply_by_vector(m, vetor);
-    clock_t end = clock();
-
-    tempo_total = (end - start);
-
-    Matriz *aux;
-
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 6; i++)
     {
         start = clock();
-        aux = matriz_multiply_by_vector(m, resultado);
+        mult = matriz_multiply_by_vector(m, v);
         end = clock();
 
-        matriz_destroy(resultado);
-        resultado = aux;
-
-        tempo_total += (end - start);
+        total += (double)(end - start)/CLOCKS_PER_SEC;
+        
+        vector_destroy(v);
+        v = mult;
     }
 
-    matriz_destroy(aux);
-
-    printf("time spent: %lf\n", (double)tempo_total/CLOCKS_PER_SEC);
+    printf("time spent: %lf\n", total);
 
     matriz_destroy(m);
-    matriz_destroy(vetor);
+    vector_destroy(v);
 
     return 0;
 }
