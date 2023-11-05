@@ -18,6 +18,8 @@ void vector_destroy(Vetor *v);
 
 Matriz *matriz_construct(int qtdLinhas, int qtdColunas, int qtd_nnz);
 
+Vetor *matriz_multiply_by_vector(Matriz *m, Vetor *v);
+
 Matriz *matriz_read_mtx(char *filePath);
 
 void matriz_print_esparso(Matriz *m);

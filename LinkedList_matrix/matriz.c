@@ -32,6 +32,19 @@ struct Matriz {
 
 /* ============ VETOR FUNCTIONS ============ */
 
+Vetor *vector_construct(int size)
+{
+    Vetor *v = (Vetor *)malloc(sizeof(Vetor));
+
+    v->array = (float *)malloc(sizeof(float) * size);
+    v->size = size;
+
+    for (int i = 0; i < size; i++)
+        v->array[i] = 0.0;
+    
+    return v;
+}
+
 Vetor *vector_read_txt(char *filePath)
 {
     FILE *file = fopen(filePath, "r");
@@ -62,6 +75,9 @@ Vetor *vector_read_txt(char *filePath)
 
 void vector_print_esparso(Vetor *v)
 {
+    if (v == NULL)
+        return;
+
     for (int i = 0; i < v->size; i++)
     {
         printf("(%d, 1): %.4f\n", i+1, v->array[i]);
@@ -70,6 +86,9 @@ void vector_print_esparso(Vetor *v)
 
 void vector_destroy(Vetor *v)
 {
+    if (v == NULL)
+        return;
+
     free(v->array);
     free(v);
 }
@@ -148,9 +167,33 @@ Matriz *matriz_construct(int qtdLinhas, int qtdColunas, int qtd_nnz)
     return m;
 }
 
-float *matriz_multiply_by_vector(Matriz *m, float *v)
+Vetor *matriz_multiply_by_vector(Matriz *m, Vetor *v)
 {
-    return NULL;
+    if (m->qtdColunas != v->size)
+    {
+        printf("Erro: Operação matriz x vetor invalida!\n");
+        return NULL;
+    }
+
+    Vetor *resultado = vector_construct(m->qtdLinhas);
+
+    LinkedList *current_list;
+    Node *current_node;
+
+    for (int i = 0; i < m->qtdLinhas; i++)
+    {
+        current_list = m->linhas[i];
+
+        current_node = current_list->head;
+
+        while (current_node != NULL)
+        {
+            resultado->array[i] += current_node->valor * v->array[current_node->coluna-1];
+            current_node = current_node->nextRight;
+        }
+    }
+
+    return resultado;
 }
 
 // Essa função é para a inserção de um valor especificamente para o caso da leitura do arquivo .mtx
@@ -257,6 +300,9 @@ Matriz *matriz_read_mtx(char *filePath)
 //
 void matriz_print_esparso(Matriz *m)
 {
+    if (m == NULL)
+        return;
+
     LinkedList *curr_list;
     Node *curr_node;
 
@@ -276,6 +322,9 @@ void matriz_print_esparso(Matriz *m)
 
 void matriz_destroy(Matriz *m)
 {
+    if (m == NULL)
+        return;
+
     for (int i = 0; i < m->qtdLinhas; i++)
         _linked_list_destroy_lin(m->linhas[i]);
     for (int i = 0; i < m->qtdColunas; i++)
