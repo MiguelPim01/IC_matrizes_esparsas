@@ -12,10 +12,87 @@
  * 
  */
 
+struct Vetor {
+    float *array;
+    int size;
+};
+
 struct Valor {
     float valor;
     int coluna;
 };
+
+struct Matriz {
+    Valor *valores;
+    int *ptr_linha;
+    int qtd_nnz, qtdLinhas, qtdColunas;
+    int size;
+};
+
+/* ============ VETOR FUNCTIONS ============ */
+
+Vetor *vector_construct(int size)
+{
+    Vetor *v = (Vetor *)malloc(sizeof(Vetor));
+
+    v->array = (float *)malloc(sizeof(float) * size);
+    v->size = size;
+
+    for (int i = 0; i < size; i++)
+        v->array[i] = 0.0;
+    
+    return v;
+}
+
+Vetor *vector_read_txt(char *filePath)
+{
+    FILE *file = fopen(filePath, "r");
+
+    int qtd_nnz, qtdLinhas, qtdColunas;
+
+    fscanf(file, "%d %d %d", &qtdLinhas, &qtdColunas, &qtd_nnz);
+
+    Vetor *v = (Vetor *)malloc(sizeof(Vetor));
+
+    v->array = (float *)malloc(sizeof(float) * qtdLinhas);
+    v->size = qtdLinhas;
+
+    int linha, coluna;
+    float valor;
+
+    while (!feof(file))
+    {
+        fscanf(file, "%d %d %f", &linha, &coluna, &valor);
+
+        v->array[linha-1] = valor;
+    }
+
+    fclose(file);
+
+    return v;
+}
+
+void vector_print_esparso(Vetor *v)
+{
+    if (v == NULL)
+        return;
+
+    for (int i = 0; i < v->size; i++)
+    {
+        printf("(%d, 1): %.4f\n", i+1, v->array[i]);
+    }
+}
+
+void vector_destroy(Vetor *v)
+{
+    if (v == NULL)
+        return;
+
+    free(v->array);
+    free(v);
+}
+
+/* ============ VALOR FUNCTIONS ============ */
 
 int _cmp_valor(Valor v1, Valor v2)
 {
@@ -32,12 +109,7 @@ Valor _mult_valores(Valor v1, Valor v2)
     return v;
 }
 
-struct Matriz {
-    Valor *valores;
-    int *ptr_linha;
-    int qtd_nnz, qtdLinhas, qtdColunas;
-    int size;
-};
+/* ============ MATRIZ FUNCTIONS ============ */
 
 Matriz *matriz_construct(int qtd_nnz, int qtdLinhas, int qtdColunas)
 {
@@ -58,37 +130,6 @@ Matriz *matriz_construct(int qtd_nnz, int qtdLinhas, int qtdColunas)
     return m;
 }
 
-Matriz *vector_construct(int qtd_nnz)
-{
-    Matriz *v = (Matriz *)malloc(sizeof(Matriz));
-
-    v->valores = (Valor *)malloc(sizeof(Valor)*qtd_nnz);
-    v->ptr_linha = (int *)malloc(sizeof(int)*(qtd_nnz + 1));
-
-    for (int i = 0; i < qtd_nnz; i++)
-    {
-        // Inicializa valores do vetor
-        v->valores[i].coluna = 1;
-        v->valores[i].valor = 0;
-
-        // Inicializa vetor ptr_linha
-        v->ptr_linha[i] = i;
-    }
-    v->ptr_linha[qtd_nnz] = qtd_nnz;
-
-    v->qtd_nnz = qtd_nnz;
-    v->qtdColunas = 1;
-    v->qtdLinhas = qtd_nnz;
-    v->size = qtd_nnz;
-
-    return v;
-}
-
-void _vetor_add_value(Matriz *vetor, Valor v, int linha)
-{
-    vetor->valores[linha].valor += v.valor;
-}
-
 void matriz_add_value(Matriz *m, Valor v, int linha)
 {
     int ind_linha = m->ptr_linha[linha-1];
@@ -102,24 +143,18 @@ void matriz_add_value(Matriz *m, Valor v, int linha)
     m->size++;
 }
 
-Matriz *matriz_multiply_by_vector(Matriz *m, Matriz *vetor)
+Vetor *matriz_multiply_by_vector(Matriz *m, Vetor *v)
 {
-    if (m->qtdColunas != vetor->qtdLinhas)
+    if (m->qtdColunas != v->size)
         return NULL;
     
-    Matriz *resultado = vector_construct(m->qtdLinhas);
-
-    Valor v_m, v_vetor, v_resultado;
+    Vetor *resultado = vector_construct(m->qtdLinhas);
 
     for (int i = 0; i < m->qtdLinhas; i++)
     {
         for (int k = m->ptr_linha[i]; k < m->ptr_linha[i+1]; k++)
         {
-            v_m = m->valores[k];
-            v_vetor = vetor->valores[v_m.coluna-1];
-
-            v_resultado = _mult_valores(v_m, v_vetor);
-            _vetor_add_value(resultado, v_resultado, i);
+            resultado->array[i] += v->array[m->valores[k].coluna-1] * m->valores[k].valor;
         }
     }
 
@@ -199,31 +234,6 @@ Matriz *matriz_read_mtx(char *filePath) // irá ler a transposta da matriz
 
     fclose(file);
     
-    return m;
-}
-
-Matriz *matriz_read_txt(char *filePath)
-{
-    FILE *file = fopen(filePath, "r");
-
-    int qtd_nnz, qtdLinhas, qtdColunas;
-
-    fscanf(file, "%d %d %d", &qtdLinhas, &qtdColunas, &qtd_nnz);
-
-    Matriz *m = matriz_construct(qtd_nnz, qtdLinhas, qtdColunas);
-
-    Valor v;
-    int linha;
-
-    while (!feof(file))
-    {
-        fscanf(file, "%d %d %f", &linha, &v.coluna, &v.valor);
-
-        matriz_add_value(m, v, linha);
-    }
-
-    fclose(file);
-
     return m;
 }
 
