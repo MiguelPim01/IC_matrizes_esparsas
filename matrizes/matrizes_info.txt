@@ -4,48 +4,64 @@ Arquivo para guardar as informações de cada matriz dessa pasta (ordenadas em o
 	numero de linhas -> 5
 	numero de colunas -> 5
 	numero de nnz -> 19
+	grau de esparsidade -> 24%
 
 "bcsstm01":
 	numero de linhas -> 48
 	numero de colunas -> 48
 	numero de nnz -> 24
+	grau de esparsidade -> 98.96%
 
 "d_ss":
 	numero de linhas -> 53
 	numero de colunas -> 53
 	numero de nnz -> 144
+	grau de esparsidade -> 94.87%
 
 "curtis54":
 	numero de linhas -> 54
 	numero de colunas -> 54
 	numero de nnz -> 291
+	grau de esparsidade -> 90.02%
 
 "jpwh_991":
 	numero de linhas -> 991
 	numero de colunas -> 991
 	numero de nnz -> 6027
+	grau de esparsidade -> 99.38%
 
 "sstmodel":
 	numero de linhas -> 3.345
 	numero de colunas -> 3.345
 	numero de nnz -> 13.047
+	grau de esparsidade -> 99.88%
 
 "e40r5000":
 	numero de linhas -> 17.281
 	numero de colunas -> 17.281
 	numero de nnz -> 553.956
+	grau de esparsidade -> 99.81%
 
 "bcsstk31":
 	numero de linhas -> 35.588
 	numero de colunas -> 35.588
 	numero de nnz -> 608.502
+	grau de esparsidade -> 99.95%
 
 "s3dkt3m2":
 	numero de linhas -> 90.449
 	numero de colunas -> 90.449
 	numero de nnz -> 1.921.995
+	grau de esparsidade -> 99.97%
 
 "s3dkq4m2":
 	numero de linhas -> 90.449
 	numero de colunas -> 90.449
 	numero de nnz -> 2.455.670
+	grau de esparsidade -> 99.96%
+
+"pre2":
+	numero de linhas -> 659.033
+	numero de colunas -> 659.033
+	numero de nnz -> 5.834.044
+	grau de esparsidade -> 99.99%

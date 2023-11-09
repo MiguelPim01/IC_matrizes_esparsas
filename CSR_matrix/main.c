@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
         v = mult;
     }
 
-    printf("time spent: %lf\n", total);
+    printf("%lf", total);
 
     matriz_destroy(m);
     vector_destroy(v);
