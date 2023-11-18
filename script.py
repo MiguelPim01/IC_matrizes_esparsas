@@ -40,4 +40,4 @@ lista_resultados.append(linha_resultado)
 df = pd.DataFrame(lista_resultados)
 
 # Salvar o DataFrame em uma planilha (por exemplo, um arquivo CSV)
-df.to_csv("resultados.csv", index=False, sep=';')
+df.to_csv("resultados.csv", index=False, sep=',')

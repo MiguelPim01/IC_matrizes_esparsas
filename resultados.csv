@@ -1,2 +1,2 @@
-COO_matrix;CSC_matrix;CSR_matrix;LinkedList_matrix
-0.02817625;0.0260465;0.02276125;0.081084
+COO_matrix,CSC_matrix,CSR_matrix,LinkedList_matrix
+0.027277,0.025835499999999997,0.022749375,0.07857625
