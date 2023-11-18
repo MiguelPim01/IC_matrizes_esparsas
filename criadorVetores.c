@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
 
     sscanf(argv[1], "%s", caminho);
 
-    sscanf(caminho, "matrizes/%[^.]", nome_vetor);
+    sscanf(caminho, "matrizes/%*[^/]/%[^.]", nome_vetor);
 
     Matriz *m = matriz_read_mtx(caminho);
 
