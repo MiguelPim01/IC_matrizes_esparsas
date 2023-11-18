@@ -1,12 +1,12 @@
 Arquivo para guardar as informações de cada matriz dessa pasta (ordenadas em ordem crescente de dimensão):
 
-"cage3":
+"cage3": (para_os_testes)
 	numero de linhas -> 5
 	numero de colunas -> 5
 	numero de nnz -> 19
 	grau de esparsidade -> 24%
 
-"bcsstm01":
+"bcsstm01": (para_os_testes)
 	numero de linhas -> 48
 	numero de colunas -> 48
 	numero de nnz -> 24
@@ -18,50 +18,67 @@ Arquivo para guardar as informações de cada matriz dessa pasta (ordenadas em o
 	numero de nnz -> 144
 	grau de esparsidade -> 94.87%
 
-"curtis54":
+"curtis54": (para_os_testes)
 	numero de linhas -> 54
 	numero de colunas -> 54
 	numero de nnz -> 291
 	grau de esparsidade -> 90.02%
 
-"jpwh_991":
+"jpwh_991": (para_os_testes)
 	numero de linhas -> 991
 	numero de colunas -> 991
 	numero de nnz -> 6027
 	grau de esparsidade -> 99.38%
 
-"sstmodel":
+"sstmodel": (para_os_testes)
 	numero de linhas -> 3.345
 	numero de colunas -> 3.345
 	numero de nnz -> 13.047
 	grau de esparsidade -> 99.88%
 
-"e40r5000":
+"e40r5000": (para_os_testes)
 	numero de linhas -> 17.281
 	numero de colunas -> 17.281
 	numero de nnz -> 553.956
 	grau de esparsidade -> 99.81%
 
-"bcsstk31":
+"bcsstk31": (para_os_testes)
 	numero de linhas -> 35.588
 	numero de colunas -> 35.588
 	numero de nnz -> 608.502
 	grau de esparsidade -> 99.95%
 
-"s3dkt3m2":
+"s3dkt3m2": (para_os_testes)
 	numero de linhas -> 90.449
 	numero de colunas -> 90.449
 	numero de nnz -> 1.921.995
 	grau de esparsidade -> 99.97%
 
-"s3dkq4m2":
+"s3dkq4m2": (para_os_testes)
 	numero de linhas -> 90.449
 	numero de colunas -> 90.449
 	numero de nnz -> 2.455.670
 	grau de esparsidade -> 99.96%
 
-"pre2":
+"pre2":(para_os_testes)
 	numero de linhas -> 659.033
 	numero de colunas -> 659.033
 	numero de nnz -> 5.834.044
 	grau de esparsidade -> 99.99%
+
+Matrizes que serão utilizadas para testar a eficiência dos tipos de armazenamento:
+
+"ecology1": (por_ordem)
+	numero de linhas -> 1.000.000
+	numero de colunas -> 1.000.000
+	numero de nnz -> 4.996.000
+	grau de esparsidade -> 99.99%
+
+"webbase-1M": (por_ordem)
+	numero de linhas -> 1.000.005
+	numero de colunas -> 1.000.005
+	numero de nnz -> 3.105.536
+	grau de esparsidade -> 99.99%
+
+
+
