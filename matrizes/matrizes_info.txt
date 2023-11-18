@@ -68,17 +68,29 @@ Arquivo para guardar as informações de cada matriz dessa pasta (ordenadas em o
 
 Matrizes que serão utilizadas para testar a eficiência dos tipos de armazenamento:
 
-"ecology1": (por_ordem)
-	numero de linhas -> 1.000.000
-	numero de colunas -> 1.000.000
-	numero de nnz -> 4.996.000
+"Geo_1438": (por_ordem)
+	numero de linhas -> 1.437.960
+	numero de colunas -> 1.437.960
+	numero de nnz -> 60,236,322
 	grau de esparsidade -> 99.99%
+	kind -> structural problem
+	grupo -> Janna
 
-"webbase-1M": (por_ordem)
-	numero de linhas -> 1.000.005
-	numero de colunas -> 1.000.005
-	numero de nnz -> 3.105.536
+"Hamrle3": (por_ordem)
+	numero de linhas -> 1,447,360
+	numero de colunas -> 1,447,360
+	numero de nnz -> 5,514,242
 	grau de esparsidade -> 99.99%
+	kind -> circuit simulation problem
+	grupo -> Hamrle
+
+"StocF-1465": (por_ordem)
+	numero de linhas -> 1,465,137
+	numero de colunas -> 1,465,137
+	numero de nnz -> 21,005,389
+	grau de esparsidade -> 99.99%
+	kind -> computational fluid dynamics problem
+	grupo -> Janna
 
 
 
