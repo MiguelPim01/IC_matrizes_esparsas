@@ -1,0 +1,4 @@
+Matrizes,COO_matrix,CSC_matrix,CSR_matrix,LinkedList_matrix
+F1.mtx,0.699653,0.669215,0.592183,2.558894
+cage14.mtx,1.400684,1.356289,1.207993,8.893306
+FullChip.mtx,1.438548,1.484468,1.336998,5.997401

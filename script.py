@@ -42,4 +42,4 @@ for arq in matrizes:
 df = pd.DataFrame(lista_result_geral)
 
 # Salvar o DataFrame em uma planilha (por exemplo, um arquivo CSV)
-df.to_csv("resultados.csv", index=False, sep=',', float_format='%.6f')
+df.to_csv("resultados_por_ordem.csv", index=False, sep=',', float_format='%.6f')
