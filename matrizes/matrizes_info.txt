@@ -66,9 +66,13 @@ Arquivo para guardar as informações de cada matriz dessa pasta (ordenadas em o
 	numero de nnz -> 5.834.044
 	grau de esparsidade -> 99.99%
 
+
+
 Matrizes que serão utilizadas para testar a eficiência dos tipos de armazenamento:
 
-"Geo_1438": (por_ordem)
+ - POR NNZ:
+
+"Geo_1438": (por_nnz)
 	numero de linhas -> 1.437.960
 	numero de colunas -> 1.437.960
 	numero de nnz -> 60,236,322
@@ -76,7 +80,7 @@ Matrizes que serão utilizadas para testar a eficiência dos tipos de armazename
 	kind -> structural problem
 	grupo -> Janna
 
-"Hamrle3": (por_ordem)
+"Hamrle3": (por_nnz)
 	numero de linhas -> 1,447,360
 	numero de colunas -> 1,447,360
 	numero de nnz -> 5,514,242
@@ -84,13 +88,43 @@ Matrizes que serão utilizadas para testar a eficiência dos tipos de armazename
 	kind -> circuit simulation problem
 	grupo -> Hamrle
 
-"StocF-1465": (por_ordem)
+"StocF-1465": (por_nnz)
 	numero de linhas -> 1,465,137
 	numero de colunas -> 1,465,137
 	numero de nnz -> 21,005,389
 	grau de esparsidade -> 99.99%
 	kind -> computational fluid dynamics problem
 	grupo -> Janna
+
+ - POR ORDEM:
+
+"F1": (por_ordem)
+	numero de linhas -> 343,791
+	numero de colunas -> 343,791
+	numero de nnz -> 26,837,113
+	grau de esparsidade -> 99.97%
+	kind -> structural problem
+	grupo -> Koutsovasilis
+
+"FullChip": (por_ordem)
+	numero de linhas -> 2,987,012
+	numero de colunas -> 2,987,012
+	numero de nnz -> 26,621,983
+	grau de esparsidade -> 99.99%
+	kind -> circuit simulation problem
+	grupo -> Freescale
+
+"cage14": (por_ordem)
+	numero de linhas -> 1,505,785
+	numero de colunas -> 1,505,785
+	numero de nnz -> 27,130,349
+	grau de esparsidade -> 99.99%
+	kind -> directed weighted graph
+	grupo -> vanHeukelum
+
+
+
+
 
 
 
