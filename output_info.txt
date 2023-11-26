@@ -1,0 +1,356 @@
+--------------------------------------------------------------------------------
+I1 cache:         32768 B, 64 B, 8-way associative
+D1 cache:         32768 B, 64 B, 8-way associative
+LL cache:         3145728 B, 64 B, 12-way associative
+Command:          COO_matrix/main matrizes/para_os_testes/e40r5000.mtx vetores/e40r5000.txt
+Data file:        cachegrind.out.10995
+Events recorded:  Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw
+Events shown:     Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw
+Event sort order: Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw
+Thresholds:       0.1 100 100 100 100 100 100 100 100
+Include dirs:     
+User annotated:   
+Auto-annotation:  on
+
+--------------------------------------------------------------------------------
+Ir                     I1mr           ILmr           Dr                     D1mr             DLmr             Dw                   D1mw             DLmw             
+--------------------------------------------------------------------------------
+4,887,575,084 (100.0%) 1,888 (100.0%) 1,878 (100.0%) 1,210,109,397 (100.0%) 651,033 (100.0%) 634,421 (100.0%) 664,196,471 (100.0%) 112,138 (100.0%) 109,622 (100.0%)  PROGRAM TOTALS
+
+--------------------------------------------------------------------------------
+Ir                   I1mr         ILmr         Dr                   D1mr             DLmr             Dw                   D1mw             DLmw              file:function
+--------------------------------------------------------------------------------
+965,800,280 (19.76%) 101 ( 5.35%) 101 ( 5.38%) 247,191,391 (20.43%)      17 ( 0.00%)      13 ( 0.00%) 125,210,065 (18.85%)       7 ( 0.01%)       6 ( 0.01%)  ./stdio-common/./stdio-common/vfscanf-internal.c:__vfscanf_internal
+808,282,469 (16.54%)   3 ( 0.16%)   3 ( 0.16%) 245,999,012 (20.33%)       0                0          140,570,864 (21.16%)       0                0           ./libio/./libio/iofread.c:fread
+667,797,421 (13.66%)   8 ( 0.42%)   8 ( 0.43%) 228,449,107 (18.88%)       0                0          140,575,155 (21.16%)       0                0           ./libio/./libio/fileops.c:_IO_file_xsgetn
+334,829,458 ( 6.85%)  70 ( 3.71%)  70 ( 3.73%)  47,377,758 ( 3.92%)      74 ( 0.01%)       4 ( 0.00%)  24,745,425 ( 3.73%)       2 ( 0.00%)       2 ( 0.00%)  ./stdlib/./stdlib/strtod_l.c:____strtof_l_internal
+291,620,192 ( 5.97%)   5 ( 0.26%)   5 ( 0.27%)  37,572,866 ( 3.10%)      65 ( 0.01%)      65 ( 0.01%)  19,191,458 ( 2.89%)       2 ( 0.00%)       1 ( 0.00%)  ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__memcpy_avx_unaligned_erms
+210,856,296 ( 4.31%)   1 ( 0.05%)   1 ( 0.05%)  87,856,790 ( 7.26%)       0                0           35,142,716 ( 5.29%)       0                0           ./libio/./libio/libioP.h:fread
+206,025,919 ( 4.22%)   9 ( 0.48%)   9 ( 0.48%)  20,895,113 ( 1.73%)       2 ( 0.00%)       2 ( 0.00%)  54,929,826 ( 8.27%) 103,866 (92.62%) 103,866 (94.75%)  /home/miguel/Documentos/UFES/4_periodo/IC/IC_matrizes_esparsas/COO_matrix/matriz.c:matriz_read_mtx
+193,475,062 ( 3.96%)   2 ( 0.11%)   2 ( 0.11%)  52,765,926 ( 4.36%)       0                0                    0                0                0           ./libio/./libio/feof.c:feof
+190,646,109 ( 3.90%)  10 ( 0.53%)  10 ( 0.53%)  23,202,591 ( 1.92%)       1 ( 0.00%)       0           12,567,280 ( 1.89%)       1 ( 0.00%)       1 ( 0.00%)  ./stdlib/../stdlib/strtol_l.c:____strtol_l_internal
+140,570,864 ( 2.88%)   2 ( 0.11%)   2 ( 0.11%)  52,714,074 ( 4.36%)       1 ( 0.00%)       0           17,571,358 ( 2.65%)       0                0           ./libio/./libio/genops.c:_IO_sgetn
+122,999,506 ( 2.52%)   0            0                    0                0                0                    0                0                0           ./libio/./libio/libioP.h:_IO_sgetn
+120,528,302 ( 2.47%)   6 ( 0.32%)   6 ( 0.32%)  16,424,724 ( 1.36%)      12 ( 0.00%)       3 ( 0.00%)   6,805,650 ( 1.02%)       0                0           ./stdlib/./stdlib/strtod_l.c:str_to_mpn.constprop.0
+110,476,012 ( 2.26%)  42 ( 2.22%)  41 ( 2.18%)  55,237,972 ( 4.56%)      26 ( 0.00%)      21 ( 0.00%)          20 ( 0.00%)       1 ( 0.00%)       1 ( 0.00%)  ???:???
+ 87,856,794 ( 1.80%)   1 ( 0.05%)   1 ( 0.05%)           0                0                0           17,571,358 ( 2.65%)       0                0           /usr/include/x86_64-linux-gnu/bits/stdio2.h:matriz_read_mtx
+ 65,121,246 ( 1.33%)   3 ( 0.16%)   3 ( 0.16%)  23,992,038 ( 1.98%)       0                0           10,282,302 ( 1.55%)       0                0           ./libio/./libio/genops.c:_IO_sputbackc
+ 52,714,074 ( 1.08%)   0            0                    0                0                0                    0                0                0           ./libio/./libio/libioP.h:_IO_file_xsgetn
+ 44,069,172 ( 0.90%)   5 ( 0.26%)   5 ( 0.27%)  12,591,192 ( 1.04%)       0                0           11,541,926 ( 1.74%)       2 ( 0.00%)       2 ( 0.00%)  ./stdlib/./stdlib/mul.c:__mpn_mul
+ 36,561,366 ( 0.75%)   3 ( 0.16%)   3 ( 0.16%)  16,618,752 ( 1.37%) 648,899 (99.67%) 632,678 (99.73%)   3,323,796 ( 0.50%)       0                0           /home/miguel/Documentos/UFES/4_periodo/IC/IC_matrizes_esparsas/COO_matrix/matriz.c:matriz_multiply_by_vector
+ 31,670,329 ( 0.65%)   9 ( 0.48%)   9 ( 0.48%)   6,816,792 ( 0.56%)       1 ( 0.00%)       1 ( 0.00%)   3,997,139 ( 0.60%)       0                0           ./stdlib/./stdlib/strtod_l.c:round_and_return
+ 26,589,984 ( 0.54%)   4 ( 0.21%)   4 ( 0.21%)   3,877,706 ( 0.32%)       0                0            6,647,496 ( 1.00%)       0                0           ./libio/./libio/strops.c:_IO_str_init_static_internal
+ 22,034,790 ( 0.45%)   6 ( 0.32%)   6 ( 0.32%)   3,147,825 ( 0.26%)       0                0            2,098,551 ( 0.32%)       1 ( 0.00%)       1 ( 0.00%)  ./stdlib/../sysdeps/x86_64/mul_1.S:__mpn_mul_1
+ 20,742,744 ( 0.42%)   3 ( 0.16%)   3 ( 0.16%)   2,617,762 ( 0.22%)       0                0            1,333,800 ( 0.20%)       0                0           ./stdlib/../sysdeps/x86_64/lshift.S:__mpn_lshift
+ 19,388,530 ( 0.40%)   4 ( 0.21%)   4 ( 0.21%)   3,877,706 ( 0.32%)       0                0            7,201,454 ( 1.08%)       0                0           ./stdio-common/./stdio-common/isoc99_sscanf.c:__isoc99_sscanf
+ 15,873,739 ( 0.32%)   3 ( 0.16%)   3 ( 0.16%)   2,284,962 ( 0.19%)       0                0            3,410,159 ( 0.51%)       1 ( 0.00%)       1 ( 0.00%)  ./stdio-common/../include/scratch_buffer.h:__vfscanf_internal
+ 13,295,126 ( 0.27%)   2 ( 0.11%)   2 ( 0.11%)   2,769,819 ( 0.23%)       0                0            2,215,856 ( 0.33%)       0                0           ./libio/./libio/genops.c:_IO_setb
+ 12,741,094 ( 0.26%)   3 ( 0.16%)   3 ( 0.16%)   2,769,800 ( 0.23%)       0                0            4,431,694 ( 0.67%)       3 ( 0.00%)       3 ( 0.00%)  ./libio/./libio/genops.c:_IO_no_init
+ 12,741,084 ( 0.26%)   2 ( 0.11%)   2 ( 0.11%)   1,661,880 ( 0.14%)       1 ( 0.00%)       1 ( 0.00%)   5,539,604 ( 0.83%)       2 ( 0.00%)       2 ( 0.00%)  ./libio/./libio/genops.c:_IO_old_init
+  9,717,012 ( 0.20%)   4 ( 0.21%)   4 ( 0.21%)   1,342,523 ( 0.11%)       0                0                    0                0                0           ./string/../sysdeps/x86_64/multiarch/memchr-avx2.S:__rawmemchr_avx2
+  8,309,370 ( 0.17%)   2 ( 0.11%)   2 ( 0.11%)           0                0                0            2,215,832 ( 0.33%)       0                0           ./stdio-common/../libio/strfile.h:__isoc99_sscanf
+  7,997,332 ( 0.16%)   5 ( 0.26%)   4 ( 0.21%)   1,142,476 ( 0.09%)       2 ( 0.00%)       2 ( 0.00%)           0                0                0           ./string/../sysdeps/x86_64/multiarch/strlen-avx2.S:__strlen_avx2
+  6,279,273 ( 0.13%)   1 ( 0.05%)   1 ( 0.05%)   1,141,686 ( 0.09%)       0                0                    0                0                0           ./stdlib/../sysdeps/ieee754/flt-32/mpn2flt.c:__mpn_construct_float
+  5,712,480 ( 0.12%)   1 ( 0.05%)   1 ( 0.05%)   1,713,744 ( 0.14%)       3 ( 0.00%)       2 ( 0.00%)   2,284,992 ( 0.34%)       0                0           ./nptl/./nptl/libc-cleanup.c:__libc_cleanup_push_defer
+  5,137,587 ( 0.11%)   0            0              570,843 ( 0.05%)       0                0              570,843 ( 0.09%)       0                0           ./stdlib/../sysdeps/generic/get-rounding-mode.h:round_and_return
+  5,120,306 ( 0.10%)   2 ( 0.11%)   2 ( 0.11%)           0                0                0                    0                0                0           ./stdlib/../include/rounding-mode.h:round_and_return
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: /usr/include/x86_64-linux-gnu/bits/stdio2.h
+--------------------------------------------------------------------------------
+Ir                  I1mr       ILmr       Dr         D1mr       DLmr       Dw                  D1mw       DLmw       
+
+-- line 104 ----------------------------------------
+         .          .          .          .          .          .                   .          .          .           {
+         .          .          .          .          .          .                   .          .          .             return __fprintf_chk (__stream, __USE_FORTIFY_LEVEL - 1, __fmt,
+         .          .          .          .          .          .                   .          .          .           			__va_arg_pack ());
+         .          .          .          .          .          .                   .          .          .           }
+         .          .          .          .          .          .                   .          .          .           
+         .          .          .          .          .          .                   .          .          .           __fortify_function int
+         .          .          .          .          .          .                   .          .          .           printf (const char *__restrict __fmt, ...)
+         .          .          .          .          .          .                   .          .          .           {
+         5 ( 0.00%) 0          0          1 ( 0.00%) 0          0                   1 ( 0.00%) 0          0             return __printf_chk (__USE_FORTIFY_LEVEL - 1, __fmt, __va_arg_pack ());
+         .          .          .          .          .          .                   .          .          .           }
+         .          .          .          .          .          .                   .          .          .           # elif !defined __cplusplus
+         .          .          .          .          .          .                   .          .          .           #  define printf(...) \
+         .          .          .          .          .          .                   .          .          .             __printf_chk (__USE_FORTIFY_LEVEL - 1, __VA_ARGS__)
+         .          .          .          .          .          .                   .          .          .           #  define fprintf(stream, ...) \
+         .          .          .          .          .          .                   .          .          .             __fprintf_chk (stream, __USE_FORTIFY_LEVEL - 1, __VA_ARGS__)
+         .          .          .          .          .          .                   .          .          .           # endif
+         .          .          .          .          .          .                   .          .          .           
+-- line 120 ----------------------------------------
+-- line 285 ----------------------------------------
+         .          .          .          .          .          .                   .          .          .           		       "of destination buffer");
+         .          .          .          .          .          .                   .          .          .           
+         .          .          .          .          .          .                   .          .          .           __fortify_function __wur size_t
+         .          .          .          .          .          .                   .          .          .           fread (void *__restrict __ptr, size_t __size, size_t __n,
+         .          .          .          .          .          .                   .          .          .                  FILE *__restrict __stream)
+         .          .          .          .          .          .                   .          .          .           {
+         .          .          .          .          .          .                   .          .          .             size_t sz = __glibc_objsize0 (__ptr);
+         .          .          .          .          .          .                   .          .          .             if (__glibc_safe_or_unknown_len (__n, __size, sz))
+87,856,794 ( 1.80%) 1 ( 0.05%) 1 ( 0.05%) 0          0          0          17,571,358 ( 2.65%) 0          0               return __fread_alias (__ptr, __size, __n, __stream);
+         .          .          .          .          .          .                   .          .          .             if (__glibc_unsafe_len (__n, __size, sz))
+         .          .          .          .          .          .                   .          .          .               return __fread_chk_warn (__ptr, sz, __size, __n, __stream);
+         .          .          .          .          .          .                   .          .          .             return __fread_chk (__ptr, sz, __size, __n, __stream);
+         .          .          .          .          .          .                   .          .          .           }
+         .          .          .          .          .          .                   .          .          .           
+         .          .          .          .          .          .                   .          .          .           #ifdef __USE_GNU
+         .          .          .          .          .          .                   .          .          .           extern char *__fgets_unlocked_chk (char *__restrict __s, size_t __size,
+         .          .          .          .          .          .                   .          .          .           				   int __n, FILE *__restrict __stream)
+-- line 301 ----------------------------------------
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: /home/miguel/Documentos/UFES/4_periodo/IC/IC_matrizes_esparsas/COO_matrix/matriz.c
+--------------------------------------------------------------------------------
+Ir                  I1mr       ILmr       Dr                  D1mr             DLmr             Dw                  D1mw             DLmw             
+
+-- line 20 ----------------------------------------
+         .          .          .                   .                .                .                   .                .                .               int qtd_nnz, qtdLinhas, qtdColunas;
+         .          .          .                   .                .                .                   .                .                .               int size;
+         .          .          .                   .                .                .                   .                .                .           };
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .           /* ============ VETOR FUNCTIONS ============ */
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .           Vetor *vector_construct(int size)
+         .          .          .                   .                .                .                   .                .                .           {
+        24 ( 0.00%) 0          0                   0                0                0                   6 ( 0.00%)       0                0               Vetor *v = (Vetor *)malloc(sizeof(Vetor));
+         .          .          .                   .                .                .                   .                .                .           
+        30 ( 0.00%) 1 ( 0.05%) 1 ( 0.05%)          0                0                0                  12 ( 0.00%)       0                0               v->array = (float *)malloc(sizeof(float) * size);
+         6 ( 0.00%) 0          0                   0                0                0                   6 ( 0.00%)       0                0               v->size = size;
+         .          .          .                   .                .                .                   .                .                .           
+        12 ( 0.00%) 0          0                   0                0                0                   0                0                0               for (int i = 0; i < size; i++)
+        24 ( 0.00%) 0          0                   0                0                0                   6 ( 0.00%)       0                0                   v->array[i] = 0.0;
+         .          .          .                   .                .                .                   .                .                .               
+         .          .          .                   .                .                .                   .                .                .               return v;
+         .          .          .                   .                .                .                   .                .                .           }
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .           Vetor *vector_read_txt(char *filePath)
+         8 ( 0.00%) 2 ( 0.11%) 2 ( 0.11%)          1 ( 0.00%)       0                0                   4 ( 0.00%)       0                0           {
+         3 ( 0.00%) 0          0                   0                0                0                   1 ( 0.00%)       0                0               FILE *file = fopen(filePath, "r");
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .               int qtd_nnz, qtdLinhas, qtdColunas;
+         .          .          .                   .                .                .                   .                .                .           
+         7 ( 0.00%) 0          0                   0                0                0                   1 ( 0.00%)       0                0               fscanf(file, "%d %d %d", &qtdLinhas, &qtdColunas, &qtd_nnz);
+         .          .          .                   .                .                .                   .                .                .           
+         3 ( 0.00%) 1 ( 0.05%) 1 ( 0.05%)          0                0                0                   1 ( 0.00%)       0                0               Vetor *v = (Vetor *)malloc(sizeof(Vetor));
+         .          .          .                   .                .                .                   .                .                .           
+         5 ( 0.00%) 0          0                   1 ( 0.00%)       0                0                   2 ( 0.00%)       0                0               v->array = (float *)malloc(sizeof(float) * qtdLinhas);
+         1 ( 0.00%) 0          0                   0                0                0                   1 ( 0.00%)       0                0               v->size = qtdLinhas;
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .               int linha, coluna;
+         .          .          .                   .                .                .                   .                .                .               float valor;
+         .          .          .                   .                .                .                   .                .                .           
+    69,133 ( 0.00%) 1 ( 0.05%) 1 ( 0.05%)          0                0                0              17,283 ( 0.00%)       0                0               while (!feof(file))
+         .          .          .                   .                .                .                   .                .                .               {
+   120,975 ( 0.00%) 0          0                   0                0                0              17,282 ( 0.00%)       0                0                   fscanf(file, "%d %d %f", &linha, &coluna, &valor);
+         .          .          .                   .                .                .                   .                .                .           
+    69,128 ( 0.00%) 0          0              51,846 ( 0.00%)       0                0              17,282 ( 0.00%)   1,080 ( 0.96%)   1,079 ( 0.98%)          v->array[linha-1] = valor;
+         .          .          .                   .                .                .                   .                .                .               }
+         .          .          .                   .                .                .                   .                .                .           
+         2 ( 0.00%) 0          0                   0                0                0                   1 ( 0.00%)       0                0               fclose(file);
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .               return v;
+         9 ( 0.00%) 1 ( 0.05%) 1 ( 0.05%)          6 ( 0.00%)       1 ( 0.00%)       0                   0                0                0           }
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .           void vector_print_esparso(Vetor *v)
+         .          .          .                   .                .                .                   .                .                .           {
+         .          .          .                   .                .                .                   .                .                .               if (v == NULL)
+         .          .          .                   .                .                .                   .                .                .                   return;
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .               for (int i = 0; i < v->size; i++)
+         .          .          .                   .                .                .                   .                .                .               {
+         .          .          .                   .                .                .                   .                .                .                   printf("(%d, 1): %.4f\n", i+1, v->array[i]);
+         .          .          .                   .                .                .                   .                .                .               }
+         .          .          .                   .                .                .                   .                .                .           }
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .           void vector_destroy(Vetor *v)
+        21 ( 0.00%) 1 ( 0.05%) 1 ( 0.05%)          0                0                0                   7 ( 0.00%)       0                0           {
+        14 ( 0.00%) 0          0                   0                0                0                   0                0                0               if (v == NULL)
+         .          .          .                   .                .                .                   .                .                .                   return;
+         .          .          .                   .                .                .                   .                .                .           
+        14 ( 0.00%) 0          0                   7 ( 0.00%)       6 ( 0.00%)       6 ( 0.00%)          7 ( 0.00%)       0                0               free(v->array);
+        14 ( 0.00%) 0          0                   0                0                0                   0                0                0               free(v);
+         7 ( 0.00%) 0          0                   7 ( 0.00%)       0                0                   0                0                0           }
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .           /* ============ VALOR FUNCTIONS ============ */
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .           int _cmp_valor_position(Valor v1, Valor v2)
+         .          .          .                   .                .                .                   .                .                .           {
+         .          .          .                   .                .                .                   .                .                .               return (v1.linha == v2.linha && v1.coluna == v2.coluna);
+         .          .          .                   .                .                .                   .                .                .           }
+-- line 93 ----------------------------------------
+-- line 102 ----------------------------------------
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .               return v;
+         .          .          .                   .                .                .                   .                .                .           }
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .           /* ============ MATRIZ FUNCTIONS ============ */
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .           Matriz *matriz_construct(int qtd_nnz, int qtdLinhas, int qtdColunas)
+         .          .          .                   .                .                .                   .                .                .           {
+         3 ( 0.00%) 0          0                   0                0                0                   1 ( 0.00%)       0                0               Matriz *m = (Matriz *)malloc(sizeof(Matriz));
+         .          .          .                   .                .                .                   .                .                .           
+         4 ( 0.00%) 0          0                   0                0                0                   2 ( 0.00%)       0                0               m->valores = (Valor *)calloc(qtd_nnz, sizeof(Valor));
+         .          .          .                   .                .                .                   .                .                .           
+         2 ( 0.00%) 0          0                   1 ( 0.00%)       0                0                   1 ( 0.00%)       0                0               m->qtd_nnz = qtd_nnz;
+         1 ( 0.00%) 0          0                   0                0                0                   1 ( 0.00%)       0                0               m->qtdColunas = qtdColunas;
+         .          .          .                   .                .                .                   .                .                .               m->qtdLinhas = qtdLinhas;
+ 1,661,873 ( 0.03%) 0          0                   0                0                0             553,957 ( 0.08%)       0                0               m->size = 0;
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .               return m;
+         .          .          .                   .                .                .                   .                .                .           }
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .           void matriz_add_value(Matriz *m, Valor v)
+         .          .          .                   .                .                .                   .                .                .           {
+ 1,661,871 ( 0.03%) 0          0           1,107,914 ( 0.09%)       0                0                   0                0                0               if (m->size == m->qtd_nnz)
+         .          .          .                   .                .                .                   .                .                .                   return;
+         .          .          .                   .                .                .                   .                .                .           
+ 3,877,692 ( 0.08%) 0          0             553,956 ( 0.05%)       0                0           1,107,912 ( 0.17%) 103,866 (92.62%) 103,866 (94.75%)      m->valores[m->size] = v;
+   553,956 ( 0.01%) 0          0                   0                0                0                   0                0                0               m->size++;
+         .          .          .                   .                .                .                   .                .                .           }
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .           Matriz *matriz_read_mtx(char *filePath)
+        12 ( 0.00%) 1 ( 0.05%) 1 ( 0.05%)          1 ( 0.00%)       0                0                   7 ( 0.00%)       0                0           {
+         2 ( 0.00%) 0          0                   0                0                0                   1 ( 0.00%)       0                0               FILE *file = fopen(filePath, "rb");
+         .          .          .                   .                .                .                   .                .                .           
+         3 ( 0.00%) 1 ( 0.05%) 1 ( 0.05%)          0                0                0                   0                0                0               if (!file)
+         .          .          .                   .                .                .                   .                .                .                   exit(printf("Nao foi possivel abrir o arquivo %s\n", filePath));
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .               char c;
+         1 ( 0.00%) 0          0                   0                0                0                   0                0                0               int flag = 0;
+         .          .          .                   .                .                .                   .                .                .           
+       188 ( 0.00%) 1 ( 0.05%) 1 ( 0.05%)          0                0                0                  47 ( 0.00%)       0                0               while (!feof(file)) // fase 1: Ler os textos que não serao utilizados
+         .          .          .                   .                .                .                   .                .                .               {
+         .          .          .                   .                .                .                   .                .                .                   fread(&c, sizeof(char), 1, file);
+         .          .          .                   .                .                .                   .                .                .           
+        97 ( 0.00%) 0          0                   1 ( 0.00%)       0                0                   0                0                0                   if (flag && c != '%') { break; }
+         .          .          .                   .                .                .                   .                .                .           
+       138 ( 0.00%) 0          0                  46 ( 0.00%)       0                0                   0                0                0                   if (c == '\n') { flag = 1; }
+         .          .          .                   .                .                .                   .                .                .                   else           { flag = 0; }
+         .          .          .                   .                .                .                   .                .                .               }
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .               char linha[100];
+         .          .          .                   .                .                .                   .                .                .               int string_size = 0;
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .               int qtd_nnz, qtdLinhas, qtdColunas;
+         .          .          .                   .                .                .                   .                .                .           
+         1 ( 0.00%) 0          0                   0                0                0                   1 ( 0.00%)       0                0               linha[string_size] = c;
+         1 ( 0.00%) 0          0                   0                0                0                   1 ( 0.00%)       0                0               linha[++string_size] = '\0';
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .               flag = 0;
+        93 ( 0.00%) 1 ( 0.05%) 1 ( 0.05%)          0                0                0                  18 ( 0.00%)       0                0               while (!feof(file)) // fase 2: ler as dimensões da matriz
+         .          .          .                   .                .                .                   .                .                .               {
+         .          .          .                   .                .                .                   .                .                .                   fread(&c, sizeof(char), 1, file);
+         .          .          .                   .                .                .                   .                .                .           
+        18 ( 0.00%) 0          0                  18 ( 0.00%)       0                0                   0                0                0                   flag = (c == '\n') ? 1 : 0;
+         .          .          .                   .                .                .                   .                .                .           
+        18 ( 0.00%) 0          0                   0                0                0                  18 ( 0.00%)       0                0                   linha[string_size] = c;
+        18 ( 0.00%) 0          0                   0                0                0                  18 ( 0.00%)       0                0                   linha[++string_size] = '\0';
+         .          .          .                   .                .                .                   .                .                .           
+        54 ( 0.00%) 0          0                   0                0                0                   0                0                0                   if (flag)
+         .          .          .                   .                .                .                   .                .                .                   {
+         7 ( 0.00%) 2 ( 0.11%) 2 ( 0.11%)          0                0                0                   1 ( 0.00%)       0                0                       sscanf(linha, "%d %d %d", &qtdLinhas, &qtdColunas, &qtd_nnz);
+         1 ( 0.00%) 0          0                   0                0                0                   0                0                0                       string_size = 0;
+         .          .          .                   .                .                .                   .                .                .                       flag = 0;
+         1 ( 0.00%) 0          0                   0                0                0                   0                0                0                       break;
+         .          .          .                   .                .                .                   .                .                .                   }
+         .          .          .                   .                .                .                   .                .                .               }
+         .          .          .                   .                .                .                   .                .                .           
+         6 ( 0.00%) 1 ( 0.05%) 1 ( 0.05%)          3 ( 0.00%)       0                0                   1 ( 0.00%)       0                0               Matriz *m = matriz_construct(qtd_nnz, qtdLinhas, qtdColunas);
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .               Valor v;
+         .          .          .                   .                .                .                   .                .                .           
+87,856,471 ( 1.80%) 1 ( 0.05%) 1 ( 0.05%)          0                0                0          17,571,294 ( 2.65%)       0                0               while (!feof(file)) // fase 3: Ler os valores da matriz
+         .          .          .                   .                .                .                   .                .                .               {
+         .          .          .                   .                .                .                   .                .                .                   fread(&c, sizeof(char), 1, file);
+         .          .          .                   .                .                .                   .                .                .           
+17,571,293 ( 0.36%) 0          0          17,571,293 ( 1.45%)       0                0                   0                0                0                   flag = (c == '\n') ? 1 : 0;
+         .          .          .                   .                .                .                   .                .                .           
+17,571,293 ( 0.36%) 0          0                   0                0                0          17,571,293 ( 2.65%)       0                0                   linha[string_size] = c;
+17,571,293 ( 0.36%) 0          0                   0                0                0          17,571,293 ( 2.65%)       0                0                   linha[++string_size] = '\0';
+         .          .          .                   .                .                .                   .                .                .           
+52,713,879 ( 1.08%) 0          0                   0                0                0                   0                0                0                   if (flag)
+         .          .          .                   .                .                .                   .                .                .                   {
+ 3,877,701 ( 0.08%) 1 ( 0.05%) 1 ( 0.05%)    553,957 ( 0.05%)       0                0             553,958 ( 0.08%)       0                0                       sscanf(linha, "%d %d %f", &v.linha, &v.coluna, &v.valor);
+         .          .          .                   .                .                .                   .                .                .           
+ 1,107,914 ( 0.02%) 0          0           1,107,914 ( 0.09%)       0                0                   0                0                0                       matriz_add_value(m, v);
+         .          .          .                   .                .                .                   .                .                .                       flag = 0;
+         .          .          .                   .                .                .                   .                .                .                       string_size = 0;
+         .          .          .                   .                .                .                   .                .                .                   }
+         .          .          .                   .                .                .                   .                .                .               }
+         .          .          .                   .                .                .                   .                .                .           
+         2 ( 0.00%) 0          0                   0                0                0                   1 ( 0.00%)       0                0               fclose(file);
+         .          .          .                   .                .                .                   .                .                .               
+         .          .          .                   .                .                .                   .                .                .               return m;
+        12 ( 0.00%) 0          0                   9 ( 0.00%)       2 ( 0.00%)       2 ( 0.00%)          0                0                0           }
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .           Vetor *matriz_multiply_by_vector(Matriz *m, Vetor *v)
+        36 ( 0.00%) 1 ( 0.05%) 1 ( 0.05%)          0                0                0                  30 ( 0.00%)       0                0           {
+        18 ( 0.00%) 0          0                  12 ( 0.00%)       5 ( 0.00%)       5 ( 0.00%)          0                0                0               if (m->qtdColunas != v->size)
+         6 ( 0.00%) 0          0                   0                0                0                   0                0                0                   return NULL;
+         .          .          .                   .                .                .                   .                .                .               
+        18 ( 0.00%) 0          0                   6 ( 0.00%)       0                0                   0                0                0               Vetor *resultado = vector_construct(m->qtdLinhas);
+         .          .          .                   .                .                .                   .                .                .           
+ 9,971,238 ( 0.20%) 0          0                  12 ( 0.00%)       6 ( 0.00%)       1 ( 0.00%)          0                0                0               for (int i = 0; i < m->qtd_nnz; i++) // Analisa todos os nnz da matriz
+         .          .          .                   .                .                .                   .                .                .               {
+26,589,912 ( 0.54%) 1 ( 0.05%) 1 ( 0.05%) 16,618,686 ( 1.37%) 648,876 (99.67%) 632,660 (99.72%)  3,323,736 ( 0.50%)       0                0                   resultado->array[m->valores[i].linha-1] += v->array[m->valores[i].coluna-1] * m->valores[i].valor;
+         .          .          .                   .                .                .                   .                .                .               }
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .               return resultado;
+        42 ( 0.00%) 0          0                  36 ( 0.00%)      12 ( 0.00%)      12 ( 0.00%)          0                0                0           }
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .           void matriz_print_esparse(Matriz *m)
+         .          .          .                   .                .                .                   .                .                .           {
+         .          .          .                   .                .                .                   .                .                .               if (m == NULL)
+         .          .          .                   .                .                .                   .                .                .                   return;
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .               for (int i = 0; i < m->size; i++)
+         .          .          .                   .                .                .                   .                .                .                   printf("(%d, %d): %.3f\n", m->valores[i].linha, m->valores[i].coluna, m->valores[i].valor);
+         .          .          .                   .                .                .                   .                .                .           }
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .           void matriz_destroy(Matriz *m)
+         3 ( 0.00%) 1 ( 0.05%) 1 ( 0.05%)          0                0                0                   1 ( 0.00%)       0                0           {
+         2 ( 0.00%) 0          0                   0                0                0                   0                0                0               if (m == NULL)
+         .          .          .                   .                .                .                   .                .                .                   return;
+         .          .          .                   .                .                .                   .                .                .           
+         2 ( 0.00%) 1 ( 0.05%) 1 ( 0.05%)          1 ( 0.00%)       0                0                   1 ( 0.00%)       0                0               free(m->valores);
+         2 ( 0.00%) 0          0                   0                0                0                   0                0                0               free(m);
+         1 ( 0.00%) 0          0                   1 ( 0.00%)       0                0                   0                0                0           }
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .           
+         .          .          .                   .                .                .                   .                .                .           int matriz_qtd_colunas(Matriz *m)
+         .          .          .                   .                .                .                   .                .                .           {
+         .          .          .                   .                .                .                   .                .                .               return m->qtdColunas;
+         .          .          .                   .                .                .                   .                .                .           }
+--------------------------------------------------------------------------------
+The following files chosen for auto-annotation could not be found:
+--------------------------------------------------------------------------------
+  ./libio/./libio/feof.c
+  ./libio/./libio/fileops.c
+  ./libio/./libio/genops.c
+  ./libio/./libio/iofread.c
+  ./libio/./libio/libioP.h
+  ./libio/./libio/strops.c
+  ./nptl/./nptl/libc-cleanup.c
+  ./stdio-common/../include/scratch_buffer.h
+  ./stdio-common/../libio/strfile.h
+  ./stdio-common/./stdio-common/isoc99_sscanf.c
+  ./stdio-common/./stdio-common/vfscanf-internal.c
+  ./stdlib/../include/rounding-mode.h
+  ./stdlib/../stdlib/strtol_l.c
+  ./stdlib/../sysdeps/generic/get-rounding-mode.h
+  ./stdlib/../sysdeps/ieee754/flt-32/mpn2flt.c
+  ./stdlib/../sysdeps/x86_64/lshift.S
+  ./stdlib/../sysdeps/x86_64/mul_1.S
+  ./stdlib/./stdlib/mul.c
+  ./stdlib/./stdlib/strtod_l.c
+  ./string/../sysdeps/x86_64/multiarch/memchr-avx2.S
+  ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S
+  ./string/../sysdeps/x86_64/multiarch/strlen-avx2.S
+
+--------------------------------------------------------------------------------
+Ir                   I1mr        ILmr        Dr                  D1mr             DLmr             Dw                  D1mw             DLmw             
+--------------------------------------------------------------------------------
+330,703,438 ( 6.77%) 21 ( 1.11%) 21 ( 1.12%) 37,565,736 ( 3.10%) 648,908 (99.67%) 632,686 (99.73%) 75,876,855 (11.42%) 104,946 (93.59%) 104,945 (95.73%)  events annotated
+
