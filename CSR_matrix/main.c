@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     clock_t start, end;
     double total = 0.0;
 
-    for (int i = 0; i < 6; i++)
+    for (int i = 0; i < 5; i++)
     {
         start = clock();
         mult = matriz_multiply_by_vector(m, v);
