@@ -244,7 +244,7 @@ void matriz_print_esparso(Matriz *m)
     
     for (int i = 0; i < m->qtdLinhas; i++)
         for (int k = m->ptr_linha[i]; k < m->ptr_linha[i+1]; k++)
-            printf("(%d, %d): %.3f\n", i+1, m->valores[k].coluna, m->valores[k].valor);
+            printf("(%d, %d): %.4f\n", i+1, m->valores[k].coluna, m->valores[k].valor);
 }
 
 void matriz_destroy(Matriz *m)

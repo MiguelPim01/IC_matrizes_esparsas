@@ -224,7 +224,7 @@ void matriz_print_esparse(Matriz *m)
         return;
 
     for (int i = 0; i < m->size; i++)
-        printf("(%d, %d): %.3f\n", m->valores[i].linha, m->valores[i].coluna, m->valores[i].valor);
+        printf("(%d, %d): %.4f\n", m->valores[i].linha, m->valores[i].coluna, m->valores[i].valor);
 }
 
 void matriz_destroy(Matriz *m)

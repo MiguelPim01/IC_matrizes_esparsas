@@ -209,6 +209,7 @@ void matriz_add_value(Matriz *m, int linha, int coluna, float valor)
         lin_list->tail->nextRight = n;
     else
         lin_list->head = n;
+    
     lin_list->tail = n;
     lin_list->size++;
 
@@ -216,6 +217,7 @@ void matriz_add_value(Matriz *m, int linha, int coluna, float valor)
         col_list->tail->nextDown = n;
     else
         col_list->head = n;
+    
     col_list->tail = n;
     col_list->size++;
 }
@@ -272,10 +274,8 @@ Matriz *matriz_read_mtx(char *filePath)
     int lin, col;
     float valor;
 
-    while (!feof(file)) // fase 3: Ler os valores da matriz
+    while (fread(&c, sizeof(char), 1, file) == 1) // fase 3: Ler os valores da matriz
     {
-        fread(&c, sizeof(char), 1, file);
-
         flag = (c == '\n') ? 1 : 0;
 
         linha[string_size] = c;
@@ -306,16 +306,16 @@ void matriz_print_esparso(Matriz *m)
     LinkedList *curr_list;
     Node *curr_node;
 
-    for (int i = 0; i < m->qtdLinhas; i++)
+    for (int i = 0; i < m->qtdColunas; i++)
     {
-        curr_list = m->linhas[i];
+        curr_list = m->colunas[i];
 
         curr_node = curr_list->head;
 
         while (curr_node != NULL)
         {
             printf("(%d, %d): %.4f\n", curr_node->linha, curr_node->coluna, curr_node->valor);
-            curr_node = curr_node->nextRight;
+            curr_node = curr_node->nextDown;
         }
     }
 }
