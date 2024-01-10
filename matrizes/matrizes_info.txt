@@ -72,13 +72,6 @@ Matrizes que serão utilizadas para testar a eficiência dos tipos de armazename
 
  - POR NNZ:
 
-"Geo_1438": (por_nnz)
-	numero de linhas -> 1.437.960
-	numero de colunas -> 1.437.960
-	numero de nnz -> 60,236,322
-	grau de esparsidade -> 99.99%
-	kind -> structural problem
-	grupo -> Janna
 
 "Hamrle3": (por_nnz)
 	numero de linhas -> 1,447,360
@@ -96,6 +89,16 @@ Matrizes que serão utilizadas para testar a eficiência dos tipos de armazename
 	kind -> computational fluid dynamics problem
 	grupo -> Janna
 
+"Geo_1438": (por_nnz)
+	numero de linhas -> 1.437.960
+	numero de colunas -> 1.437.960
+	numero de nnz -> 60,236,322
+	grau de esparsidade -> 99.99%
+	kind -> structural problem
+	grupo -> Janna
+
+
+
  - POR ORDEM:
 
 "F1": (por_ordem)
@@ -106,14 +109,6 @@ Matrizes que serão utilizadas para testar a eficiência dos tipos de armazename
 	kind -> structural problem
 	grupo -> Koutsovasilis
 
-"FullChip": (por_ordem)
-	numero de linhas -> 2,987,012
-	numero de colunas -> 2,987,012
-	numero de nnz -> 26,621,983
-	grau de esparsidade -> 99.99%
-	kind -> circuit simulation problem
-	grupo -> Freescale
-
 "cage14": (por_ordem)
 	numero de linhas -> 1,505,785
 	numero de colunas -> 1,505,785
@@ -122,9 +117,18 @@ Matrizes que serão utilizadas para testar a eficiência dos tipos de armazename
 	kind -> directed weighted graph
 	grupo -> vanHeukelum
 
+"CurlCurl_4": (por_ordem)
+	numero de linhas -> 2,380,515
+	numero de colunas -> 2,380,515
+	numero de nnz -> 26,515,867
+	grau de esparsidade -> 99.99%
+	kind -> model reduction problem
+	grupo -> Bodendiek
 
-
-
-
-
-
+"FullChip": (por_ordem)
+	numero de linhas -> 2,987,012
+	numero de colunas -> 2,987,012
+	numero de nnz -> 26,621,983
+	grau de esparsidade -> 99.99%
+	kind -> circuit simulation problem
+	grupo -> Freescale
