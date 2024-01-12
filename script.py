@@ -11,8 +11,13 @@ matrizes = os.listdir(diretorio_matrizes)
 lista_result_geral = []
 
 for arq in matrizes:
-    matriz = ' ' + diretorio_matrizes + '/' + arq
-    vetor = ' ' + diretorio_vetores + '/' + arq.replace(".mtx", ".txt")
+    # matriz = ' ' + diretorio_matrizes + '/' + arq
+    # vetor = ' ' + diretorio_vetores + '/' + arq.replace(".mtx", ".txt")
+
+    print(f"Matriz {arq} sendo utilizada.....")
+
+    matriz = os.path.join(diretorio_matrizes, arq)
+    vetor = os.path.join(diretorio_vetores, arq.replace(".mtx", ".txt"))
 
     comandos = [
         "COO_matrix/main" + matriz + vetor, 
@@ -24,6 +29,9 @@ for arq in matrizes:
     resultados = {"Matrizes" : arq}
 
     for comando in comandos:
+
+        print(f"Rodando o tipo de armazenamento --> {comando.split()[0].split('/')[0]}")
+
         lista_out = []
         for _ in range(10):
             processo = subprocess.Popen(comando, stdout=subprocess.PIPE, text=True, shell=True)
@@ -31,9 +39,11 @@ for arq in matrizes:
             saida = float(saida)
             lista_out.append(saida)
         
+        print(f"Execuções terminadas {comando.split()[0].split('/')[0]} finalizado!")
+        
         lista_out.remove(min(lista_out))
         lista_out.remove(max(lista_out))
-        media = np.average(lista_out)
+        media = np.mean(lista_out)
         resultados[comando.split()[0].split('/')[0]] = media
     
     lista_result_geral.append(resultados)
