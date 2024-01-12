@@ -109,6 +109,14 @@ Matrizes que serão utilizadas para testar a eficiência dos tipos de armazename
 	kind -> structural problem
 	grupo -> Koutsovasilis
 
+"Fault_639": (por_ordem)
+	numero de linhas -> 638,802
+	numero de colunas -> 638,802
+	numero de nnz -> 27,245,944
+	grau de esparsidade -> 99.99%
+	kind -> structural problem
+	grupo -> Janna
+
 "cage14": (por_ordem)
 	numero de linhas -> 1,505,785
 	numero de colunas -> 1,505,785
