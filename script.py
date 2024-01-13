@@ -20,10 +20,10 @@ for arq in matrizes:
     vetor = os.path.join(diretorio_vetores, arq.replace(".mtx", ".txt"))
 
     comandos = [
-        "COO_matrix/main" + matriz + vetor, 
-        "CSC_matrix/main" + matriz + vetor, 
-        "CSR_matrix/main" + matriz + vetor, 
-        "LinkedList_matrix/main" + matriz + vetor
+        "COO_matrix/main" + ' ' + matriz + ' ' + vetor, 
+        "CSC_matrix/main" + ' ' + matriz + ' ' + vetor, 
+        "CSR_matrix/main" + ' ' + matriz + ' ' + vetor, 
+        "LinkedList_matrix/main" + ' ' + matriz + ' ' + vetor
     ]
 
     resultados = {"Matrizes" : arq}
