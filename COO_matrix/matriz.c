@@ -121,9 +121,6 @@ Matriz *matriz_construct(int qtd_nnz, int qtdLinhas, int qtdColunas)
 
 void matriz_add_value(Matriz *m, Valor v)
 {
-    if (m->size == m->qtd_nnz)
-        return;
-
     m->valores[m->size] = v;
     m->size++;
 }
@@ -179,10 +176,8 @@ Matriz *matriz_read_mtx(char *filePath)
 
     Valor v;
 
-    while (!feof(file)) // fase 3: Ler os valores da matriz
+    while (fread(&c, sizeof(char), 1, file) == 1) // fase 3: Ler os valores da matriz
     {
-        fread(&c, sizeof(char), 1, file);
-
         flag = (c == '\n') ? 1 : 0;
 
         linha[string_size] = c;
@@ -218,7 +213,7 @@ Vetor *matriz_multiply_by_vector(Matriz *m, Vetor *v)
     return resultado;
 }
 
-void matriz_print_esparse(Matriz *m)
+void matriz_print_esparso(Matriz *m)
 {
     if (m == NULL)
         return;

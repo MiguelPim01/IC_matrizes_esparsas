@@ -24,7 +24,7 @@ Matriz *matriz_read_mtx(char *filePath);
 
 Vetor *matriz_multiply_by_vector(Matriz *matriz, Vetor *vector);
 
-void matriz_print_esparse(Matriz *m);
+void matriz_print_esparso(Matriz *m);
 
 void matriz_destroy(Matriz *m);
 

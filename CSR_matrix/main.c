@@ -30,6 +30,11 @@ int main(int argc, char *argv[])
         v = mult;
     }
 
+    // matriz_print_esparso(m);
+    // printf("\n");
+    // vector_print_esparso(v);
+    // printf("\n");
+
     printf("%lf", total);
 
     matriz_destroy(m);

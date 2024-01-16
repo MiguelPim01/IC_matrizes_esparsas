@@ -136,9 +136,6 @@ void matriz_add_value(Matriz *m, Valor v, int linha)
 
     m->ptr_linha[linha-1] = (ind_linha == -1) ? m->size : ind_linha;
 
-    if (m->size == m->qtd_nnz)
-        return;
-
     m->valores[m->size] = v;
     m->size++;
 }
@@ -213,10 +210,8 @@ Matriz *matriz_read_mtx(char *filePath) // irá ler a transposta da matriz
     Valor v;
     int l;
 
-    while (!feof(file)) // fase 3: Ler os valores da matriz
+    while (fread(&c, sizeof(char), 1, file) == 1) // fase 3: Ler os valores da matriz
     {
-        fread(&c, sizeof(char), 1, file);
-
         flag = (c == '\n') ? 1 : 0;
 
         linha[string_size] = c;
