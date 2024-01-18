@@ -97,6 +97,22 @@ Matrizes que serão utilizadas para testar a eficiência dos tipos de armazename
 	kind -> structural problem
 	grupo -> Janna
 
+"Long_Coup_dt6": (por_nnz)
+	numero de linhas -> 1,470,152
+	numero de colunas -> 1,470,152
+	numero de nnz -> 84,422,970
+	grau de esparsidade -> 99.99%
+	kind -> structural problem
+	grupo -> Janna
+
+"Flan_1565": (por_nnz)
+	numero de linhas -> 1,564,794
+	numero de colunas -> 1,564,794
+	numero de nnz -> 114,165,372
+	grau de esparsidade -> 99.99%
+	kind -> structural problem
+	grupo -> Janna
+
 
 
  - POR ORDEM:
