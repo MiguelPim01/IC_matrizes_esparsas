@@ -72,6 +72,7 @@ Matrizes que serão utilizadas para testar a eficiência dos tipos de armazename
 
  - POR NNZ:
 
+Grupo 1:
 
 "Hamrle3": (por_nnz)
 	numero de linhas -> 1,447,360
@@ -113,6 +114,56 @@ Matrizes que serão utilizadas para testar a eficiência dos tipos de armazename
 	kind -> structural problem
 	grupo -> Janna
 
+
+Grupo 2:
+
+"ASIC_680ks": (por_nnz)
+	numero de linhas -> 682,712
+	numero de colunas -> 682,712
+	numero de nnz -> 1,693,767
+	grau de esparsidade -> %
+	kind -> circuit simulation problem
+	grupo -> Sandia
+
+"ASIC_680k": (por_nnz)
+	numero de linhas -> 682,862
+	numero de colunas -> 682,862
+	numero de nnz -> 2,638,997
+	grau de esparsidade -> %
+	kind -> circuit simulation problem
+	grupo -> Sandia
+
+"parabolic_fem": (por_nnz)
+	numero de linhas -> 525,825
+	numero de colunas -> 525,825
+	numero de nnz -> 3,674,625
+	grau de esparsidade -> %
+	kind -> computational fluid dynamics problem
+	grupo -> Wissgott
+
+"rajat29": (por_nnz)
+	numero de linhas -> 643,994
+	numero de colunas -> 643,994
+	numero de nnz -> 3,760,246
+	grau de esparsidade -> %
+	kind -> circuit simulation problem
+	grupo -> Rajat
+
+"rajat30": (por_nnz)
+	numero de linhas -> 643,994
+	numero de colunas -> 643,994
+	numero de nnz -> 6,175,244
+	grau de esparsidade -> %
+	kind -> circuit simulation problem
+	grupo -> Rajat
+
+"af_4_k101": (por_nnz)
+	numero de linhas -> 503,625
+	numero de colunas -> 503,625
+	numero de nnz -> 17,550,675
+	grau de esparsidade -> %
+	kind -> structural problem
+	grupo -> Schenk_AFE
 
 
  - POR ORDEM:
