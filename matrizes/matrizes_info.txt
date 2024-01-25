@@ -168,6 +168,8 @@ Grupo 2:
 
  - POR ORDEM:
 
+Grupo 1:
+
 "F1": (por_ordem)
 	numero de linhas -> 343,791
 	numero de colunas -> 343,791
@@ -207,3 +209,46 @@ Grupo 2:
 	grau de esparsidade -> 99.99%
 	kind -> circuit simulation problem
 	grupo -> Freescale
+
+
+Grupo 2:
+
+"TSOPF_RS_b678_c1": (por_ordem)
+	numero de linhas -> 18,696
+	numero de colunas -> 18,696
+	numero de nnz -> 4,396,289
+	grau de esparsidade -> %
+	kind -> power network problem
+	grupo -> TSOPF
+
+"pdb1HYS": (por_ordem)
+	numero de linhas -> 36,417
+	numero de colunas -> 36,417
+	numero de nnz -> 4,344,765
+	grau de esparsidade -> %
+	kind -> weighted undirected graph
+	grupo -> Williams
+
+"cant": (por_ordem)
+	numero de linhas -> 62,451
+	numero de colunas -> 62,451
+	numero de nnz -> 4,007,383
+	grau de esparsidade -> %
+	kind -> 2D/3D problem
+	grupo -> Williams
+
+"t3dh_a": (por_ordem)
+	numero de linhas -> 79,171
+	numero de colunas -> 79,171
+	numero de nnz -> 4,352,105
+	grau de esparsidade -> %
+	kind -> duplicate model reduction problem
+	grupo -> Oberwolfach
+
+"offshore": (por_ordem)
+	numero de linhas -> 259,789
+	numero de colunas -> 259,789
+	numero de nnz -> 4,242,673
+	grau de esparsidade -> %
+	kind -> electromagnetics problem
+	grupo -> Um
