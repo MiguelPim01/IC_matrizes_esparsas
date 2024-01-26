@@ -146,10 +146,13 @@ Vetor *matriz_multiply_by_vector(Matriz *m, Vetor *v)
         return NULL;
     
     Vetor *resultado = vector_construct(m->qtdLinhas);
+    int cond;
 
     for (int i = 0; i < m->qtdLinhas; i++)
     {
-        for (int k = m->ptr_linha[i]; k < m->ptr_linha[i+1]; k++)
+        cond = m->ptr_linha[i+1]; // variavel adicionada para diminuir o numero de acessos a struct e array
+
+        for (int k = m->ptr_linha[i]; k < cond; k++)
         {
             resultado->array[i] += v->array[m->valores[k].coluna-1] * m->valores[k].valor;
         }
