@@ -3,28 +3,27 @@ Flat profile:
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
  time   seconds   seconds    calls  Ts/call  Ts/call  name    
- 19.84      0.73     0.73                             fread (stdio2.h:293 @ 1ad8)
- 18.75      1.42     0.69                             _init
- 16.58      2.03     0.61                             matriz_read_mtx (matriz.c:220 @ 1ad4)
- 14.40      2.56     0.53                             matriz_read_mtx (matriz.c:215 @ 1ac0)
-  8.97      2.89     0.33                             matriz_add_value (matriz.c:139 @ 1b79)
-  6.79      3.14     0.25                             matriz_multiply_by_vector (matriz.c:154 @ 189c)
-  3.53      3.27     0.13                             matriz_add_value (matriz.c:135 @ 1b4e)
-  2.58      3.37     0.10                             matriz_multiply_by_vector (matriz.c:154 @ 1873)
-  2.31      3.45     0.09                             matriz_add_value (matriz.c:137 @ 1b67)
-  1.90      3.52     0.07                             matriz_multiply_by_vector (matriz.c:152 @ 18ae)
-  1.63      3.58     0.06                             matriz_read_mtx (matriz.c:222 @ 1b28)
-  0.82      3.61     0.03                             matriz_construct (matriz.c:128 @ 1aaf)
-  0.68      3.63     0.03                             matriz_add_value (matriz.c:139 @ 1b72)
-  0.41      3.65     0.01                             matriz_multiply_by_vector (matriz.c:152 @ 184c)
-  0.27      3.66     0.01                             matriz_add_value (matriz.c:140 @ 1b83)
-  0.27      3.67     0.01                             vector_read_txt (matriz.c:67 @ 1579)
-  0.27      3.68     0.01                             vector_read_txt (matriz.c:63 @ 158c)
-  0.00      3.68     0.00        6     0.00     0.00  vector_destroy (matriz.c:87 @ 1640)
-  0.00      3.68     0.00        5     0.00     0.00  matriz_multiply_by_vector (matriz.c:144 @ 17d0)
-  0.00      3.68     0.00        1     0.00     0.00  matriz_destroy (matriz.c:246 @ 1cc0)
-  0.00      3.68     0.00        1     0.00     0.00  matriz_read_mtx (matriz.c:162 @ 18d0)
-  0.00      3.68     0.00        1     0.00     0.00  vector_read_txt (matriz.c:48 @ 14e0)
+ 20.94      0.85     0.85                             matriz_read_mtx (matriz.c:223 @ 1ad4)
+ 16.26      1.51     0.66                             _init
+ 16.26      2.17     0.66                             fread (stdio2.h:293 @ 1ad8)
+ 15.15      2.79     0.61                             matriz_read_mtx (matriz.c:218 @ 1ac0)
+ 11.08      3.23     0.45                             matriz_add_value (matriz.c:139 @ 1b79)
+  6.77      3.51     0.28                             matriz_multiply_by_vector (matriz.c:157 @ 189c)
+  3.20      3.64     0.13                             matriz_add_value (matriz.c:137 @ 1b67)
+  2.59      3.75     0.10                             matriz_add_value (matriz.c:135 @ 1b4e)
+  2.22      3.83     0.09                             matriz_multiply_by_vector (matriz.c:157 @ 1873)
+  2.09      3.92     0.09                             matriz_add_value (matriz.c:139 @ 1b72)
+  1.35      3.98     0.06                             matriz_multiply_by_vector (matriz.c:155 @ 18ae)
+  0.99      4.01     0.04                             matriz_read_mtx (matriz.c:225 @ 1b28)
+  0.49      4.04     0.02                             matriz_construct (matriz.c:128 @ 1aaf)
+  0.25      4.04     0.01                             matriz_multiply_by_vector (matriz.c:155 @ 1865)
+  0.25      4.05     0.01                             vector_read_txt (matriz.c:67 @ 1579)
+  0.12      4.06     0.01                             matriz_read_mtx (matriz.c:221 @ 1ac7)
+  0.00      4.06     0.00        6     0.00     0.00  vector_destroy (matriz.c:87 @ 1640)
+  0.00      4.06     0.00        5     0.00     0.00  matriz_multiply_by_vector (matriz.c:144 @ 17d0)
+  0.00      4.06     0.00        1     0.00     0.00  matriz_destroy (matriz.c:249 @ 1cc0)
+  0.00      4.06     0.00        1     0.00     0.00  matriz_read_mtx (matriz.c:165 @ 18d0)
+  0.00      4.06     0.00        1     0.00     0.00  vector_read_txt (matriz.c:48 @ 14e0)
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -62,27 +61,27 @@ notice and this notice are preserved.
 		     Call graph (explanation follows)
 
 
-granularity: each sample hit covers 4 byte(s) for 0.27% of 3.68 seconds
+granularity: each sample hit covers 4 byte(s) for 0.25% of 4.06 seconds
 
 index % time    self  children    called     name
                                                  <spontaneous>
-[2]     18.8    0.69    0.00                 _init [2]
+[3]     16.3    0.66    0.00                 _init [3]
 -----------------------------------------------
-                0.00    0.00       1/6           main (main.c:41 @ 12f9) [49]
-                0.00    0.00       5/6           main (main.c:29 @ 12cc) [46]
-[18]     0.0    0.00    0.00       6         vector_destroy (matriz.c:87 @ 1640) [18]
+                0.00    0.00       1/6           main (main.c:41 @ 12f9) [48]
+                0.00    0.00       5/6           main (main.c:29 @ 12cc) [45]
+[17]     0.0    0.00    0.00       6         vector_destroy (matriz.c:87 @ 1640) [17]
 -----------------------------------------------
-                0.00    0.00       5/5           main (main.c:24 @ 129e) [41]
-[19]     0.0    0.00    0.00       5         matriz_multiply_by_vector (matriz.c:144 @ 17d0) [19]
+                0.00    0.00       5/5           main (main.c:24 @ 129e) [40]
+[18]     0.0    0.00    0.00       5         matriz_multiply_by_vector (matriz.c:144 @ 17d0) [18]
 -----------------------------------------------
                 0.00    0.00       1/1           printf (stdio2.h:112 @ 12d6) [157]
-[20]     0.0    0.00    0.00       1         matriz_destroy (matriz.c:246 @ 1cc0) [20]
+[19]     0.0    0.00    0.00       1         matriz_destroy (matriz.c:249 @ 1cc0) [19]
 -----------------------------------------------
-                0.00    0.00       1/1           main (main.c:14 @ 1270) [32]
-[21]     0.0    0.00    0.00       1         matriz_read_mtx (matriz.c:162 @ 18d0) [21]
+                0.00    0.00       1/1           main (main.c:14 @ 1270) [31]
+[20]     0.0    0.00    0.00       1         matriz_read_mtx (matriz.c:165 @ 18d0) [20]
 -----------------------------------------------
-                0.00    0.00       1/1           main (main.c:14 @ 127c) [34]
-[22]     0.0    0.00    0.00       1         vector_read_txt (matriz.c:48 @ 14e0) [22]
+                0.00    0.00       1/1           main (main.c:14 @ 127c) [33]
+[21]     0.0    0.00    0.00       1         vector_read_txt (matriz.c:48 @ 14e0) [21]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -175,11 +174,10 @@ notice and this notice are preserved.
 
 Index by function name
 
-   [2] _init                  [20] matriz_destroy (matriz.c:246 @ 1cc0) [3] matriz_read_mtx (matriz.c:220 @ 1ad4)
-   [1] fread (stdio2.h:293 @ 1ad8) [19] matriz_multiply_by_vector (matriz.c:144 @ 17d0) [11] matriz_read_mtx (matriz.c:222 @ 1b28)
-   [7] matriz_add_value (matriz.c:135 @ 1b4e) [14] matriz_multiply_by_vector (matriz.c:152 @ 184c) [18] vector_destroy (matriz.c:87 @ 1640)
-   [9] matriz_add_value (matriz.c:137 @ 1b67) [8] matriz_multiply_by_vector (matriz.c:154 @ 1873) [22] vector_read_txt (matriz.c:48 @ 14e0)
-  [13] matriz_add_value (matriz.c:139 @ 1b72) [6] matriz_multiply_by_vector (matriz.c:154 @ 189c) [16] vector_read_txt (matriz.c:67 @ 1579)
-   [5] matriz_add_value (matriz.c:139 @ 1b79) [10] matriz_multiply_by_vector (matriz.c:152 @ 18ae) [17] vector_read_txt (matriz.c:63 @ 158c)
-  [15] matriz_add_value (matriz.c:140 @ 1b83) [21] matriz_read_mtx (matriz.c:162 @ 18d0)
-  [12] matriz_construct (matriz.c:128 @ 1aaf) [4] matriz_read_mtx (matriz.c:215 @ 1ac0)
+   [3] _init                  [19] matriz_destroy (matriz.c:249 @ 1cc0) [4] matriz_read_mtx (matriz.c:218 @ 1ac0)
+   [2] fread (stdio2.h:293 @ 1ad8) [18] matriz_multiply_by_vector (matriz.c:144 @ 17d0) [16] matriz_read_mtx (matriz.c:221 @ 1ac7)
+   [8] matriz_add_value (matriz.c:135 @ 1b4e) [14] matriz_multiply_by_vector (matriz.c:155 @ 1865) [1] matriz_read_mtx (matriz.c:223 @ 1ad4)
+   [7] matriz_add_value (matriz.c:137 @ 1b67) [9] matriz_multiply_by_vector (matriz.c:157 @ 1873) [12] matriz_read_mtx (matriz.c:225 @ 1b28)
+  [10] matriz_add_value (matriz.c:139 @ 1b72) [6] matriz_multiply_by_vector (matriz.c:157 @ 189c) [17] vector_destroy (matriz.c:87 @ 1640)
+   [5] matriz_add_value (matriz.c:139 @ 1b79) [11] matriz_multiply_by_vector (matriz.c:155 @ 18ae) [21] vector_read_txt (matriz.c:48 @ 14e0)
+  [13] matriz_construct (matriz.c:128 @ 1aaf) [20] matriz_read_mtx (matriz.c:165 @ 18d0) [15] vector_read_txt (matriz.c:67 @ 1579)
