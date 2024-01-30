@@ -1,0 +1,223 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ns/call  ns/call  name    
+ 57.30      5.33     5.33                             matriz_multiply_by_vector (matriz.c:191 @ 191b)
+  5.69      5.87     0.53                             _linked_list_destroy_lin (matriz.c:136 @ 1d40)
+  5.59      6.38     0.52                             _node_destroy (matriz.c:113 @ 1d47)
+  4.89      6.84     0.46                             matriz_multiply_by_vector (matriz.c:191 @ 193a)
+  4.24      7.24     0.40                             fread (stdio2.h:293 @ 1b86)
+  3.87      7.59     0.36                             _init
+  3.44      7.92     0.32                             matriz_multiply_by_vector (matriz.c:192 @ 1936)
+  3.01      8.20     0.28                             matriz_read_mtx (matriz.c:279 @ 1b70)
+  2.36      8.41     0.22                             matriz_add_value (matriz.c:208 @ 19e7)
+  1.88      8.59     0.17                             matriz_read_mtx (matriz.c:284 @ 1b82)
+  1.83      8.76     0.17                             matriz_read_mtx (matriz.c:281 @ 1b7f)
+  1.50      8.90     0.14                             matriz_add_value (matriz.c:213 @ 19f4)
+  0.59      8.96     0.06                             matriz_multiply_by_vector (matriz.c:189 @ 1942)
+  0.48      9.00     0.04                             matriz_add_value (matriz.c:203 @ 19a9)
+  0.48      9.04     0.04                             matriz_add_value (matriz.c:204 @ 19ae)
+  0.32      9.07     0.03 27130349     1.11     1.11  matriz_add_value (matriz.c:202 @ 1980)
+  0.21      9.10     0.02                             matriz_multiply_by_vector (matriz.c:187 @ 1910)
+  0.21      9.12     0.02                             matriz_read_mtx (matriz.c:286 @ 1be6)
+  0.21      9.13     0.02                             matriz_read_mtx (matriz.c:288 @ 1c00)
+  0.21      9.15     0.02                             vector_read_txt (matriz.c:68 @ 1579)
+  0.11      9.16     0.01                             _linked_list_construct (matriz.c:122 @ 1826)
+  0.11      9.18     0.01                             _node_construct (matriz.c:103 @ 19c9)
+  0.11      9.19     0.01                             matriz_add_value (matriz.c:214 @ 19fd)
+  0.11      9.20     0.01                             matriz_add_value (matriz.c:216 @ 1a02)
+  0.11      9.21     0.01                             matriz_add_value (matriz.c:221 @ 1a11)
+  0.11      9.21     0.01                             matriz_add_value (matriz.c:223 @ 1a16)
+  0.11      9.22     0.01                             matriz_add_value (matriz.c:211 @ 1a28)
+  0.11      9.23     0.01                             matriz_construct (matriz.c:159 @ 182a)
+  0.11      9.24     0.01                             matriz_construct (matriz.c:160 @ 1855)
+  0.11      9.26     0.01                             matriz_destroy (matriz.c:329 @ 1d30)
+  0.11      9.27     0.01                             matriz_multiply_by_vector (matriz.c:189 @ 1916)
+  0.05      9.27     0.01                             _linked_list_construct (matriz.c:122 @ 185e)
+  0.05      9.28     0.01                             _node_construct (matriz.c:100 @ 19bf)
+  0.05      9.28     0.01                             _node_construct (matriz.c:102 @ 19ce)
+  0.05      9.29     0.01                             _node_construct (matriz.c:103 @ 19d2)
+  0.05      9.29     0.01                             matriz_add_value (matriz.c:204 @ 19ba)
+  0.05      9.29     0.01                             matriz_add_value (matriz.c:217 @ 1a07)
+  0.05      9.30     0.01                             matriz_add_value (matriz.c:222 @ 1a0b)
+  0.05      9.30     0.01                             matriz_construct (matriz.c:161 @ 1862)
+  0.05      9.31     0.01                             matriz_multiply_by_vector (matriz.c:183 @ 1947)
+  0.00      9.31     0.00        6     0.00     0.00  vector_destroy (matriz.c:88 @ 1640)
+  0.00      9.31     0.00        5     0.00     0.00  matriz_multiply_by_vector (matriz.c:171 @ 18a0)
+  0.00      9.31     0.00        1     0.00     0.00  matriz_construct (matriz.c:152 @ 17a0)
+  0.00      9.31     0.00        1     0.00     0.00  matriz_destroy (matriz.c:324 @ 1d00)
+  0.00      9.31     0.00        1     0.00     0.00  matriz_read_mtx (matriz.c:226 @ 1a40)
+  0.00      9.31     0.00        1     0.00     0.00  vector_read_txt (matriz.c:49 @ 14e0)
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) for 0.11% of 9.31 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[6]      3.9    0.36    0.00                 _init [6]
+-----------------------------------------------
+                0.03    0.00 27130349/27130349     matriz_read_mtx (matriz.c:288 @ 1c00) [14]
+[17]     0.3    0.03    0.00 27130349         matriz_add_value (matriz.c:202 @ 1980) [17]
+-----------------------------------------------
+                0.00    0.00       1/6           main (main.c:41 @ 12f9) [73]
+                0.00    0.00       5/6           main (main.c:29 @ 12cc) [70]
+[41]     0.0    0.00    0.00       6         vector_destroy (matriz.c:88 @ 1640) [41]
+-----------------------------------------------
+                0.00    0.00       5/5           main (main.c:24 @ 129e) [65]
+[42]     0.0    0.00    0.00       5         matriz_multiply_by_vector (matriz.c:171 @ 18a0) [42]
+-----------------------------------------------
+                0.00    0.00       1/1           matriz_read_mtx (matriz.c:272 @ 1b4f) [154]
+[43]     0.0    0.00    0.00       1         matriz_construct (matriz.c:152 @ 17a0) [43]
+-----------------------------------------------
+                0.00    0.00       1/1           printf (stdio2.h:112 @ 12d6) [170]
+[44]     0.0    0.00    0.00       1         matriz_destroy (matriz.c:324 @ 1d00) [44]
+-----------------------------------------------
+                0.00    0.00       1/1           main (main.c:14 @ 1270) [56]
+[45]     0.0    0.00    0.00       1         matriz_read_mtx (matriz.c:226 @ 1a40) [45]
+-----------------------------------------------
+                0.00    0.00       1/1           main (main.c:14 @ 127c) [58]
+[46]     0.0    0.00    0.00       1         vector_read_txt (matriz.c:49 @ 14e0) [46]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+   [6] _init                  [21] matriz_add_value (matriz.c:214 @ 19fd) [1] matriz_multiply_by_vector (matriz.c:191 @ 191b)
+  [30] _linked_list_construct (matriz.c:122 @ 1826) [22] matriz_add_value (matriz.c:216 @ 1a02) [7] matriz_multiply_by_vector (matriz.c:192 @ 1936)
+  [37] _linked_list_construct (matriz.c:122 @ 185e) [33] matriz_add_value (matriz.c:217 @ 1a07) [4] matriz_multiply_by_vector (matriz.c:191 @ 193a)
+   [2] _linked_list_destroy_lin (matriz.c:136 @ 1d40) [34] matriz_add_value (matriz.c:222 @ 1a0b) [13] matriz_multiply_by_vector (matriz.c:189 @ 1942)
+  [38] _node_construct (matriz.c:100 @ 19bf) [23] matriz_add_value (matriz.c:221 @ 1a11) [36] matriz_multiply_by_vector (matriz.c:183 @ 1947)
+  [31] _node_construct (matriz.c:103 @ 19c9) [24] matriz_add_value (matriz.c:223 @ 1a16) [45] matriz_read_mtx (matriz.c:226 @ 1a40)
+  [39] _node_construct (matriz.c:102 @ 19ce) [25] matriz_add_value (matriz.c:211 @ 1a28) [8] matriz_read_mtx (matriz.c:279 @ 1b70)
+  [40] _node_construct (matriz.c:103 @ 19d2) [43] matriz_construct (matriz.c:152 @ 17a0) [11] matriz_read_mtx (matriz.c:281 @ 1b7f)
+   [3] _node_destroy (matriz.c:113 @ 1d47) [26] matriz_construct (matriz.c:159 @ 182a) [10] matriz_read_mtx (matriz.c:284 @ 1b82)
+   [5] fread (stdio2.h:293 @ 1b86) [27] matriz_construct (matriz.c:160 @ 1855) [19] matriz_read_mtx (matriz.c:286 @ 1be6)
+  [17] matriz_add_value (matriz.c:202 @ 1980) [35] matriz_construct (matriz.c:161 @ 1862) [14] matriz_read_mtx (matriz.c:288 @ 1c00)
+  [15] matriz_add_value (matriz.c:203 @ 19a9) [44] matriz_destroy (matriz.c:324 @ 1d00) [41] vector_destroy (matriz.c:88 @ 1640)
+  [16] matriz_add_value (matriz.c:204 @ 19ae) [28] matriz_destroy (matriz.c:329 @ 1d30) [46] vector_read_txt (matriz.c:49 @ 14e0)
+  [32] matriz_add_value (matriz.c:204 @ 19ba) [42] matriz_multiply_by_vector (matriz.c:171 @ 18a0) [20] vector_read_txt (matriz.c:68 @ 1579)
+   [9] matriz_add_value (matriz.c:208 @ 19e7) [18] matriz_multiply_by_vector (matriz.c:187 @ 1910)
+  [12] matriz_add_value (matriz.c:213 @ 19f4) [29] matriz_multiply_by_vector (matriz.c:189 @ 1916)
