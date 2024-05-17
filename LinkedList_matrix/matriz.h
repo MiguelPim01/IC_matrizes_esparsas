@@ -26,4 +26,17 @@ void matriz_print_esparso(Matriz *m);
 
 void matriz_destroy(Matriz *m);
 
+/**
+ * Realiza a fatoração LU incompleta com level de fill in p, da matriz m nas matrizes L e U.
+ * 
+ * @param m matriz que será realizada a fatoração
+ * 
+ * @param L matriz triangular inferior da fatoração
+ * 
+ * @param U matriz triangular superior da fatoração
+ * 
+ * @param p level de fill in da fatoração
+*/
+void ilup(Matriz *m, Matriz *L, Matriz *U, int p);
+
 #endif

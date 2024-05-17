@@ -30,4 +30,19 @@ void matriz_print_esparso(Matriz *m);
 
 void matriz_destroy(Matriz *m);
 
+/**
+ * ilup faz a fatoração LU em si.
+ *
+ * Nessa função não será necessário utilizar o level de fill in pois já foram computados os preenchimentos anteriormente.
+ * 
+ * @param m matriz que será fatorizada em L e U
+ * 
+ * @param L matriz triangular inferior da fatoração
+ * 
+ * @param U matriz triangular superior da fatoração
+ * 
+ * @param p level de fill in
+ */
+void ilup(Matriz *m, Matriz *L, Matriz *U, int p);
+
 #endif

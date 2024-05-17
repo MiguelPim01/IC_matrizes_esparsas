@@ -254,3 +254,28 @@ void matriz_destroy(Matriz *m)
     free(m->valores);
     free(m);
 }
+
+/* ============ ILU ============ */
+
+/**
+ * ilu_setup faz as previsões de preenchimentos para preparar a estrutura da matriz L e U a recebê-los.
+ *
+ * Nessa função não é necessário utilizar os nnz da matriz.
+ * 
+ * @param m matriz que será fatorizada em L e U
+ * 
+ * @param L matriz triangular inferior da fatoração
+ * 
+ * @param U matriz triangular superior da fatoração
+ * 
+ * @param p level de fill in
+ */
+void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
+{
+    // Essa função será feita com as estruturas auxiliares do FEM_CODES: SparMat e SparILU
+}
+
+void ilup(Matriz *m, Matriz *L, Matriz *U, int p)
+{
+    ilup_setup(m, L, U, p);
+}
