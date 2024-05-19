@@ -29,6 +29,53 @@ struct Matriz {
     int size;
 };
 
+/* ============ TRANSFORMATIONS ============ */
+
+void SparMAT_to_CSR(SparMAT *mat, Matriz *csr)
+{
+    int n = mat->n;
+    int qtd_nnz = 0;
+    int i, k, j;
+
+    for (i = 0; i < n; i++) {
+        qtd_nnz += mat->nzcount[i];
+    }
+
+    /*------------------------------------- CSR setup */
+    csr = (Matriz *)malloc(sizeof(Matriz));
+
+    csr->ptr_linha  = (int *)   malloc((n + 1) * sizeof(int));
+    csr->valores    = (Valor *) malloc(qtd_nnz * sizeof(Valor));
+
+    csr->qtdColunas = n;
+    csr->qtdLinhas  = n;
+    csr->size       = 0;
+
+    /*----------------------------------------------- */
+
+    int nnzcount = 0;
+
+    for (i = 0; i < n; i++) {
+
+        qtd_nnz = mat->nzcount[i];
+        
+        for (k = 0, j = nnzcount; k < qtd_nnz; k++, j++) {
+
+            csr->valores[j].coluna = mat->ja[i][k];
+            csr->valores[j].valor  = mat->ma[i][k];
+        }
+
+        csr->ptr_linha[i] = nnzcount;
+        nnzcount += qtd_nnz;
+    }
+    csr->ptr_linha[i] = nnzcount;
+}
+
+void CSR_to_SparMAT(Matriz *csr, SparMAT *mat)
+{
+
+}
+
 /* ============ VETOR FUNCTIONS ============ */
 
 Vetor *vector_construct(int size)
@@ -270,12 +317,50 @@ void matriz_destroy(Matriz *m)
  * 
  * @param p level de fill in
  */
-void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
+void ilup_setup(SparMAT *m, SparILU *lu, int p)
 {
-    // Essa função será feita com as estruturas auxiliares do FEM_CODES: SparMat e SparILU
+    int n = m->n;
+
+    int *levls, **ulvl, *jbuf, *iw;
+    int i, j, k;
+    int col;
+    int incl, incu;
+    int it, ip;
+
+    levls = (int *)  malloc(n * sizeof(int));
+    jbuf  = (int *)  malloc(n * sizeof(int));
+    iw    = (int *)  malloc(n * sizeof(int));
+    ulvl  = (int **) malloc(n * sizeof(int *));
+
+    for (i = 0; i < n; i++) { iw[i] = -1; }
+
+    for (i = 0; i < n; i++) {
+
+        incl = 0;
+        incu = i;
+
+        for (j = 0; j < m->nzcount; j++) {
+            col = m->ja[i][j];
+
+            if (col < i) {
+                /*-------------------- L-part  */
+                jbuf[incl]  = col;
+				levls[incl] = 0;
+				iw[col]     = incl++;
+            }
+            else if (col > i) {
+                /*-------------------- U-part  */
+                jbuf[incu]  = col;
+				levls[incu] = 0;
+				iw[col]     = incu++;
+            }
+        }
+
+        
+    }
 }
 
 void ilup(Matriz *m, Matriz *L, Matriz *U, int p)
 {
-    ilup_setup(m, L, U, p);
+    
 }

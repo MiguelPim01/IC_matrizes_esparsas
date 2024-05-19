@@ -7,6 +7,23 @@ typedef struct Valor Valor;
 
 typedef struct Vetor Vetor;
 
+typedef struct
+{
+	int           n; /* ordem da matriz                           */
+	int*    nzcount; /* quantidade de não nulos de cada linha     */
+	int**        ja; /* matriz com colunas de cada nnz por linha  */
+	double**     ma; /* matriz com valor de cada nnz por linha    */
+} SparMAT;
+
+typedef struct
+{
+	int         n;
+	SparMAT*    L;
+	double*     D;
+	SparMAT*    U;
+	int*     work;
+} SparILU;
+
 Vetor *vector_construct(int size);
 
 Vetor *vector_read_txt(char *filePath);
