@@ -73,7 +73,31 @@ void SparMAT_to_CSR(SparMAT *mat, Matriz *csr)
 
 void CSR_to_SparMAT(Matriz *csr, SparMAT *mat)
 {
+    int n = csr->qtdLinhas;
+    int tam_lin;
+    int i, j, k;
 
+    /*------------------------------------- SparMAT setup */
+    mat = (SparMAT *)malloc(sizeof(SparMAT));
+
+    mat->n       = n;
+    mat->nzcount = (int *) malloc(n * sizeof(int));
+    mat->ja      = (int *) malloc(n * sizeof(int *));
+    mat->ma      = (int *) malloc(n * sizeof(int *));
+    /*--------------------------------------------------- */
+
+    for (i = 0; i < n; i++) {
+        tam_lin = csr->ptr_linha[i+1] - csr->ptr_linha[i];
+
+        mat->nzcount[i] = tam_lin;
+        mat->ja[i]      = (int *) malloc(tam_lin * sizeof(int));
+        mat->ma[i]      = (int *) malloc(tam_lin * sizeof(int));
+
+        for (j = csr->ptr_linha[i], k = 0; j < csr->ptr_linha[i+1]; j++, k++) {
+            mat->ja[i][k] = csr->valores[j].coluna-1;
+            mat->ma[i][k] = csr->valores[j].valor;
+        }
+    }
 }
 
 /* ============ VETOR FUNCTIONS ============ */

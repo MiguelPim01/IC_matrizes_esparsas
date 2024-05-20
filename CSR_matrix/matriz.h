@@ -12,14 +12,14 @@ typedef struct
 	int           n; /* ordem da matriz                           */
 	int*    nzcount; /* quantidade de não nulos de cada linha     */
 	int**        ja; /* matriz com colunas de cada nnz por linha  */
-	double**     ma; /* matriz com valor de cada nnz por linha    */
+	float**     ma;  /* matriz com valor de cada nnz por linha    */
 } SparMAT;
 
 typedef struct
 {
 	int         n;
 	SparMAT*    L;
-	double*     D;
+	float*     D;
 	SparMAT*    U;
 	int*     work;
 } SparILU;
