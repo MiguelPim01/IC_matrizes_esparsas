@@ -6,39 +6,19 @@
 
 int main(int argc, char *argv[])
 {
-    if (argc < 3)
+    if (argc < 2)
         exit(printf("Argumentos insuficientes!\n"));
 
     Matriz *m = matriz_read_mtx(argv[1]);
 
-    Vetor *v = vector_read_txt(argv[2]);
+    matriz_print_esparso(m);
 
-    Vetor *mult = v;
+    SparMAT *mat = NULL;
 
-    clock_t start, end;
-    double total = 0.0;
-
-    for (int i = 0; i < 5; i++)
-    {
-        start = clock();
-        mult = matriz_multiply_by_vector(m, v);
-        end = clock();
-
-        total += (double)(end - start)/CLOCKS_PER_SEC;
-
-        vector_destroy(v);
-        v = mult;
-    }
-
-    // matriz_print_esparso(m);
-    // printf("\n");
-    // vector_print_esparso(v);
-    // printf("\n");
-
-    printf("%lf", total);
+    CSR_to_SparMAT(m, mat);
 
     matriz_destroy(m);
-    vector_destroy(v);
+    SparMAT_destroy(mat);
 
     return 0;
 }

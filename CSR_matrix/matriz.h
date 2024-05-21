@@ -24,6 +24,13 @@ typedef struct
 	int*     work;
 } SparILU;
 
+void CSR_to_SparMAT(Matriz *csr, SparMAT *mat);
+
+void SparILU_to_CSR(SparILU *lu, Matriz *L, Matriz *U);
+
+void SparMAT_destroy(SparMAT *mat);
+
+
 Vetor *vector_construct(int size);
 
 Vetor *vector_read_txt(char *filePath);
@@ -41,7 +48,7 @@ Vetor *matriz_multiply_by_vector(Matriz *m, Vetor *v);
 
 Matriz *matriz_read_mtx(char *filePath);
 
-Matriz *matriz_read_txt(char *filePath);
+// Matriz *matriz_read_txt(char *filePath);
 
 void matriz_print_esparso(Matriz *m);
 
@@ -60,6 +67,6 @@ void matriz_destroy(Matriz *m);
  * 
  * @param p level de fill in
  */
-void ilup(Matriz *m, Matriz *L, Matriz *U, int p);
+void ilup(SparMAT *m, SparILU *lu, int p);
 
 #endif
