@@ -28,7 +28,11 @@ void CSR_to_SparMAT(Matriz *csr, SparMAT *mat);
 
 void SparILU_to_CSR(SparILU *lu, Matriz *L, Matriz *U);
 
+void SPARILU_setup (SparILU* lu, int n);
+
 void SparMAT_destroy(SparMAT *mat);
+
+void SparILU_destroy(SparILU *lu);
 
 
 Vetor *vector_construct(int size);
@@ -42,6 +46,8 @@ void vector_destroy(Vetor *v);
 
 Matriz *matriz_construct(int qtd_nnz, int qtdLinhas, int qtdColunas);
 
+Matriz *matriz_build();
+
 void matriz_add_value(Matriz *m, Valor v, int linha);
 
 Vetor *matriz_multiply_by_vector(Matriz *m, Vetor *v);
@@ -53,6 +59,8 @@ Matriz *matriz_read_mtx(char *filePath);
 void matriz_print_esparso(Matriz *m);
 
 void matriz_destroy(Matriz *m);
+
+int matriz_get_ordem(Matriz *m);
 
 /**
  * ilup faz a fatoração LU em si.

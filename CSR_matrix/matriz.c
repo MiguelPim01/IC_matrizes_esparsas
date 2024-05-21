@@ -71,7 +71,9 @@ void SPARILU_setup (SparILU* lu, int n)
 	lu->n    = n;
 	lu->D    = calloc(n, sizeof(double));
 
+	lu->L = (SparMAT *)malloc(sizeof(SparMAT));
 	SparMAT_setup(lu->L, n);
+	lu->U = (SparMAT *)malloc(sizeof(SparMAT));
 	SparMAT_setup(lu->U, n);
 
 	lu->work = calloc(n, sizeof(int));
@@ -140,19 +142,6 @@ void SparMAT_to_CSR(SparMAT *mat, Matriz *csr, float *D, char flag)
 
 		for (k = 0, j = qtd_nnz; k < mat->nzcount[i]; k++, j++) {
 
-			if (i == mat->ja[i][k]) {
-				if (flag == 'L') {
-
-					csr->valores[j].coluna = mat->ja[i][k]+1;
-					csr->valores[j].valor  = 1;
-				}
-				else if (flag == 'U') {
-
-					csr->valores[j].coluna = mat->ja[i][k]+1;
-					csr->valores[j].valor  = 1/D[i];
-				}
-			}
-
 			csr->valores[j].coluna = mat->ja[i][k]+1;
 			csr->valores[j].valor  = mat->ma[i][k];
 		}
@@ -172,14 +161,25 @@ void SparILU_to_CSR(SparILU *lu, Matriz *L, Matriz *U)
 void SparMAT_destroy(SparMAT *mat)
 {
 	for (int i = 0; i < mat->n; i++) {
-		free(mat->ja[i]);
-		free(mat->ma[i]);
+		if (mat->nzcount[i]) {
+			free(mat->ja[i]);
+			free(mat->ma[i]);
+		}
 	}
 
 	free(mat->ja);
 	free(mat->ma);
 	free(mat->nzcount);
 	free(mat);
+}
+
+void SparILU_destroy(SparILU *lu)
+{
+	SparMAT_destroy(lu->L);
+	SparMAT_destroy(lu->U);
+	free(lu->D);
+	free(lu->work);
+	free(lu);
 }
 
 /* ============ VETOR FUNCTIONS ============ */
@@ -281,6 +281,11 @@ Matriz *matriz_construct(int qtd_nnz, int qtdLinhas, int qtdColunas)
     m->size = 0;
 
     return m;
+}
+
+Matriz *matriz_build()
+{
+	return (Matriz *)malloc(sizeof(Matriz));
 }
 
 void matriz_add_value(Matriz *m, Valor v, int linha)
@@ -406,6 +411,11 @@ void matriz_destroy(Matriz *m)
     free(m->ptr_linha);
     free(m->valores);
     free(m);
+}
+
+int matriz_get_ordem(Matriz *m)
+{
+	return m->qtdLinhas;
 }
 
 /* ============ ILU ============ */
@@ -565,6 +575,8 @@ void ilup_setup(SparMAT *m, SparILU *lu, int p)
 
 void ilup(SparMAT *m, SparILU *lu, int p)
 {
+	ilup_setup(m, lu, p);
+
     int n = m->n;
 	int* jw, i, j, k, col, jpos, jrow;
 	SparMAT* L;
