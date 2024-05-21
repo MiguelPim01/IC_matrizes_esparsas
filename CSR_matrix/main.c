@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 
     matriz_print_esparso(m);
 
-    SparMAT *mat = NULL;
+    SparMAT *mat = (SparMAT *) malloc(sizeof(SparMAT));
 
     CSR_to_SparMAT(m, mat);
 

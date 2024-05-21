@@ -57,8 +57,6 @@ void SPARILU_row (SparILU* lu, int nrow)
  *--------------------------------------------------------------------------*/
 void SparMAT_setup(SparMAT *mat, int n)
 {
-	mat = (SparMAT *)malloc(sizeof(SparMAT));
-
     mat->n       = n;
     if ((mat->nzcount = (int *)    calloc(n,sizeof(int))) == NULL)       { printf ("ERRO ALOCACAO of mat->nzcount!\n"); exit(1); }
 	if ((mat->ja      = (int **)   calloc(n,sizeof(int*))) == NULL)      { printf ("ERRO ALOCACAO of mat->ja\n"); exit(1); }
@@ -84,8 +82,6 @@ void SPARILU_setup (SparILU* lu, int n)
  *--------------------------------------------------------------------------*/
 void CSR_setup(Matriz *csr, int n, int nzcount)
 {
-	csr = (Matriz *) malloc(sizeof(Matriz));
-
 	csr->ptr_linha  = (int *)   calloc(n + 1, sizeof(int));
 	csr->valores    = (Valor *) calloc(nzcount, sizeof(Valor));
 
@@ -176,10 +172,12 @@ void SparILU_to_CSR(SparILU *lu, Matriz *L, Matriz *U)
 void SparMAT_destroy(SparMAT *mat)
 {
 	for (int i = 0; i < mat->n; i++) {
-		free(mat->ja);
-		free(mat->ma);
+		free(mat->ja[i]);
+		free(mat->ma[i]);
 	}
 
+	free(mat->ja);
+	free(mat->ma);
 	free(mat->nzcount);
 	free(mat);
 }
