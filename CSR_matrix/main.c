@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     SparILU *lu = (SparILU *)malloc(sizeof(SparILU));
     SPARILU_setup(lu, n);
 
-    ilup(mat, lu, 0);
+    ilup(mat, lu, 1);
 
     Matriz *L = matriz_build(), *U = matriz_build();
 

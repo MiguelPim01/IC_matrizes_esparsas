@@ -85,7 +85,7 @@ void SPARILU_setup (SparILU* lu, int n)
 void CSR_setup(Matriz *csr, int n, int nzcount)
 {
 	csr->ptr_linha  = (int *)   calloc(n + 1, sizeof(int));
-	csr->valores    = (Valor *) calloc(nzcount, sizeof(Valor));
+	csr->valores    = (Valor *) calloc(nzcount + n, sizeof(Valor));
 
 	csr->qtd_nnz    = nzcount;
 	csr->qtdLinhas  = n;
@@ -124,7 +124,7 @@ void CSR_to_SparMAT(Matriz *csr, SparMAT *mat)
 /*----------------------------------------------------------------------------
  * Transforms SparMAT from SparILU struct to CSR struct
  *--------------------------------------------------------------------------*/
-void SparMAT_to_CSR(SparMAT *mat, Matriz *csr, float *D, char flag)
+void SparMAT_to_CSR(SparMAT *mat, Matriz *csr, float *D, char c)
 {
 	int n = mat->n;
 	int i, k, j;
@@ -136,18 +136,58 @@ void SparMAT_to_CSR(SparMAT *mat, Matriz *csr, float *D, char flag)
 
 	qtd_nnz = 0;
 
-	for (i = 0; i < n; i++) {
+	if (c == 'L') {
 
-		csr->ptr_linha[i] = qtd_nnz;
+		for (i = 0; i < n; i++) {
 
-		for (k = 0, j = qtd_nnz; k < mat->nzcount[i]; k++, j++) {
+			csr->ptr_linha[i] = qtd_nnz;
 
-			csr->valores[j].coluna = mat->ja[i][k]+1;
-			csr->valores[j].valor  = mat->ma[i][k];
+			for (k = 0, j = qtd_nnz; k < mat->nzcount[i]; k++, j++) {
+
+				csr->valores[j].coluna = mat->ja[i][k]+1;
+				csr->valores[j].valor  = mat->ma[i][k];
+			}
+
+			qtd_nnz += mat->nzcount[i]+1;
+
+			// Armazena a diagonal da matriz
+			csr->valores[j].coluna = i+1;
+			csr->valores[j].valor = 1;
+			
 		}
-
-		qtd_nnz += mat->nzcount[i];
 	}
+	else if (c == 'U') {
+
+		for (i = 0; i < n; i++) {
+
+			csr->ptr_linha[i] = qtd_nnz;
+			
+			// Armazena a diagonal da matriz
+			csr->valores[qtd_nnz].coluna = i+1;
+			csr->valores[qtd_nnz].valor = 1/D[i];
+
+			for (k = 0, j = qtd_nnz+1; k < mat->nzcount[i]; k++, j++) {
+
+				csr->valores[j].coluna = mat->ja[i][k]+1;
+				csr->valores[j].valor  = mat->ma[i][k];
+			}
+
+			qtd_nnz += mat->nzcount[i]+1;
+		}
+	}
+
+	// for (i = 0; i < n; i++) {
+
+	// 	csr->ptr_linha[i] = qtd_nnz;
+
+	// 	for (k = 0, j = qtd_nnz+1; k < mat->nzcount[i]; k++, j++) {
+
+	// 		csr->valores[j].coluna = mat->ja[i][k]+1;
+	// 		csr->valores[j].valor  = mat->ma[i][k];
+	// 	}
+
+	// 	qtd_nnz += mat->nzcount[i];
+	// }
 
 	csr->ptr_linha[i] = qtd_nnz;
 }
