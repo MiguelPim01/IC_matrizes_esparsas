@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "matriz.h"
 
@@ -313,16 +314,18 @@ void matriz_print_esparso(Matriz *m)
     LinkedList *curr_list;
     Node *curr_node;
 
-    for (int i = 0; i < m->qtdColunas; i++)
+    int n = m->qtdLinhas;
+
+    for (int i = 0; i < n; i++)
     {
-        curr_list = m->colunas[i];
+        curr_list = m->linhas[i];
 
         curr_node = curr_list->head;
 
         while (curr_node != NULL)
         {
             printf("(%d, %d): %.4f\n", curr_node->linha, curr_node->coluna, curr_node->valor);
-            curr_node = curr_node->nextDown;
+            curr_node = curr_node->nextRight;
         }
     }
 }
@@ -382,7 +385,7 @@ void _matrix_add_node(Matriz *m, Node *n, int i, int j)
     }
     else {
         column->tail = n;
-        node_j->nextRight = n;
+        node_j->nextDown = n;
     }
     column->size++;
 }
@@ -412,27 +415,40 @@ void _matrix_add_node_fill_part(Matriz *m, Node *n, int i, int j)
     }
     else {
         column->tail = n;
-        node_j->nextRight = n;
+        node_j->nextDown = n;
     }
     column->size++;
 
     /* --------- Acha o node que logo após ele o n deverá ser inserido */
     while (node_i != NULL) {
-        if (n->coluna-1 < j) {
+        if (node_i->coluna-1 < j) {
             new_node_pos = node_i;
-            node_i = node_i->nextRight;
         }
         else {
             break;
         }
+
+        node_i = node_i->nextRight;
     }
 
     if (node_i == NULL) {
-        new_node_pos->nextRight = n;
+        if (new_node_pos == NULL) {
+            line->head = n;
+        }
+        else {
+            new_node_pos->nextRight = n;
+        }
+
         line->tail = n;
     }
     else {
-        new_node_pos->nextRight = n;
+        if (new_node_pos == NULL) {
+            line->head = n;
+        }
+        else {
+            new_node_pos->nextRight = n;
+        }
+        
         n->nextRight = node_i;
     }
     line->size++;
@@ -493,6 +509,8 @@ void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
 				levls[incu] = 0;
 				iw[col]     = incu++;
             }
+
+            node_i = node_i->nextRight;
         }
 		/*-------------------- symbolic k,i,j Gaussian elimination  */ 
 		jpiv = -1; 
@@ -502,7 +520,7 @@ void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
 			/*-------------------- select leftmost pivot */
 			kmin = k;
 			jmin = jpiv; 
-			for(j = jpiv + 1; j< incl; j++)
+			for(j = jpiv + 1; j < incl; j++)
 			{
 				if(jbuf[j] < kmin)
 				{
@@ -525,11 +543,15 @@ void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
 			/*-------------------- symbolic linear combinaiton of rows  */
             /*-------------------- mesmo algoritmo, mas transferido para o caso da lista encadeada */
             node_i = U->linhas[k]->head;
+            j = 0;
             while (node_i != NULL) {
                 col = node_i->coluna-1;
                 it  = ulvl[k][j] + levls[jpiv] + 1;
 
-                if(it > p) continue;
+                if(it > p) {
+                    node_i = node_i->nextRight;
+                    continue;
+                }
 
 				ip  = iw[col];
                 if (ip == -1) {
@@ -553,6 +575,9 @@ void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
                 else {
                     levls[ip] = min(levls[ip], it);
                 }
+
+                node_i = node_i->nextRight;
+                j++;
             }
 		}   /* end - while loop */
 		/*-------------------- reset iw */
@@ -572,6 +597,7 @@ void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
 	/*-------------------- free temp space and leave --*/
 	free(levls);
 	free(jbuf);
+    free(iw);
 	for(i = 0; i < n-1; i++)
 	{
 		if (U->linhas[i]->size)

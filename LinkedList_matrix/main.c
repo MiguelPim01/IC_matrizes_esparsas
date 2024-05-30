@@ -47,12 +47,24 @@ int main(int argc, char *argv[])
     Matriz *m = matriz_read_mtx(argv[1]);
 
     int n = matriz_get_ordem(m);
-    int p = 0;
+    int p = 1;
 
     Matriz *L = matriz_construct(n, n, 0);
     Matriz *U = matriz_construct(n, n, 0);
 
     ilup(m, L, U, p);
+
+    printf("Matriz A:\n");
+    matriz_print_esparso(m);
+    printf("\n");
+
+    printf("Matriz L:\n");
+    matriz_print_esparso(L);
+    printf("\n");
+
+    printf("Matriz U:\n");
+    matriz_print_esparso(U);
+    printf("\n");
 
     matriz_destroy(m);
     matriz_destroy(L);
