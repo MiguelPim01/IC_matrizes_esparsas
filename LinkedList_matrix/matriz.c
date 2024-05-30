@@ -338,7 +338,175 @@ void matriz_destroy(Matriz *m)
     free(m);
 }
 
+/* -------------- ILU FUNCTIONS -------------- */
+
+/**
+ * Nodes são sempre adicionados no sentido da linha
+ * 
+ * @param m Matriz a ser preenchida
+ * 
+ * @param n Node a ser adicionado
+*/
+void _matrix_add_node(Matriz *m, Node *n)
+{
+
+}
+
+/**
+ * Nodes são adicionados a matriz em qualquer lugar
+ * 
+ * @param m Matriz a ser preenchida
+ * 
+ * @param n Node a ser adicionado
+*/
+void _matrix_add_node_fill_part(Matriz *m, Node *n)
+{
+
+}
+
+void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
+{
+    int n = m->qtdLinhas;
+	int* levls = NULL;
+	int* jbuf  = NULL;
+	int* iw;
+	int** ulvl;
+
+	int i, j, k, col, ip, it, jpiv;
+	int incl, incu, jmin, kmin;
+
+    Node *node_i = NULL;
+    Node *new_node = NULL;
+  
+	levls = (int*)  malloc(n*sizeof(int));
+	jbuf  = (int*)  malloc(n*sizeof(int)); 
+	ulvl  = (int**) malloc(n*sizeof(int*));
+    iw    = (int*)  malloc(n*sizeof(int));
+
+    /**
+     * Toda vez que houver um preenchimento no vetor jbuf um novo node é criado
+     * 
+     */
+
+	/* initilize iw */
+	for(j = 0; j < n; j++) iw[j] = -1;
+
+	for(i = 0; i < n; i++) 
+	{
+		incl = 0;
+		incu = i; 
+		/*-------------------- assign lof = 0 for matrix elements */
+        /*-------------------- mesmo algoritmo, mas transferido para o caso da lista encadeada */
+        node_i = m->linhas[i]->head;
+        while (node_i != NULL) {
+            col = node_i->coluna-1;
+
+            if (col < i) {
+                /*-------------------- L-part  */
+                new_node = _node_construct(i+1, col+1, 0, NULL, NULL);
+                _matrix_add_node(L, new_node);
+
+				jbuf[incl]  = col;
+				levls[incl] = 0;
+				iw[col]     = incl++;
+            }
+            else if (col > i) {
+                /*-------------------- U-part  */
+                new_node = _node_construct(i+1, col+1, 0, NULL, NULL);
+                _matrix_add_node(U, new_node);
+
+				jbuf[incu]  = col;
+				levls[incu] = 0;
+				iw[col]     = incu++;
+            }
+        }
+		/*-------------------- symbolic k,i,j Gaussian elimination  */ 
+		jpiv = -1; 
+		while (++jpiv < incl)
+		{
+			k = jbuf[jpiv] ; 
+			/*-------------------- select leftmost pivot */
+			kmin = k;
+			jmin = jpiv; 
+			for(j = jpiv + 1; j< incl; j++)
+			{
+				if(jbuf[j] < kmin)
+				{
+					kmin = jbuf[j];
+					jmin = j;
+				}
+			}
+			/*-------------------- swap  */  
+			if(jmin != jpiv)
+			{
+				jbuf[jpiv]  = kmin; 
+				jbuf[jmin]  = k; 
+				iw[kmin]    = jpiv;
+				iw[k]       = jmin; 
+				j           = levls[jpiv] ;
+				levls[jpiv] = levls[jmin];
+				levls[jmin] = j;
+				k           = kmin; 
+			}
+			/*-------------------- symbolic linear combinaiton of rows  */
+            /*-------------------- mesmo algoritmo, mas transferido para o caso da lista encadeada */
+            node_i = U->linhas[k]->head;
+            while (node_i != NULL) {
+                col = node_i->coluna-1;
+                it  = ulvl[k][j] + levls[jpiv] + 1;
+
+                if(it > p) continue;
+
+				ip  = iw[col];
+                if (ip == -1) {
+                    if (col < i) {
+                        new_node = _node_construct(i+1, col+1, 0, NULL, NULL);
+                        _matrix_add_node_fill_part(L, new_node);
+
+                        jbuf[incl]  = col;
+                        levls[incl] = it;
+                        iw[col]     = incl++;
+                    } 
+                    else if (col > i) {
+                        new_node = _node_construct(i+1, col+1, 0, NULL, NULL);
+                        _matrix_add_node_fill_part(U, new_node);
+
+                        jbuf[incu]  = col;
+                        levls[incu] = it;
+                        iw[col]     = incu++;
+                    }
+                }
+                else {
+                    levls[ip] = min(levls[ip], it);
+                }
+            }
+		}   /* end - while loop */
+		/*-------------------- reset iw */
+		for(j = 0; j < incl; j++) iw[jbuf[j]] = -1;
+		for(j = i; j < incu; j++) iw[jbuf[j]] = -1;
+		
+		/*-------------------- copy U - part        */ 
+		k = incu-i;
+		if( k > 0 )
+		{
+			/*-------------------- update matrix of levels */
+			ulvl[i]  = (int *) malloc(k*sizeof(int)); 
+			memcpy(ulvl[i], levls+i, k*sizeof(int));
+		}
+	}
+  
+	/*-------------------- free temp space and leave --*/
+	free(levls);
+	free(jbuf);
+	for(i = 0; i < n-1; i++)
+	{
+		if (U->linhas[i]->size)
+			free(ulvl[i]) ; 
+	}
+	free(ulvl);
+}
+
 void ilup(Matriz *m, Matriz *L, Matriz *U, int p)
 {
-    
+    ilup_setup(m, L, U, p);
 }
