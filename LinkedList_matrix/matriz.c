@@ -298,6 +298,11 @@ Matriz *matriz_read_mtx(char *filePath)
     return m;
 }
 
+int matriz_get_ordem(Matriz *m)
+{
+    return m->qtdLinhas;
+}
+
 // Printa a matriz andando no sentido das linhas
 //
 void matriz_print_esparso(Matriz *m)

@@ -22,6 +22,8 @@ Vetor *matriz_multiply_by_vector(Matriz *m, Vetor *v);
 
 Matriz *matriz_read_mtx(char *filePath);
 
+int matriz_get_ordem(Matriz *m);
+
 void matriz_print_esparso(Matriz *m);
 
 void matriz_destroy(Matriz *m);
