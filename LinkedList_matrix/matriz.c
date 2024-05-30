@@ -346,20 +346,54 @@ void matriz_destroy(Matriz *m)
  * @param m Matriz a ser preenchida
  * 
  * @param n Node a ser adicionado
+ * 
+ * @param i index da linha
+ * 
+ * @param j index da coluna
 */
-void _matrix_add_node(Matriz *m, Node *n)
+void _matrix_add_node(Matriz *m, Node *n, int i, int j)
 {
+    LinkedList *line = m->linhas[i];
+    LinkedList *column = m->colunas[j];
 
+    Node *node_i = line->tail;
+    Node *node_j = column->tail;
+
+    /* ---------- Insere no final da linha i */
+    if (node_i == NULL) {
+        line->head = n;
+        line->tail = n;
+    }
+    else {
+        line->tail = n;
+        node_i->nextRight = n;
+    }
+    line->size++;
+
+    /* ---------- Insere no final da coluna j */
+    if (node_j == NULL) {
+        column->head = n;
+        column->tail = n;
+    }
+    else {
+        column->tail = n;
+        node_j->nextRight = n;
+    }
+    column->size++;
 }
 
 /**
- * Nodes são adicionados a matriz em qualquer lugar
+ * Nodes são adicionados na ultima linha da iteração atual, podem existir nodes a direita de onde será inserido
  * 
  * @param m Matriz a ser preenchida
  * 
  * @param n Node a ser adicionado
+ * 
+ * @param i index da linha
+ * 
+ * @param j index da coluna
 */
-void _matrix_add_node_fill_part(Matriz *m, Node *n)
+void _matrix_add_node_fill_part(Matriz *m, Node *n, int i, int j)
 {
 
 }
@@ -404,7 +438,7 @@ void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
             if (col < i) {
                 /*-------------------- L-part  */
                 new_node = _node_construct(i+1, col+1, 0, NULL, NULL);
-                _matrix_add_node(L, new_node);
+                _matrix_add_node(L, new_node, i, col);
 
 				jbuf[incl]  = col;
 				levls[incl] = 0;
@@ -413,7 +447,7 @@ void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
             else if (col > i) {
                 /*-------------------- U-part  */
                 new_node = _node_construct(i+1, col+1, 0, NULL, NULL);
-                _matrix_add_node(U, new_node);
+                _matrix_add_node(U, new_node, i, col);
 
 				jbuf[incu]  = col;
 				levls[incu] = 0;
