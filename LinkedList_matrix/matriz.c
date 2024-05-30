@@ -395,7 +395,42 @@ void _matrix_add_node(Matriz *m, Node *n, int i, int j)
 */
 void _matrix_add_node_fill_part(Matriz *m, Node *n, int i, int j)
 {
+    LinkedList *line = m->linhas[i];
+    LinkedList *column = m->colunas[j];
 
+    Node *node_i = line->head, *new_node_pos = NULL;
+    Node *node_j = column->tail;
+
+    if (node_j == NULL) {
+        column->head = n;
+        column->tail = n;
+    }
+    else {
+        column->tail = n;
+        node_j->nextRight = n;
+    }
+    column->size++;
+
+    /* --------- Acha o node que logo após ele o n deverá ser inserido */
+    while (node_i != NULL) {
+        if (n->coluna-1 < j) {
+            new_node_pos = node_i;
+            node_i = node_i->nextRight;
+        }
+        else {
+            break;
+        }
+    }
+
+    if (node_i == NULL) {
+        new_node_pos->nextRight = n;
+        line->tail = n;
+    }
+    else {
+        new_node_pos->nextRight = n;
+        n->nextRight = node_i;
+    }
+    line->size++;
 }
 
 void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
@@ -495,7 +530,7 @@ void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
                 if (ip == -1) {
                     if (col < i) {
                         new_node = _node_construct(i+1, col+1, 0, NULL, NULL);
-                        _matrix_add_node_fill_part(L, new_node);
+                        _matrix_add_node_fill_part(L, new_node, i, col);
 
                         jbuf[incl]  = col;
                         levls[incl] = it;
@@ -503,7 +538,7 @@ void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
                     } 
                     else if (col > i) {
                         new_node = _node_construct(i+1, col+1, 0, NULL, NULL);
-                        _matrix_add_node_fill_part(U, new_node);
+                        _matrix_add_node_fill_part(U, new_node, i, col);
 
                         jbuf[incu]  = col;
                         levls[incu] = it;
