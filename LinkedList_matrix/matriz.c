@@ -694,6 +694,121 @@ void ilup(Matriz *m, Matriz *L, Matriz *U, int p)
 {
     ilup_setup(m, L, U, p);
 
-    _alloc_L_diagonal(L);
-    _alloc_U_diagonal(U);
+    int n = m->qtdLinhas;
+    int col, jrow;
+    float *D;
+
+    Node **jw, *jpos;
+
+    Node *node_i = NULL, *node_k = NULL;
+
+    jw = (Node **) calloc(n, sizeof(Node *));
+    D  = (float *) malloc(n * sizeof(int));
+	
+    for (int i = 0; i < n; i++) {
+
+        node_i = L->linhas[i]->head;
+        while (node_i != NULL) {
+            /* -------- initialize L part */
+            col = node_i->coluna-1;
+            jw[col] = node_i;
+
+            node_i = node_i->nextRight;
+        }
+
+        D[i] = 0;
+
+        node_i = U->linhas[i]->head;
+        while (node_i != NULL) {
+            /* -------- initialize U part */
+            col = node_i->coluna-1;
+            jw[col] = node_i;
+
+            node_i = node_i->nextRight;
+        }
+
+        /* -------- copia linha da matriz m para L e U */
+        node_i = m->linhas[i]->head;
+        while (node_i != NULL) {
+            col = node_i->coluna-1;
+
+            if (col == i) {
+                D[i] = node_i->valor;
+            }
+            else {
+                jpos = jw[col];
+                jpos->valor = node_i->valor;
+            }
+
+            node_i = node_i->nextRight;
+        }
+
+        node_i = L->linhas[i]->head;
+        while (node_i != NULL) {
+            jrow = node_i->coluna-1;
+
+            node_i->valor *= D[jrow];
+
+            node_k = U->linhas[jrow]->head;
+            while (node_k != NULL) {
+                col = node_k->coluna-1;
+                jpos = jw[col];
+
+                if (col == i) {
+                    D[i] -= node_i->valor * node_k->valor;
+                    node_k = node_k->nextRight;
+                    continue;
+                }
+                if (jpos == NULL) {
+                    node_k = node_k->nextRight;
+                    continue;
+                }
+
+                if (col < i) {
+                    jpos->valor -= node_i->valor * node_k->valor;
+                }
+                else {
+                    jpos->valor -= node_i->valor * node_k->valor;
+                }
+
+                node_k = node_k->nextRight;
+            }
+
+            node_i = node_i->nextRight;
+        }
+
+        /* reseta os valores do array jw para NULL */
+        node_i = L->linhas[i]->head;
+        while (node_i != NULL) {
+            col = node_i->coluna-1;
+            jw[col] = NULL;
+
+            node_i = node_i->nextRight;
+        }
+
+        node_i = U->linhas[i]->head;
+        while (node_i != NULL) {
+            col = node_i->coluna-1;
+            jw[col] = NULL;
+
+            node_i = node_i->nextRight;
+        }
+
+        if(D[i] == 0)
+		{
+            matriz_destroy(L);
+            matriz_destroy(U);
+			matriz_destroy(m);
+            free(jw);
+            free(D);
+
+			printf( "fatal error: Zero diagonal found...\n" );
+			exit(1);
+		}
+		D[i] = 1.0 / D[i];
+
+    }
+
+    free(jw);
+    free(D);
 }

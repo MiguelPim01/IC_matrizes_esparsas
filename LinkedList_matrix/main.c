@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
     Matriz *m = matriz_read_mtx(argv[1]);
 
     int n = matriz_get_ordem(m);
-    int p = 1;
+    int p = 0;
 
     Matriz *L = matriz_construct(n, n, 0);
     Matriz *U = matriz_construct(n, n, 0);
