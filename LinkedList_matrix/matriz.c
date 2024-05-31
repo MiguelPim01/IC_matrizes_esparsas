@@ -499,9 +499,45 @@ void _alloc_U_diagonal(Matriz *U)
 {
     int n = U->qtdLinhas;
 
+    Node *new_node = NULL, *tail = NULL;
 
+    LinkedList *line = NULL, *column = NULL;
+
+    for (int i = 0; i < n; i++) {
+
+        line = U->linhas[i];
+        column = U->colunas[i];
+
+        new_node = _node_construct(i+1, i+1, 0, line->head, NULL);
+
+        line->head = new_node;
+        line->size++;
+
+        tail = column->tail;
+
+        if (tail == NULL) {
+            column->head = new_node;
+        }
+        else {
+            tail->nextDown = new_node;
+        }
+
+        column->tail = new_node;
+        column->size++;
+    }
 }
 
+/**
+ * Realiza as previsões de preenchimento da decomposição LU incompleta com nive de preenchimento p
+ * 
+ * @param m Matriz a ser decomposta
+ * 
+ * @param L Matriz diagonal inferior da decomposição
+ * 
+ * @param U Matriz diagonal superior da decomposição
+ * 
+ * @param p Nível de preenchimento da decomposição
+*/
 void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
 {
     int n = m->qtdLinhas;
@@ -659,4 +695,5 @@ void ilup(Matriz *m, Matriz *L, Matriz *U, int p)
     ilup_setup(m, L, U, p);
 
     _alloc_L_diagonal(L);
+    _alloc_U_diagonal(U);
 }
