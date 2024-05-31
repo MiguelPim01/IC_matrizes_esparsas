@@ -454,6 +454,54 @@ void _matrix_add_node_fill_part(Matriz *m, Node *n, int i, int j)
     line->size++;
 }
 
+/**
+ * Aloca uma diagonal para a matriz L com valor igual a 1 para todos os nodes
+ * 
+ * @param L matriz L
+*/
+void _alloc_L_diagonal(Matriz *L)
+{
+    int n = L->qtdLinhas;
+    Node *new_node = NULL, *tail = NULL;
+
+    LinkedList *column = NULL, *line = NULL;
+
+    for (int i = 0; i < n; i++) {
+
+        column = L->colunas[i];
+        line = L->linhas[i];
+
+        new_node = _node_construct(i+1, i+1, 1, NULL, column->head);
+
+        column->head = new_node;
+        column->size++;
+
+        tail = line->tail;
+
+        if (tail == NULL) {
+            line->head = new_node;
+        }
+        else {
+            tail->nextRight = new_node;
+        }
+        
+        line->tail = new_node;
+        line->size++;
+    }
+}
+
+/**
+ * Aloca uma diagonal para a matriz U com valor igual a 0
+ * 
+ * @param U matriz U
+*/
+void _alloc_U_diagonal(Matriz *U)
+{
+    int n = U->qtdLinhas;
+
+
+}
+
 void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
 {
     int n = m->qtdLinhas;
@@ -609,4 +657,6 @@ void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
 void ilup(Matriz *m, Matriz *L, Matriz *U, int p)
 {
     ilup_setup(m, L, U, p);
+
+    _alloc_L_diagonal(L);
 }
