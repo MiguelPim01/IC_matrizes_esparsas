@@ -494,8 +494,10 @@ void _alloc_L_diagonal(Matriz *L)
  * Aloca uma diagonal para a matriz U com valor igual a 0
  * 
  * @param U matriz U
+ * 
+ * @param D diagonal produzida pela ilup
 */
-void _alloc_U_diagonal(Matriz *U)
+void _alloc_U_diagonal(Matriz *U, float *D)
 {
     int n = U->qtdLinhas;
 
@@ -508,7 +510,7 @@ void _alloc_U_diagonal(Matriz *U)
         line = U->linhas[i];
         column = U->colunas[i];
 
-        new_node = _node_construct(i+1, i+1, 0, line->head, NULL);
+        new_node = _node_construct(i+1, i+1, 1/D[i], line->head, NULL);
 
         line->head = new_node;
         line->size++;
@@ -808,6 +810,9 @@ void ilup(Matriz *m, Matriz *L, Matriz *U, int p)
 		D[i] = 1.0 / D[i];
 
     }
+
+    _alloc_L_diagonal(L);
+    _alloc_U_diagonal(U, D);
 
     free(jw);
     free(D);
