@@ -11,11 +11,6 @@ int main(int argc, char *argv[])
 
     Matriz *m = matriz_read_mtx(argv[1]);
 
-    printf("MATRIZ (A):\n");
-    matriz_print_esparso(m);
-    printf("\n");
-
-
     SparMAT *mat = (SparMAT *)malloc(sizeof(SparMAT));
     CSR_to_SparMAT(m, mat);
 
@@ -29,7 +24,10 @@ int main(int argc, char *argv[])
     Matriz *L = matriz_build(), *U = matriz_build();
 
     SparILU_to_CSR(lu, L, U);
-
+    
+    printf("MATRIZ (A):\n");
+    matriz_print_esparso(m);
+    printf("\n");
     printf("MATRIZ (L):\n");
     matriz_print_esparso(L);
     printf("\n");

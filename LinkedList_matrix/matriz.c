@@ -491,7 +491,7 @@ void _alloc_L_diagonal(Matriz *L)
 }
 
 /**
- * Aloca uma diagonal para a matriz U com valor igual a 0
+ * Aloca uma diagonal para a matriz U com valor igual ao da diagonal
  * 
  * @param U matriz U
  * 
