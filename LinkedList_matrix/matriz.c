@@ -12,7 +12,7 @@ struct Vetor {
 };
 
 struct Node {
-    float valor;
+    double valor;
     int linha;
     int coluna;
     Node *nextRight;
@@ -201,7 +201,7 @@ Vetor *matriz_multiply_by_vector(Matriz *m, Vetor *v)
 
 // Essa função é para a inserção de um valor especificamente para o caso da leitura do arquivo .mtx
 //
-void matriz_add_value(Matriz *m, int linha, int coluna, float valor)
+void matriz_add_value(Matriz *m, int linha, int coluna, double valor)
 {
     LinkedList *lin_list = m->linhas[linha-1];
     LinkedList *col_list = m->colunas[coluna-1];
@@ -275,7 +275,7 @@ Matriz *matriz_read_mtx(char *filePath)
     Matriz *m = matriz_construct(qtdLinhas, qtdColunas, qtd_nnz);
 
     int lin, col;
-    float valor;
+    double valor;
 
     while (fread(&c, sizeof(char), 1, file) == 1) // fase 3: Ler os valores da matriz
     {
@@ -286,7 +286,7 @@ Matriz *matriz_read_mtx(char *filePath)
 
         if (flag)
         {
-            sscanf(linha, "%d %d %f", &lin, &col, &valor);
+            sscanf(linha, "%d %d %lf", &lin, &col, &valor);
 
             matriz_add_value(m, lin, col, valor);
             flag = 0;
@@ -324,7 +324,7 @@ void matriz_print_esparso(Matriz *m)
 
         while (curr_node != NULL)
         {
-            printf("(%d, %d): %.4f\n", curr_node->linha, curr_node->coluna, curr_node->valor);
+            printf("(%d, %d): %.4lf\n", curr_node->linha, curr_node->coluna, curr_node->valor);
             curr_node = curr_node->nextRight;
         }
     }
@@ -428,8 +428,11 @@ void _matrix_add_node_fill_part(Matriz *m, Node *n, int i, int j)
             break;
         }
 
+        // printf("%d ", node_i->coluna);
+
         node_i = node_i->nextRight;
     }
+    // printf("\n");
 
     if (node_i == NULL) {
         if (new_node_pos == NULL) {
@@ -497,7 +500,7 @@ void _alloc_L_diagonal(Matriz *L)
  * 
  * @param D diagonal produzida pela ilup
 */
-void _alloc_U_diagonal(Matriz *U, float *D)
+void _alloc_U_diagonal(Matriz *U, double *D)
 {
     int n = U->qtdLinhas;
 
@@ -698,14 +701,18 @@ void ilup(Matriz *m, Matriz *L, Matriz *U, int p)
 
     int n = m->qtdLinhas;
     int col, jrow;
-    float *D;
+    double *D;
 
     Node **jw, *jpos;
 
     Node *node_i = NULL, *node_k = NULL;
 
-    jw = (Node **) calloc(n, sizeof(Node *));
-    D  = (float *) malloc(n * sizeof(int));
+    jw = (Node **)  malloc(n * sizeof(Node *));
+    D  = (double *) malloc(n * sizeof(double));
+
+    for (int i = 0; i < n; i++) {
+        jw[i] = NULL;
+    }
 	
     for (int i = 0; i < n; i++) {
 
@@ -756,22 +763,31 @@ void ilup(Matriz *m, Matriz *L, Matriz *U, int p)
                 col = node_k->coluna-1;
                 jpos = jw[col];
 
-                if (col == i) {
-                    D[i] -= node_i->valor * node_k->valor;
-                    node_k = node_k->nextRight;
-                    continue;
-                }
                 if (jpos == NULL) {
-                    node_k = node_k->nextRight;
-                    continue;
-                }
-
-                if (col < i) {
-                    jpos->valor -= node_i->valor * node_k->valor;
+                    if (col == i) {
+                        D[i] -= node_i->valor * node_k->valor;
+                    }
                 }
                 else {
                     jpos->valor -= node_i->valor * node_k->valor;
                 }
+
+                // if (col == i) {
+                //     D[i] -= node_i->valor * node_k->valor;
+                //     node_k = node_k->nextRight;
+                //     continue;
+                // }
+                // if (jpos == NULL) {
+                //     node_k = node_k->nextRight;
+                //     continue;
+                // }
+
+                // if (col < i) {
+                //     jpos->valor -= node_i->valor * node_k->valor;
+                // }
+                // else {
+                //     jpos->valor -= node_i->valor * node_k->valor;
+                // }
 
                 node_k = node_k->nextRight;
             }
@@ -808,7 +824,6 @@ void ilup(Matriz *m, Matriz *L, Matriz *U, int p)
 			exit(1);
 		}
 		D[i] = 1.0 / D[i];
-
     }
 
     _alloc_L_diagonal(L);

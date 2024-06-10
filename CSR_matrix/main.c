@@ -9,6 +9,8 @@ int main(int argc, char *argv[])
     if (argc < 2)
         exit(printf("Argumentos insuficientes!\n"));
 
+    clock_t start, end;
+
     Matriz *m = matriz_read_mtx(argv[1]);
 
     SparMAT *mat = (SparMAT *)malloc(sizeof(SparMAT));
@@ -19,7 +21,9 @@ int main(int argc, char *argv[])
     SparILU *lu = (SparILU *)malloc(sizeof(SparILU));
     SPARILU_setup(lu, n);
 
+    start = clock();
     ilup(mat, lu, 1);
+    end = clock();
 
     Matriz *L = matriz_build(), *U = matriz_build();
 
@@ -34,6 +38,8 @@ int main(int argc, char *argv[])
     printf("MATRIZ (U):\n");
     matriz_print_esparso(U);
     printf("\n");
+
+    printf("%.4lf\n", (double)(end - start)/CLOCKS_PER_SEC);
 
     matriz_destroy(L);
     matriz_destroy(U);
