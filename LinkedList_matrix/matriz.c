@@ -428,11 +428,8 @@ void _matrix_add_node_fill_part(Matriz *m, Node *n, int i, int j)
             break;
         }
 
-        // printf("%d ", node_i->coluna);
-
         node_i = node_i->nextRight;
     }
-    // printf("\n");
 
     if (node_i == NULL) {
         if (new_node_pos == NULL) {
@@ -642,11 +639,15 @@ void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
                     continue;
                 }
 
+                // printf("i=%d/(%d, %d) -- incl = %d, jpiv = %d\n", i, node_i->linha-1, col, incl, jpiv);
+
 				ip  = iw[col];
                 if (ip == -1) {
                     if (col < i) {
                         new_node = _node_construct(i+1, col+1, 0, NULL, NULL);
                         _matrix_add_node_fill_part(L, new_node, i, col);
+
+                        // printf("\t preenchimento L (%d, %d)\n", i+1, col+1);
 
                         jbuf[incl]  = col;
                         levls[incl] = it;
@@ -655,6 +656,8 @@ void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
                     else if (col > i) {
                         new_node = _node_construct(i+1, col+1, 0, NULL, NULL);
                         _matrix_add_node_fill_part(U, new_node, i, col);
+
+                        // printf("\t preenchimento U (%d, %d)\n", i+1, col+1);
 
                         jbuf[incu]  = col;
                         levls[incu] = it;
@@ -698,6 +701,8 @@ void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
 void ilup(Matriz *m, Matriz *L, Matriz *U, int p)
 {
     ilup_setup(m, L, U, p);
+
+    printf("Fatoração finalizada\n");
 
     int n = m->qtdLinhas;
     int col, jrow;

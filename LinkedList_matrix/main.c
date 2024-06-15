@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     // matriz_destroy(m);
     // vector_destroy(v);
 
-    if (argc < 2) {
+    if (argc < 3) {
         exit(printf("ERRO: Argumentos insuficientes!\n"));
     }
 
@@ -49,7 +49,9 @@ int main(int argc, char *argv[])
     Matriz *m = matriz_read_mtx(argv[1]);
 
     int n = matriz_get_ordem(m);
-    int p = 2;
+    int p;
+
+    sscanf(argv[2], "%d", &p);
 
     Matriz *L = matriz_construct(n, n, 0);
     Matriz *U = matriz_construct(n, n, 0);
@@ -58,17 +60,17 @@ int main(int argc, char *argv[])
     ilup(m, L, U, p);
     end = clock();
 
-    printf("Matriz A:\n");
-    matriz_print_esparso(m);
-    printf("\n");
+    // printf("Matriz A:\n");
+    // matriz_print_esparso(m);
+    // printf("\n");
 
-    printf("Matriz L:\n");
-    matriz_print_esparso(L);
-    printf("\n");
+    // printf("Matriz L:\n");
+    // matriz_print_esparso(L);
+    // printf("\n");
 
-    printf("Matriz U:\n");
-    matriz_print_esparso(U);
-    printf("\n");
+    // printf("Matriz U:\n");
+    // matriz_print_esparso(U);
+    // printf("\n");
 
     printf("%.4lf\n", (double)(end - start)/CLOCKS_PER_SEC);
 
