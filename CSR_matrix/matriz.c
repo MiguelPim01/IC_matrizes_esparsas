@@ -617,8 +617,6 @@ void ilup(SparMAT *m, SparILU *lu, int p)
 {
 	ilup_setup(m, lu, p);
 
-	printf("setup finalizado\n");
-
     int n = m->n;
 	int* jw, i, j, k, col, jpos, jrow;
 	SparMAT* L;

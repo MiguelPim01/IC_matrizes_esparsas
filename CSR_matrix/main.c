@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
     // matriz_print_esparso(U);
     // printf("\n");
 
-    printf("%.4lf\n", (double)(end - start)/CLOCKS_PER_SEC);
+    printf("%.6lf", (double)(end - start)/CLOCKS_PER_SEC);
 
     matriz_destroy(L);
     matriz_destroy(U);

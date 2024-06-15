@@ -702,8 +702,6 @@ void ilup(Matriz *m, Matriz *L, Matriz *U, int p)
 {
     ilup_setup(m, L, U, p);
 
-    printf("Fatoração finalizada\n");
-
     int n = m->qtdLinhas;
     int col, jrow;
     double *D;
