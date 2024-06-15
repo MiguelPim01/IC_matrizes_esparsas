@@ -7,7 +7,7 @@
 int main(int argc, char *argv[])
 {
     if (argc < 3)
-        exit(printf("Argumentos insuficientes!\n"));
+        exit(printf("Argumentos insuficientes!\nRUN: ./main <matriz> <nivel_preenchimento>\n"));
 
     clock_t start, end;
 

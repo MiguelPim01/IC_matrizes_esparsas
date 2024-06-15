@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     // vector_destroy(v);
 
     if (argc < 3) {
-        exit(printf("ERRO: Argumentos insuficientes!\n"));
+        exit(printf("ERRO: Argumentos insuficientes!\nRUN: ./main <matriz> <nivel_preenchimento>\n"));
     }
 
     clock_t start, end;
