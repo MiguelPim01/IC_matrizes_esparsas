@@ -52,3 +52,5 @@ for i in fill_ins:
 
     # Salvar o DataFrame em uma planilha (por exemplo, um arquivo CSV)
     df.to_csv(nome_arquivo, index=False, sep=',', float_format='%.6f')
+    
+    lista_result_geral.clear()
