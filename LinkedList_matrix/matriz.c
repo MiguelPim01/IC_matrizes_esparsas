@@ -551,6 +551,8 @@ void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
 	int i, j, k, col, ip, it, jpiv;
 	int incl, incu, jmin, kmin;
 
+    int qtd_preenchimento = 0;
+
     Node *node_i = NULL;
     Node *new_node = NULL;
   
@@ -636,6 +638,7 @@ void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
 
                 if(it > p) {
                     node_i = node_i->nextRight;
+                    j++;
                     continue;
                 }
 
@@ -643,6 +646,7 @@ void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
 
 				ip  = iw[col];
                 if (ip == -1) {
+                    qtd_preenchimento++;
                     if (col < i) {
                         new_node = _node_construct(i+1, col+1, 0, NULL, NULL);
                         _matrix_add_node_fill_part(L, new_node, i, col);
@@ -696,6 +700,8 @@ void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
 			free(ulvl[i]) ; 
 	}
 	free(ulvl);
+
+    printf("QUANTIDADE DE PREENCHIMENTO: %d\n", qtd_preenchimento);
 }
 
 void ilup(Matriz *m, Matriz *L, Matriz *U, int p)

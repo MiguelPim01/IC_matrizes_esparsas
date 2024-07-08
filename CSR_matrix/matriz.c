@@ -492,7 +492,9 @@ void ilup_setup(SparMAT *m, SparILU *lu, int p)
 	* iw       = work array
 	*------------------------------------------------------------------*/
 	int i, j, k, col, ip, it, jpiv;
-	int incl, incu, jmin, kmin; 
+	int incl, incu, jmin, kmin;
+
+	int qtd_preenchimento = 0;
   
 	levls = (int*)  malloc(n*sizeof(int));
 	jbuf  = (int*)  malloc(n*sizeof(int)); 
@@ -560,6 +562,7 @@ void ilup_setup(SparMAT *m, SparILU *lu, int p)
 				ip  = iw[col];
 				if( ip == -1 )
 				{
+					qtd_preenchimento++;
 					if(col < i)
 					{
 						jbuf[incl]  = col;
@@ -598,6 +601,8 @@ void ilup_setup(SparMAT *m, SparILU *lu, int p)
 			ulvl[i]  = (int *) malloc(k*sizeof(int)); 
 			memcpy(ulvl[i], levls+i, k*sizeof(int));
 		}
+
+		// printf("linha %02d\n", i);
 	}
   
 	/*-------------------- free temp space and leave --*/
@@ -608,7 +613,9 @@ void ilup_setup(SparMAT *m, SparILU *lu, int p)
 		if (U->nzcount[i])
 			free(ulvl[i]) ; 
 	}
-	free(ulvl); 
+	free(ulvl);
+
+	printf("QUANTIDADE DE PREENCHIMENTO: %d\n", qtd_preenchimento);
 
 	return;
 }
