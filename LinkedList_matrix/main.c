@@ -63,11 +63,9 @@ int main(int argc, char *argv[])
     // printf("Matriz A:\n");
     // matriz_print_esparso(m);
     // printf("\n");
-
     // printf("Matriz L:\n");
     // matriz_print_esparso(L);
     // printf("\n");
-
     // printf("Matriz U:\n");
     // matriz_print_esparso(U);
     // printf("\n");

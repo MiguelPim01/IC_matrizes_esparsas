@@ -99,7 +99,7 @@ void CSR_setup(Matriz *csr, int n, int nzcount)
 void CSR_to_SparMAT(Matriz *csr, SparMAT *mat)
 {
     int n = csr->qtdLinhas;
-    int tam_lin;
+    int tam_lin, prox_lin;
     int i, j, k;
 
     /*------------------------------------- SparMAT setup */
@@ -107,6 +107,12 @@ void CSR_to_SparMAT(Matriz *csr, SparMAT *mat)
     /*--------------------------------------------------- */
 
     for (i = 0; i < n; i++) {
+
+		j = i+1;
+		while (csr->ptr_linha[j] < 0) {
+			j++;
+		}
+		i = j-1;
 
         tam_lin = csr->ptr_linha[i+1] - csr->ptr_linha[i];
 
@@ -175,19 +181,6 @@ void SparMAT_to_CSR(SparMAT *mat, Matriz *csr, float *D, char c)
 			qtd_nnz += mat->nzcount[i]+1;
 		}
 	}
-
-	// for (i = 0; i < n; i++) {
-
-	// 	csr->ptr_linha[i] = qtd_nnz;
-
-	// 	for (k = 0, j = qtd_nnz+1; k < mat->nzcount[i]; k++, j++) {
-
-	// 		csr->valores[j].coluna = mat->ja[i][k]+1;
-	// 		csr->valores[j].valor  = mat->ma[i][k];
-	// 	}
-
-	// 	qtd_nnz += mat->nzcount[i];
-	// }
 
 	csr->ptr_linha[i] = qtd_nnz;
 }
@@ -526,7 +519,8 @@ void ilup_setup(SparMAT *m, SparILU *lu, int p)
 			} 
 		}
 		/*-------------------- symbolic k,i,j Gaussian elimination  */ 
-		jpiv = -1; 
+		jpiv = -1;
+		// printf("linha %d\n", i);
 		while (++jpiv < incl)
 		{
 			k = jbuf[jpiv] ; 
@@ -553,6 +547,12 @@ void ilup_setup(SparMAT *m, SparILU *lu, int p)
 				levls[jmin] = j;
 				k           = kmin; 
 			}
+
+			// for (int w = i+1; w < incu; w++) {
+			// 	printf("%d ", jbuf[w]);
+			// }
+			// printf("\n");
+
 			/*-------------------- symbolic linear combinaiton of rows  */
 			for(j = 0; j < U->nzcount[k]; j++)
 			{
