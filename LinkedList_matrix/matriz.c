@@ -265,7 +265,7 @@ Matriz *matriz_read_mtx(char *filePath)
 
         if (flag)
         {
-            sscanf(linha, "%d %d %d", &qtdLinhas, &qtdColunas, &qtd_nnz);
+            sscanf(linha, "%d %d %d", &qtdColunas, &qtdLinhas, &qtd_nnz);
             string_size = 0;
             flag = 0;
             break;
@@ -286,7 +286,7 @@ Matriz *matriz_read_mtx(char *filePath)
 
         if (flag)
         {
-            sscanf(linha, "%d %d %lf", &lin, &col, &valor);
+            sscanf(linha, "%d %d %lf", &col, &lin, &valor);
 
             matriz_add_value(m, lin, col, valor);
             flag = 0;
