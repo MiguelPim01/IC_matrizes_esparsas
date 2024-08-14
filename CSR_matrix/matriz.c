@@ -494,6 +494,28 @@ void ilup_setup(SparMAT *m, SparILU *lu, int p)
 	ulvl  = (int**) malloc(n*sizeof(int*));
 
 	/* initilize iw */
+	// ===================================================================================
+	// ANÁLISE DE COMPLEXIDADE DA LINHA 499 ATÉ 524
+	//
+	/**
+	 * Linha 519:
+	 *     - {n+1} operações (=), {n+1} comparações, {n} incrementos, {n} acessos a array
+	 * 
+	 * Linha 520:
+	 *     - {1} operação (=), {n+1} comparações, {n} incrementos
+	 * 
+	 * Linha 522 e 523:
+	 *     - {2n} operações (=)
+	 * 
+	 * Linha 525:
+	 *     - {n} operações (=), {nnz+n} comparações, {nnz} incrementos, {nnz+n} acessos a array
+	 * 
+	 * Linha 527:
+	 *     - {nnz} operações (=), {2nnz} acessos a array, {nnz} acessos a memória (pointer)
+	 * 
+	 * Linha 528 até 544:
+	 *     - {3nnz + n} operações (=), {2nnz} comparações, {nnz} incrementos, {3nnz} acessos a array
+	 */
 	for(j = 0; j < n; j++) iw[j] = -1;
 	for(i = 0; i < n; i++) 
 	{
@@ -520,7 +542,15 @@ void ilup_setup(SparMAT *m, SparILU *lu, int p)
 		}
 		/*-------------------- symbolic k,i,j Gaussian elimination  */ 
 		jpiv = -1;
-		// printf("linha %d\n", i);
+	/**
+	 * Total:
+	 *     - operações         = (5n + 4nnz + 2)
+	 *     - comparações       = (3n + 3nnz + 2)
+	 *     - incrementos       = (2n + 2nnz)
+	 *     - acessos a array   = (2n + 6nnz)
+	 *     - acessos a memória = nnz
+	 */
+	// ===================================================================================
 		while (++jpiv < incl)
 		{
 			k = jbuf[jpiv] ; 
