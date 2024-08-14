@@ -34,6 +34,7 @@ for arq in matrizes:
             lista_out.append(saida)
         
         print(f"Execuções terminadas {comando.split()[0].split('/')[0]} finalizado!")
+        print("-----------------------------------------------------------------------")
         
         lista_out.remove(min(lista_out))
         lista_out.remove(max(lista_out))
