@@ -701,7 +701,7 @@ void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
 	}
 	free(ulvl);
 
-    printf("QUANTIDADE DE PREENCHIMENTO: %d\n", qtd_preenchimento);
+    // printf("QUANTIDADE DE PREENCHIMENTO: %d\n", qtd_preenchimento);
 }
 
 void ilup(Matriz *m, Matriz *L, Matriz *U, int p)
