@@ -545,19 +545,29 @@ void ilup_setup(SparMAT *m, SparILU *lu, int p)
 	/**
 	 * Total:
 	 *     - operações         = (5n + 4nnz + 2)
-	 *     - comparações       = (3n + 3nnz + 2)
+	 *     - comparações       < (3n + 3nnz + 2)
 	 *     - incrementos       = (2n + 2nnz)
 	 *     - acessos a array   = (2n + 6nnz)
 	 *     - acessos a memória = nnz
 	 */
 	// ===================================================================================
+	// ANÁLISE DE COMPLEXIDADE DA LINHA 564 ATÉ 589
+	//
+	/**
+	 * Linha 564 até 569:
+	 *     - {3(nnz-n)/2} operações (=), {(nnz+n)/2} comparações, {(nnz+n)/2} incrementos, {(nnz-n)/2} acessos a array
+	 * 
+	 * Linha 570 até 577:
+	 *     - {(nnz-n)} operações (=), {} comparações, {} incrementos, {} acessos a array
+	 * 
+	*/
 		while (++jpiv < incl)
 		{
 			k = jbuf[jpiv] ; 
 			/*-------------------- select leftmost pivot */
 			kmin = k;
 			jmin = jpiv; 
-			for(j = jpiv + 1; j< incl; j++)
+			for(j = jpiv + 1; j < incl; j++)
 			{
 				if(jbuf[j] < kmin)
 				{
@@ -578,10 +588,15 @@ void ilup_setup(SparMAT *m, SparILU *lu, int p)
 				k           = kmin; 
 			}
 
-			// for (int w = i+1; w < incu; w++) {
-			// 	printf("%d ", jbuf[w]);
-			// }
-			// printf("\n");
+		/**
+		 * Total:
+		 *     - operações         = (n + nnz)
+		 *     - comparações       = (n + nnz)
+		 *     - incrementos       = (n + nnz)
+		 *     - acessos a array   = (n + nnz)
+		 *     - acessos a memória = ()
+		*/
+		// ===================================================================================
 
 			/*-------------------- symbolic linear combinaiton of rows  */
 			for(j = 0; j < U->nzcount[k]; j++)
