@@ -1,0 +1,433 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ps/call  ps/call  name    
+ 16.41     69.34    69.34                             ilup_setup (matriz.c:675 @ 244d)
+ 16.41    138.67    69.33                             ilup_setup (matriz.c:635 @ 2452)
+ 16.10    206.70    68.03                             ilup (matriz.c:773 @ 29db)
+ 12.41    259.12    52.41                             ilup (matriz.c:772 @ 29d5)
+  3.96    275.83    16.72                             ilup (matriz.c:771 @ 29d0)
+  3.69    291.44    15.61                             ilup (matriz.c:775 @ 29e2)
+  3.28    305.30    13.86                             ilup_setup (matriz.c:637 @ 245f)
+  2.60    316.27    10.97                             ilup (matriz.c:768 @ 29a9)
+  2.38    326.31    10.04                             ilup_setup (matriz.c:635 @ 2417)
+  2.33    336.16     9.85                             ilup_setup (matriz.c:633 @ 2409)
+  2.20    345.46     9.30                             _matrix_add_node_fill_part (matriz.c:424 @ 1f2f)
+  2.13    354.46     9.00                             ilup (matriz.c:781 @ 29b8)
+  1.53    360.92     6.45                             ilup_setup (matriz.c:636 @ 246f)
+  1.23    366.12     5.21                             _matrix_add_node_fill_part (matriz.c:410 @ 1f02)
+  1.23    371.32     5.20                             _matrix_add_node_fill_part (matriz.c:412 @ 1f06)
+  1.20    376.38     5.06                             ilup_setup (matriz.c:613 @ 23c8)
+  1.11    381.09     4.71                             ilup (matriz.c:770 @ 29a2)
+  0.95    385.08     4.00                             _matrix_add_node_fill_part (matriz.c:407 @ 1ef0)
+  0.94    389.06     3.98                             _matrix_add_node_fill_part (matriz.c:409 @ 1eff)
+  0.86    392.71     3.65                             ilup (matriz.c:768 @ 299a)
+  0.77    395.95     3.23                             ilup_setup (matriz.c:648 @ 248d)
+  0.56    398.30     2.35                             ilup (matriz.c:801 @ 29cc)
+  0.32    399.67     1.37                             ilup (matriz.c:777 @ 29eb)
+  0.30    400.93     1.25                             _matrix_add_node (matriz.c:368 @ 271f)
+  0.30    402.18     1.25                             ilup (matriz.c:776 @ 29e7)
+  0.28    403.35     1.17                             ilup (matriz.c:731 @ 2900)
+  0.23    404.32     0.97                             matriz_add_value (matriz.c:217 @ 1a64)
+  0.23    405.29     0.96                             _linked_list_destroy_lin (matriz.c:139 @ 1dd0)
+  0.23    406.25     0.96                             _node_destroy (matriz.c:116 @ 1dd7)
+  0.16    406.92     0.67                             _matrix_add_node (matriz.c:371 @ 2723)
+  0.14    407.50     0.59                             _matrix_add_node (matriz.c:371 @ 271c)
+  0.14    408.08     0.57                             _matrix_add_node_fill_part (matriz.c:420 @ 1f13)
+  0.13    408.65     0.57                             _matrix_add_node (matriz.c:368 @ 2322)
+  0.13    409.22     0.57                             _matrix_add_node (matriz.c:371 @ 2326)
+  0.13    409.77     0.56                             _matrix_add_node_fill_part (matriz.c:418 @ 1f0f)
+  0.13    410.31     0.53                             _matrix_add_node (matriz.c:365 @ 231a)
+  0.13    410.83     0.53                             _matrix_add_node (matriz.c:367 @ 231e)
+  0.12    411.36     0.53                             _matrix_add_node_fill_part (matriz.c:423 @ 1f24)
+  0.12    411.88     0.52                             ilup_setup (matriz.c:672 @ 2440)
+  0.10    412.31     0.43                             ilup (matriz.c:734 @ 290c)
+  0.09    412.70     0.39                             ilup_setup (matriz.c:620 @ 23de)
+  0.09    413.07     0.37                             ilup (matriz.c:729 @ 2910)
+  0.09    413.44     0.36                             _node_construct (matriz.c:108 @ 27cb)
+  0.09    413.80     0.36                             ilup_setup (matriz.c:652 @ 27cf)
+  0.08    414.15     0.35                             _matrix_add_node_fill_part (matriz.c:445 @ 1f34)
+  0.08    414.50     0.34                             ilup_setup (matriz.c:650 @ 2492)
+  0.08    414.82     0.33                             ilup_setup (matriz.c:635 @ 2531)
+  0.08    415.15     0.33                             ilup_setup (matriz.c:605 @ 2547)
+  0.07    415.45     0.30                             ilup_setup (matriz.c:587 @ 234c)
+  0.07    415.75     0.29                             ilup_setup (matriz.c:623 @ 23e3)
+  0.07    416.03     0.28                             ilup_setup (matriz.c:647 @ 247b)
+  0.06    416.27     0.24                             ilup (matriz.c:809 @ 2a35)
+  0.06    416.51     0.24                             ilup_setup (matriz.c:656 @ 27d7)
+  0.05    416.73     0.22                             ilup (matriz.c:765 @ 2a14)
+  0.05    416.93     0.20                             ilup_setup (matriz.c:611 @ 23d5)
+  0.05    417.12     0.20                             matriz_add_value (matriz.c:225 @ 1a72)
+  0.04    417.31     0.19                             ilup_setup (matriz.c:626 @ 23ea)
+  0.04    417.48     0.17                             _matrix_add_node_fill_part (matriz.c:405 @ 1ee9)
+  0.04    417.65     0.17                             ilup_setup (matriz.c:607 @ 23a8)
+  0.04    417.81     0.15                             _matrix_add_node (matriz.c:388 @ 2742)
+  0.04    417.96     0.15                             _node_construct (matriz.c:103 @ 1a1f)
+  0.04    418.12     0.15                             ilup_setup (matriz.c:662 @ 24e4)
+  0.04    418.27     0.15                             ilup_setup (matriz.c:596 @ 2746)
+  0.04    418.43     0.15                             matriz_add_value (matriz.c:207 @ 1a1a)
+  0.03    418.57     0.14                             fread (stdio2.h:293 @ 1be6)
+  0.03    418.71     0.14                             matriz_read_mtx (matriz.c:280 @ 1bfb)
+  0.03    418.86     0.14                             _node_construct (matriz.c:103 @ 2778)
+  0.03    418.98     0.12                             _init
+  0.03    419.10     0.12                             ilup (matriz.c:742 @ 2930)
+  0.03    419.21     0.12                             ilup_setup (matriz.c:680 @ 2570)
+  0.03    419.33     0.12                             matriz_add_value (matriz.c:224 @ 1a77)
+  0.02    419.44     0.10                             _matrix_add_node_fill_part (matriz.c:452 @ 1f3d)
+  0.02    419.54     0.10                             ilup (matriz.c:745 @ 293c)
+  0.02    419.63     0.10                             ilup_setup (matriz.c:622 @ 23e6)
+  0.02    419.74     0.10                             ilup_setup (matriz.c:639 @ 246a)
+  0.02    419.82     0.09                             ilup_setup (matriz.c:623 @ 23ee)
+  0.02    419.90     0.08                             ilup_setup (matriz.c:625 @ 23fa)
+  0.02    419.99     0.08                             matriz_add_value (matriz.c:220 @ 1a6e)
+  0.02    420.06     0.07                             ilup_setup (matriz.c:681 @ 258d)
+  0.01    420.12     0.06                             _matrix_add_node_fill_part (matriz.c:449 @ 1f39)
+  0.01    420.18     0.06                             _node_construct (matriz.c:105 @ 26f9)
+  0.01    420.24     0.06                             _node_construct (matriz.c:107 @ 27b9)
+  0.01    420.30     0.06                             ilup (matriz.c:737 @ 2919)
+  0.01    420.36     0.06                             ilup (matriz.c:740 @ 2940)
+  0.01    420.42     0.06                             ilup (matriz.c:813 @ 2a24)
+  0.01    420.47     0.06                             _matrix_add_node (matriz.c:390 @ 2367)
+  0.01    420.52     0.06                             ilup (matriz.c:751 @ 2958)
+  0.01    420.58     0.06                             ilup (matriz.c:754 @ 295b)
+  0.01    420.63     0.05                             _matrix_add_node (matriz.c:365 @ 270d)
+  0.01    420.68     0.05                             ilup (matriz.c:817 @ 2a55)
+  0.01    420.73     0.05                             ilup_setup (matriz.c:580 @ 22b3)
+  0.01    420.78     0.05                             ilup_setup (matriz.c:589 @ 2363)
+  0.01    420.83     0.05                             ilup_setup (matriz.c:627 @ 23fe)
+  0.01    420.88     0.05                             ilup_setup (matriz.c:657 @ 27f2)
+  0.01    420.93     0.05                             ilup_setup (matriz.c:656 @ 27f6)
+  0.01    420.98     0.05                             matriz_read_mtx (matriz.c:285 @ 1bd7)
+  0.01    421.03     0.05                             matriz_read_mtx (matriz.c:287 @ 1bdb)
+  0.01    421.08     0.05                             matriz_read_mtx (matriz.c:291 @ 1c60)
+  0.01    421.12     0.04                             ilup_setup (matriz.c:652 @ 27a3)
+  0.01    421.17     0.04                             _linked_list_destroy_lin (matriz.c:136 @ 1ddc)
+  0.01    421.20     0.04                             _matrix_add_node_fill_part (matriz.c:454 @ 1f41)
+  0.01    421.25     0.04                             _node_construct (matriz.c:106 @ 27c6)
+  0.01    421.29     0.04                             ilup_setup (matriz.c:611 @ 23c0)
+  0.01    421.32     0.04                             _alloc_U_diagonal (matriz.c:528 @ 20c4)
+  0.01    421.36     0.04                             _node_construct (matriz.c:105 @ 1a32)
+  0.01    421.38     0.03                             _matrix_add_node_fill_part (matriz.c:423 @ 1f17)
+  0.01    421.42     0.03                             ilup (matriz.c:740 @ 2924)
+  0.01    421.44     0.03                             ilup (matriz.c:758 @ 2970)
+  0.01    421.48     0.03                             ilup (matriz.c:771 @ 2a01)
+  0.01    421.50     0.03                             ilup_setup (matriz.c:624 @ 23f6)
+  0.01    421.54     0.03                             ilup_setup (matriz.c:628 @ 2400)
+  0.01    421.56     0.03                             ilup_setup (matriz.c:627 @ 2403)
+  0.01    421.60     0.03                             ilup_setup (matriz.c:635 @ 24a9)
+  0.01    421.62     0.03                             _matrix_add_node (matriz.c:390 @ 274a)
+  0.01    421.64     0.03                             _node_construct (matriz.c:108 @ 27a6)
+  0.01    421.67     0.03                             ilup (matriz.c:766 @ 2990)
+  0.01    421.69     0.03                             ilup (matriz.c:768 @ 2993)
+  0.01    421.72     0.03                             ilup_setup (matriz.c:578 @ 224c)
+  0.01    421.75     0.03                             ilup_setup (matriz.c:589 @ 236b)
+  0.01    421.77     0.03                             ilup_setup (matriz.c:596 @ 274e)
+  0.00    421.79     0.02                             _matrix_add_node (matriz.c:364 @ 22e1)
+  0.00    421.81     0.02                             _matrix_add_node (matriz.c:365 @ 230d)
+  0.00    421.83     0.02                             _matrix_add_node_fill_part (matriz.c:455 @ 1f46)
+  0.00    421.85     0.02                             _node_construct (matriz.c:107 @ 27a0)
+  0.00    421.87     0.02                             ilup (matriz.c:750 @ 2949)
+  0.00    421.89     0.02                             ilup (matriz.c:801 @ 29f3)
+  0.00    421.91     0.02                             ilup_setup (matriz.c:582 @ 22c2)
+  0.00    421.93     0.02                             ilup_setup (matriz.c:666 @ 24f9)
+  0.00    421.95     0.02                             ilup_setup (matriz.c:658 @ 27f9)
+  0.00    421.97     0.02                             matriz_read_mtx (matriz.c:289 @ 1c38)
+  0.00    421.99     0.02                             matriz_read_mtx (matriz.c:293 @ 1c7c)
+  0.00    422.00     0.01                             _alloc_U_diagonal (matriz.c:508 @ 20ca)
+  0.00    422.02     0.01                             _node_construct (matriz.c:108 @ 24eb)
+  0.00    422.04     0.01                             ilup (matriz.c:728 @ 28f0)
+  0.00    422.05     0.01                             ilup (matriz.c:729 @ 28f7)
+  0.00    422.06     0.01                             ilup (matriz.c:777 @ 29f7)
+  0.00    422.08     0.01                             ilup_setup (matriz.c:667 @ 2511)
+  0.00    422.09     0.01 156732670    63.80    63.80  _matrix_add_node_fill_part (matriz.c:405 @ 1ed0)
+  0.00    422.10     0.01 38259877   261.37   261.37  matriz_add_value (matriz.c:205 @ 19e0)
+  0.00    422.11     0.01                             _matrix_add_node (matriz.c:387 @ 2344)
+  0.00    422.12     0.01                             _matrix_add_node (matriz.c:364 @ 26d4)
+  0.00    422.13     0.01                             _matrix_add_node (matriz.c:365 @ 2718)
+  0.00    422.14     0.01                             _matrix_add_node (matriz.c:376 @ 2729)
+  0.00    422.15     0.01                             _matrix_add_node_fill_part (matriz.c:454 @ 1f64)
+  0.00    422.16     0.01                             _node_construct (matriz.c:106 @ 1a3a)
+  0.00    422.17     0.01                             _node_construct (matriz.c:106 @ 2130)
+  0.00    422.18     0.01                             _node_construct (matriz.c:106 @ 22ed)
+  0.00    422.19     0.01                             _node_construct (matriz.c:103 @ 24c1)
+  0.00    422.20     0.01                             _node_construct (matriz.c:106 @ 24ef)
+  0.00    422.21     0.01                             _node_construct (matriz.c:106 @ 26e7)
+  0.00    422.22     0.01                             _node_construct (matriz.c:106 @ 2704)
+  0.00    422.23     0.01                             ilup (matriz.c:750 @ 2950)
+  0.00    422.24     0.01                             ilup (matriz.c:753 @ 2962)
+  0.00    422.25     0.01                             ilup (matriz.c:750 @ 2978)
+  0.00    422.26     0.01                             ilup (matriz.c:821 @ 2a44)
+  0.00    422.27     0.01                             ilup (matriz.c:824 @ 2a5a)
+  0.00    422.28     0.01                             ilup (matriz.c:754 @ 2ab4)
+  0.00    422.29     0.01                             ilup_setup (matriz.c:579 @ 228c)
+  0.00    422.30     0.01                             ilup_setup (matriz.c:675 @ 2504)
+  0.00    422.31     0.01                             ilup_setup (matriz.c:668 @ 2521)
+  0.00    422.32     0.01                             ilup_setup (matriz.c:685 @ 25cc)
+  0.00    422.33     0.01                             ilup_setup (matriz.c:596 @ 275d)
+  0.00    422.34     0.01                             ilup_setup (matriz.c:598 @ 2761)
+  0.00    422.35     0.01                             ilup_setup (matriz.c:652 @ 27bc)
+  0.00    422.36     0.01                             matriz_add_value (matriz.c:206 @ 19f9)
+  0.00    422.37     0.01                             matriz_destroy (matriz.c:340 @ 1e09)
+  0.00    422.38     0.01                             matriz_read_mtx (matriz.c:280 @ 1bc9)
+  0.00    422.39     0.01                             memcpy (string_fortified.h:29 @ 2600)
+  0.00    422.39     0.01                             _matrix_add_node (matriz.c:364 @ 22fa)
+  0.00    422.40     0.01                             _node_construct (matriz.c:103 @ 22cc)
+  0.00    422.40     0.01                             _node_construct (matriz.c:107 @ 22de)
+  0.00    422.41     0.01                             _node_construct (matriz.c:107 @ 22f7)
+  0.00    422.42     0.01                             ilup (matriz.c:824 @ 297d)
+  0.00    422.42     0.01                             ilup (matriz.c:765 @ 2983)
+  0.00    422.43     0.01                             ilup_setup (matriz.c:579 @ 226b)
+  0.00    422.43     0.01                             ilup_setup (matriz.c:601 @ 22a6)
+  0.00    422.44     0.01                             ilup_setup (matriz.c:579 @ 22aa)
+  0.00    422.44     0.01                             ilup_setup (matriz.c:666 @ 251e)
+  0.00    422.44     0.01                             ilup_setup (matriz.c:684 @ 2584)
+  0.00    422.45     0.01                             ilup_setup (matriz.c:681 @ 2587)
+  0.00    422.45     0.01                             matriz_add_value (matriz.c:206 @ 1a09)
+  0.00    422.46     0.01                             matriz_add_value (matriz.c:207 @ 1a0e)
+  0.00    422.46     0.01                             matriz_add_value (matriz.c:209 @ 1a2e)
+  0.00    422.47     0.01                             matriz_add_value (matriz.c:219 @ 1a69)
+  0.00    422.48     0.01                             matriz_read_mtx (matriz.c:284 @ 1bdf)
+  0.00    422.48     0.01                             matriz_read_mtx (matriz.c:287 @ 1be2)
+  0.00    422.48     0.00        3     0.00     0.00  matriz_construct (matriz.c:155 @ 17f0)
+  0.00    422.48     0.00        3     0.00     0.00  matriz_destroy (matriz.c:334 @ 1d90)
+  0.00    422.48     0.00        1     0.00     0.00  _alloc_L_diagonal (matriz.c:463 @ 1f80)
+  0.00    422.48     0.00        1     0.00     0.00  _alloc_U_diagonal (matriz.c:501 @ 2070)
+  0.00    422.48     0.00        1     0.00     0.00  ilup (matriz.c:708 @ 2860)
+  0.00    422.48     0.00        1     0.00     0.00  ilup_setup (matriz.c:544 @ 2170)
+  0.00    422.48     0.00        1     0.00     0.00  matriz_get_ordem (matriz.c:303 @ 1ce0)
+  0.00    422.48     0.00        1     0.00     0.00  matriz_read_mtx (matriz.c:229 @ 1aa0)
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) for 0.00% of 422.48 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[71]     0.0    0.12    0.00                 _init [71]
+-----------------------------------------------
+                0.01    0.00 38259877/38259877     matriz_read_mtx (matriz.c:291 @ 1c60) [83]
+[139]    0.0    0.01    0.00 38259877         matriz_add_value (matriz.c:205 @ 19e0) [139]
+-----------------------------------------------
+                0.00    0.00 20969748/156732670     _node_construct (matriz.c:106 @ 24ef) [138]
+                0.01    0.00 135762922/156732670     ilup_setup (matriz.c:652 @ 27cf) [42]
+[157]    0.0    0.01    0.00 156732670         _matrix_add_node_fill_part (matriz.c:405 @ 1ed0) [157]
+-----------------------------------------------
+                0.00    0.00       1/3           main (main.c:54 @ 12ba) [314]
+                0.00    0.00       1/3           main (main.c:57 @ 12ce) [316]
+                0.00    0.00       1/3           matriz_read_mtx (matriz.c:275 @ 1baf) [463]
+[187]    0.0    0.00    0.00       3         matriz_construct (matriz.c:155 @ 17f0) [187]
+-----------------------------------------------
+                0.00    0.00       1/3           main (main.c:77 @ 1339) [329]
+                0.00    0.00       2/3           main (main.c:75 @ 1329) [327]
+[188]    0.0    0.00    0.00       3         matriz_destroy (matriz.c:334 @ 1d90) [188]
+-----------------------------------------------
+                0.00    0.00       1/1           main (main.c:60 @ 12e6) [320]
+[189]    0.0    0.00    0.00       1         ilup (matriz.c:708 @ 2860) [189]
+                0.00    0.00       1/1           ilup_setup (matriz.c:544 @ 2170) [190]
+-----------------------------------------------
+                0.00    0.00       1/1           ilup (matriz.c:708 @ 2860) [189]
+[190]    0.0    0.00    0.00       1         ilup_setup (matriz.c:544 @ 2170) [190]
+-----------------------------------------------
+                0.00    0.00       1/1           main (main.c:49 @ 12a0) [310]
+[191]    0.0    0.00    0.00       1         matriz_get_ordem (matriz.c:303 @ 1ce0) [191]
+-----------------------------------------------
+                0.00    0.00       1/1           main (main.c:43 @ 128b) [307]
+[192]    0.0    0.00    0.00       1         matriz_read_mtx (matriz.c:229 @ 1aa0) [192]
+-----------------------------------------------
+                0.00    0.00       1/1           ilup (matriz.c:838 @ 2a7d) [235]
+[542]    0.0    0.00    0.00       1         _alloc_L_diagonal (matriz.c:463 @ 1f80) [542]
+-----------------------------------------------
+                0.00    0.00       1/1           ilup (matriz.c:839 @ 2a86) [236]
+[543]    0.0    0.00    0.00       1         _alloc_U_diagonal (matriz.c:501 @ 2070) [543]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+ [542] _alloc_L_diagonal (matriz.c:463 @ 1f80) [132] ilup (matriz.c:728 @ 28f0) [110] ilup_setup (matriz.c:628 @ 2400)
+ [543] _alloc_U_diagonal (matriz.c:501 @ 2070) [133] ilup (matriz.c:729 @ 28f7) [111] ilup_setup (matriz.c:627 @ 2403)
+ [104] _alloc_U_diagonal (matriz.c:528 @ 20c4) [26] ilup (matriz.c:731 @ 2900) [10] ilup_setup (matriz.c:633 @ 2409)
+ [136] _alloc_U_diagonal (matriz.c:508 @ 20ca) [40] ilup (matriz.c:734 @ 290c) [9] ilup_setup (matriz.c:635 @ 2417)
+  [71] _init                  [43] ilup (matriz.c:729 @ 2910) [39] ilup_setup (matriz.c:672 @ 2440)
+  [28] _linked_list_destroy_lin (matriz.c:139 @ 1dd0) [80] ilup (matriz.c:737 @ 2919) [1] ilup_setup (matriz.c:675 @ 244d)
+ [101] _linked_list_destroy_lin (matriz.c:136 @ 1ddc) [106] ilup (matriz.c:740 @ 2924) [2] ilup_setup (matriz.c:635 @ 2452)
+ [128] _matrix_add_node (matriz.c:364 @ 22e1) [68] ilup (matriz.c:742 @ 2930) [7] ilup_setup (matriz.c:637 @ 245f)
+ [183] _matrix_add_node (matriz.c:364 @ 22fa) [72] ilup (matriz.c:745 @ 293c) [74] ilup_setup (matriz.c:639 @ 246a)
+ [129] _matrix_add_node (matriz.c:365 @ 230d) [81] ilup (matriz.c:740 @ 2940) [13] ilup_setup (matriz.c:636 @ 246f)
+  [36] _matrix_add_node (matriz.c:365 @ 231a) [121] ilup (matriz.c:750 @ 2949) [51] ilup_setup (matriz.c:647 @ 247b)
+  [37] _matrix_add_node (matriz.c:367 @ 231e) [140] ilup (matriz.c:750 @ 2950) [21] ilup_setup (matriz.c:648 @ 248d)
+  [33] _matrix_add_node (matriz.c:368 @ 2322) [87] ilup (matriz.c:751 @ 2958) [46] ilup_setup (matriz.c:650 @ 2492)
+  [34] _matrix_add_node (matriz.c:371 @ 2326) [88] ilup (matriz.c:754 @ 295b) [112] ilup_setup (matriz.c:635 @ 24a9)
+ [158] _matrix_add_node (matriz.c:387 @ 2344) [141] ilup (matriz.c:753 @ 2962) [60] ilup_setup (matriz.c:662 @ 24e4)
+  [89] _matrix_add_node (matriz.c:390 @ 2367) [107] ilup (matriz.c:758 @ 2970) [124] ilup_setup (matriz.c:666 @ 24f9)
+ [159] _matrix_add_node (matriz.c:364 @ 26d4) [142] ilup (matriz.c:750 @ 2978) [147] ilup_setup (matriz.c:675 @ 2504)
+  [98] _matrix_add_node (matriz.c:365 @ 270d) [169] ilup (matriz.c:824 @ 297d) [135] ilup_setup (matriz.c:667 @ 2511)
+ [160] _matrix_add_node (matriz.c:365 @ 2718) [170] ilup (matriz.c:765 @ 2983) [174] ilup_setup (matriz.c:666 @ 251e)
+  [31] _matrix_add_node (matriz.c:371 @ 271c) [114] ilup (matriz.c:766 @ 2990) [148] ilup_setup (matriz.c:668 @ 2521)
+  [25] _matrix_add_node (matriz.c:368 @ 271f) [115] ilup (matriz.c:768 @ 2993) [47] ilup_setup (matriz.c:635 @ 2531)
+  [30] _matrix_add_node (matriz.c:371 @ 2723) [20] ilup (matriz.c:768 @ 299a) [48] ilup_setup (matriz.c:605 @ 2547)
+ [161] _matrix_add_node (matriz.c:376 @ 2729) [17] ilup (matriz.c:770 @ 29a2) [69] ilup_setup (matriz.c:680 @ 2570)
+  [63] _matrix_add_node (matriz.c:388 @ 2742) [8] ilup (matriz.c:768 @ 29a9) [175] ilup_setup (matriz.c:684 @ 2584)
+ [119] _matrix_add_node (matriz.c:390 @ 274a) [12] ilup (matriz.c:781 @ 29b8) [176] ilup_setup (matriz.c:681 @ 2587)
+ [157] _matrix_add_node_fill_part (matriz.c:405 @ 1ed0) [22] ilup (matriz.c:801 @ 29cc) [79] ilup_setup (matriz.c:681 @ 258d)
+  [59] _matrix_add_node_fill_part (matriz.c:405 @ 1ee9) [5] ilup (matriz.c:771 @ 29d0) [149] ilup_setup (matriz.c:685 @ 25cc)
+  [18] _matrix_add_node_fill_part (matriz.c:407 @ 1ef0) [4] ilup (matriz.c:772 @ 29d5) [61] ilup_setup (matriz.c:596 @ 2746)
+  [19] _matrix_add_node_fill_part (matriz.c:409 @ 1eff) [3] ilup (matriz.c:773 @ 29db) [118] ilup_setup (matriz.c:596 @ 274e)
+  [14] _matrix_add_node_fill_part (matriz.c:410 @ 1f02) [6] ilup (matriz.c:775 @ 29e2) [150] ilup_setup (matriz.c:596 @ 275d)
+  [15] _matrix_add_node_fill_part (matriz.c:412 @ 1f06) [24] ilup (matriz.c:776 @ 29e7) [151] ilup_setup (matriz.c:598 @ 2761)
+  [35] _matrix_add_node_fill_part (matriz.c:418 @ 1f0f) [23] ilup (matriz.c:777 @ 29eb) [99] ilup_setup (matriz.c:652 @ 27a3)
+  [32] _matrix_add_node_fill_part (matriz.c:420 @ 1f13) [122] ilup (matriz.c:801 @ 29f3) [152] ilup_setup (matriz.c:652 @ 27bc)
+ [113] _matrix_add_node_fill_part (matriz.c:423 @ 1f17) [134] ilup (matriz.c:777 @ 29f7) [42] ilup_setup (matriz.c:652 @ 27cf)
+  [38] _matrix_add_node_fill_part (matriz.c:423 @ 1f24) [108] ilup (matriz.c:771 @ 2a01) [53] ilup_setup (matriz.c:656 @ 27d7)
+  [11] _matrix_add_node_fill_part (matriz.c:424 @ 1f2f) [54] ilup (matriz.c:765 @ 2a14) [94] ilup_setup (matriz.c:657 @ 27f2)
+  [45] _matrix_add_node_fill_part (matriz.c:445 @ 1f34) [82] ilup (matriz.c:813 @ 2a24) [95] ilup_setup (matriz.c:656 @ 27f6)
+  [84] _matrix_add_node_fill_part (matriz.c:449 @ 1f39) [52] ilup (matriz.c:809 @ 2a35) [125] ilup_setup (matriz.c:658 @ 27f9)
+  [75] _matrix_add_node_fill_part (matriz.c:452 @ 1f3d) [143] ilup (matriz.c:821 @ 2a44) [139] matriz_add_value (matriz.c:205 @ 19e0)
+ [102] _matrix_add_node_fill_part (matriz.c:454 @ 1f41) [90] ilup (matriz.c:817 @ 2a55) [153] matriz_add_value (matriz.c:206 @ 19f9)
+ [130] _matrix_add_node_fill_part (matriz.c:455 @ 1f46) [144] ilup (matriz.c:824 @ 2a5a) [177] matriz_add_value (matriz.c:206 @ 1a09)
+ [162] _matrix_add_node_fill_part (matriz.c:454 @ 1f64) [145] ilup (matriz.c:754 @ 2ab4) [178] matriz_add_value (matriz.c:207 @ 1a0e)
+  [64] _node_construct (matriz.c:103 @ 1a1f) [190] ilup_setup (matriz.c:544 @ 2170) [62] matriz_add_value (matriz.c:207 @ 1a1a)
+ [105] _node_construct (matriz.c:105 @ 1a32) [116] ilup_setup (matriz.c:578 @ 224c) [179] matriz_add_value (matriz.c:209 @ 1a2e)
+ [163] _node_construct (matriz.c:106 @ 1a3a) [171] ilup_setup (matriz.c:579 @ 226b) [27] matriz_add_value (matriz.c:217 @ 1a64)
+ [164] _node_construct (matriz.c:106 @ 2130) [146] ilup_setup (matriz.c:579 @ 228c) [180] matriz_add_value (matriz.c:219 @ 1a69)
+ [184] _node_construct (matriz.c:103 @ 22cc) [172] ilup_setup (matriz.c:601 @ 22a6) [78] matriz_add_value (matriz.c:220 @ 1a6e)
+ [185] _node_construct (matriz.c:107 @ 22de) [173] ilup_setup (matriz.c:579 @ 22aa) [56] matriz_add_value (matriz.c:225 @ 1a72)
+ [165] _node_construct (matriz.c:106 @ 22ed) [91] ilup_setup (matriz.c:580 @ 22b3) [70] matriz_add_value (matriz.c:224 @ 1a77)
+ [186] _node_construct (matriz.c:107 @ 22f7) [123] ilup_setup (matriz.c:582 @ 22c2) [187] matriz_construct (matriz.c:155 @ 17f0)
+ [166] _node_construct (matriz.c:103 @ 24c1) [49] ilup_setup (matriz.c:587 @ 234c) [188] matriz_destroy (matriz.c:334 @ 1d90)
+ [137] _node_construct (matriz.c:108 @ 24eb) [92] ilup_setup (matriz.c:589 @ 2363) [154] matriz_destroy (matriz.c:340 @ 1e09)
+ [138] _node_construct (matriz.c:106 @ 24ef) [117] ilup_setup (matriz.c:589 @ 236b) [191] matriz_get_ordem (matriz.c:303 @ 1ce0)
+ [167] _node_construct (matriz.c:106 @ 26e7) [58] ilup_setup (matriz.c:607 @ 23a8) [192] matriz_read_mtx (matriz.c:229 @ 1aa0)
+  [85] _node_construct (matriz.c:105 @ 26f9) [100] ilup_setup (matriz.c:611 @ 23c0) [155] matriz_read_mtx (matriz.c:280 @ 1bc9)
+ [168] _node_construct (matriz.c:106 @ 2704) [16] ilup_setup (matriz.c:613 @ 23c8) [96] matriz_read_mtx (matriz.c:285 @ 1bd7)
+  [67] _node_construct (matriz.c:103 @ 2778) [55] ilup_setup (matriz.c:611 @ 23d5) [97] matriz_read_mtx (matriz.c:287 @ 1bdb)
+ [131] _node_construct (matriz.c:107 @ 27a0) [41] ilup_setup (matriz.c:620 @ 23de) [181] matriz_read_mtx (matriz.c:284 @ 1bdf)
+ [120] _node_construct (matriz.c:108 @ 27a6) [50] ilup_setup (matriz.c:623 @ 23e3) [182] matriz_read_mtx (matriz.c:287 @ 1be2)
+  [86] _node_construct (matriz.c:107 @ 27b9) [73] ilup_setup (matriz.c:622 @ 23e6) [66] matriz_read_mtx (matriz.c:280 @ 1bfb)
+ [103] _node_construct (matriz.c:106 @ 27c6) [57] ilup_setup (matriz.c:626 @ 23ea) [126] matriz_read_mtx (matriz.c:289 @ 1c38)
+  [44] _node_construct (matriz.c:108 @ 27cb) [76] ilup_setup (matriz.c:623 @ 23ee) [83] matriz_read_mtx (matriz.c:291 @ 1c60)
+  [29] _node_destroy (matriz.c:116 @ 1dd7) [109] ilup_setup (matriz.c:624 @ 23f6) [127] matriz_read_mtx (matriz.c:293 @ 1c7c)
+  [65] fread (stdio2.h:293 @ 1be6) [77] ilup_setup (matriz.c:625 @ 23fa) [156] memcpy (string_fortified.h:29 @ 2600)
+ [189] ilup (matriz.c:708 @ 2860) [93] ilup_setup (matriz.c:627 @ 23fe)

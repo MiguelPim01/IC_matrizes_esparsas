@@ -1,0 +1,310 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+ 16.89      1.13     1.13                             ilup (matriz.c:733 @ 2e89)
+ 13.90      2.06     0.93                             ilup (matriz.c:737 @ 2e9d)
+ 12.71      2.91     0.85                             ilup_setup (matriz.c:605 @ 2976)
+  9.27      3.53     0.62                             ilup (matriz.c:735 @ 2e94)
+  4.04      3.80     0.27                             ilup (matriz.c:731 @ 2e80)
+  2.69      3.98     0.18                             ilup (matriz.c:733 @ 2e4c)
+  2.39      4.14     0.16                             ilup_setup (matriz.c:572 @ 28e0)
+  2.09      4.28     0.14                             ilup (matriz.c:736 @ 2eac)
+  1.94      4.41     0.13                             fread (stdio2.h:293 @ 24e8)
+  1.87      4.54     0.12                             ilup (matriz.c:741 @ 2ebf)
+  1.79      4.66     0.12                             ilup (matriz.c:731 @ 2e3b)
+  1.64      4.76     0.11                             ilup_setup (matriz.c:605 @ 2954)
+  1.64      4.88     0.11                             ilup_setup (matriz.c:606 @ 2980)
+  1.57      4.98     0.10                             matriz_add_value (matriz.c:330 @ 2589)
+  1.49      5.08     0.10                             ilup (matriz.c:728 @ 2e35)
+  1.49      5.18     0.10                             matriz_read_mtx (matriz.c:407 @ 24fd)
+  1.49      5.28     0.10                             matriz_read_mtx (matriz.c:424 @ 2503)
+  1.42      5.38     0.10                             ilup_setup (matriz.c:602 @ 292a)
+  1.20      5.46     0.08                             SparMAT_to_CSR (matriz.c:177 @ 1bb9)
+  1.12      5.53     0.07                             matriz_add_value (matriz.c:326 @ 255e)
+  0.90      5.59     0.06                             SparMAT_to_CSR (matriz.c:178 @ 1bbc)
+  0.90      5.65     0.06                             ilup (matriz.c:737 @ 2e70)
+  0.90      5.71     0.06                             ilup_setup (matriz.c:528 @ 286e)
+  0.75      5.76     0.05                             SparMAT_to_CSR (matriz.c:154 @ 1afd)
+  0.75      5.81     0.05                             ilup (matriz.c:739 @ 2fb0)
+  0.75      5.86     0.05                             ilup_setup (matriz.c:527 @ 286a)
+  0.60      5.90     0.04                             ilup_setup (matriz.c:579 @ 28f4)
+  0.60      5.94     0.04                             ilup_setup (matriz.c:564 @ 29cc)
+  0.60      5.98     0.04                             matriz_add_value (matriz.c:328 @ 2577)
+  0.52      6.01     0.04                             matriz_read_mtx (matriz.c:416 @ 2538)
+  0.45      6.04     0.03                             SPARILU_row (matriz.c:46 @ 15a5)
+  0.45      6.08     0.03                             ilup_setup (matriz.c:525 @ 287d)
+  0.37      6.10     0.03                             SparMAT_to_CSR (matriz.c:154 @ 1af4)
+  0.37      6.12     0.03                             ilup (matriz.c:714 @ 2dc0)
+  0.37      6.15     0.03                             ilup (matriz.c:715 @ 2dc3)
+  0.37      6.17     0.03                             matriz_read_mtx (matriz.c:409 @ 24d0)
+  0.37      6.20     0.03                             matriz_read_mtx (matriz.c:412 @ 24d7)
+  0.30      6.22     0.02                             SPARILU_row (matriz.c:45 @ 1590)
+  0.30      6.24     0.02                             ilup (matriz.c:708 @ 2d58)
+  0.30      6.26     0.02                             ilup (matriz.c:709 @ 2d5f)
+  0.30      6.28     0.02                             ilup (matriz.c:712 @ 2de4)
+  0.30      6.30     0.02                             ilup (matriz.c:728 @ 2e3f)
+  0.30      6.32     0.02                             ilup (matriz.c:724 @ 2edc)
+  0.30      6.34     0.02                             ilup_setup (matriz.c:570 @ 28ec)
+  0.30      6.36     0.02                             ilup_setup (matriz.c:629 @ 29f0)
+  0.30      6.38     0.02                             ilup_setup (matriz.c:630 @ 2a1b)
+  0.30      6.40     0.02                             ilup_setup (matriz.c:643 @ 2a89)
+  0.30      6.42     0.02                             matriz_add_value (matriz.c:330 @ 2582)
+  0.22      6.43     0.01                             ilup (matriz.c:731 @ 2ed3)
+  0.22      6.45     0.01                             matriz_add_value (matriz.c:331 @ 2593)
+  0.15      6.46     0.01                             CSR_to_SparMAT (matriz.c:123 @ 18a0)
+  0.15      6.47     0.01                             CSR_to_SparMAT (matriz.c:121 @ 18bc)
+  0.15      6.48     0.01                             CSR_to_SparMAT (matriz.c:123 @ 18bf)
+  0.15      6.49     0.01                             CSR_to_SparMAT (matriz.c:117 @ 1920)
+  0.15      6.50     0.01                             SparMAT_destroy (matriz.c:197 @ 1cc1)
+  0.15      6.51     0.01                             SparMAT_to_CSR (matriz.c:149 @ 1ac0)
+  0.15      6.52     0.01                             _init
+  0.15      6.53     0.01                             ilup (matriz.c:705 @ 2d66)
+  0.15      6.54     0.01                             ilup (matriz.c:717 @ 2d8f)
+  0.15      6.55     0.01                             ilup (matriz.c:721 @ 2dd2)
+  0.15      6.56     0.01                             ilup (matriz.c:712 @ 2dd6)
+  0.15      6.57     0.01                             ilup (matriz.c:734 @ 2e90)
+  0.15      6.58     0.01                             ilup_setup (matriz.c:535 @ 2873)
+  0.15      6.59     0.01                             ilup_setup (matriz.c:538 @ 2875)
+  0.15      6.60     0.01                             ilup_setup (matriz.c:538 @ 2885)
+  0.15      6.61     0.01                             ilup_setup (matriz.c:539 @ 2889)
+  0.15      6.62     0.01                             ilup_setup (matriz.c:602 @ 296d)
+  0.15      6.63     0.01                             ilup_setup (matriz.c:646 @ 2aaf)
+  0.15      6.64     0.01                             matriz_read_mtx (matriz.c:414 @ 24dc)
+  0.15      6.65     0.01                             matriz_read_mtx (matriz.c:414 @ 24e4)
+  0.07      6.66     0.01                             SparMAT_to_CSR (matriz.c:153 @ 1afa)
+  0.07      6.66     0.01                             SparMAT_to_CSR (matriz.c:160 @ 1b2c)
+  0.07      6.67     0.01                             SparMAT_to_CSR (matriz.c:161 @ 1b2f)
+  0.07      6.67     0.01                             ilup (matriz.c:705 @ 2d1f)
+  0.07      6.67     0.01                             ilup (matriz.c:702 @ 2d23)
+  0.07      6.68     0.01                             ilup (matriz.c:755 @ 2f40)
+  0.07      6.68     0.01                             ilup (matriz.c:752 @ 2f47)
+  0.07      6.69     0.01                             ilup_setup (matriz.c:587 @ 2928)
+  0.00      6.69     0.00  1200611     0.00     0.00  SPARILU_row (matriz.c:41 @ 1540)
+  0.00      6.69     0.00        3     0.00     0.00  SparMAT_setup (matriz.c:59 @ 1600)
+  0.00      6.69     0.00        3     0.00     0.00  matriz_destroy (matriz.c:440 @ 26d0)
+  0.00      6.69     0.00        2     0.00     0.00  SparMAT_to_CSR (matriz.c:134 @ 1940)
+  0.00      6.69     0.00        2     0.00     0.00  matriz_build (matriz.c:320 @ 2190)
+  0.00      6.69     0.00        1     0.00     0.00  CSR_to_SparMAT (matriz.c:100 @ 17b0)
+  0.00      6.69     0.00        1     0.00     0.00  SPARILU_setup (matriz.c:70 @ 16b0)
+  0.00      6.69     0.00        1     0.00     0.00  SparILU_destroy (matriz.c:210 @ 1d30)
+  0.00      6.69     0.00        1     0.00     0.00  SparILU_to_CSR (matriz.c:189 @ 1c50)
+  0.00      6.69     0.00        1     0.00     0.00  SparMAT_destroy (matriz.c:195 @ 1ca0)
+  0.00      6.69     0.00        1     0.00     0.00  ilup (matriz.c:669 @ 2c30)
+  0.00      6.69     0.00        1     0.00     0.00  ilup_setup (matriz.c:470 @ 2740)
+  0.00      6.69     0.00        1     0.00     0.00  matriz_get_ordem (matriz.c:450 @ 2720)
+  0.00      6.69     0.00        1     0.00     0.00  matriz_read_mtx (matriz.c:356 @ 22e0)
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) for 0.15% of 6.69 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[70]     0.1    0.01    0.00                 _init [70]
+-----------------------------------------------
+                0.00    0.00 1200611/1200611     ilup (matriz.c:691 @ 2cb0) [345]
+[79]     0.0    0.00    0.00 1200611         SPARILU_row (matriz.c:41 @ 1540) [79]
+-----------------------------------------------
+                0.00    0.00       1/3           SPARILU_setup (matriz.c:74 @ 16ee) [191]
+                0.00    0.00       1/3           SPARILU_setup (matriz.c:77 @ 170e) [196]
+                0.00    0.00       1/3           CSR_to_SparMAT (matriz.c:106 @ 17dc) [137]
+[80]     0.0    0.00    0.00       3         SparMAT_setup (matriz.c:59 @ 1600) [80]
+-----------------------------------------------
+                0.00    0.00       1/3           printf (stdio2.h:112 @ 137f) [667]
+                0.00    0.00       1/3           main (main.c:48 @ 138d) [537]
+                0.00    0.00       1/3           main (main.c:50 @ 139d) [539]
+[81]     0.0    0.00    0.00       3         matriz_destroy (matriz.c:440 @ 26d0) [81]
+-----------------------------------------------
+                0.00    0.00       1/2           main (main.c:31 @ 134e) [531]
+                0.00    0.00       1/2           SparILU_to_CSR (matriz.c:190 @ 1c7a) [213]
+[82]     0.0    0.00    0.00       2         SparMAT_to_CSR (matriz.c:134 @ 1940) [82]
+-----------------------------------------------
+                0.00    0.00       1/2           main (main.c:29 @ 132a) [528]
+                0.00    0.00       1/2           main (main.c:31 @ 1332) [529]
+[83]     0.0    0.00    0.00       2         matriz_build (matriz.c:320 @ 2190) [83]
+-----------------------------------------------
+                0.00    0.00       1/1           main (main.c:17 @ 12cc) [513]
+[84]     0.0    0.00    0.00       1         CSR_to_SparMAT (matriz.c:100 @ 17b0) [84]
+-----------------------------------------------
+                0.00    0.00       1/1           main (main.c:25 @ 130e) [523]
+[85]     0.0    0.00    0.00       1         SPARILU_setup (matriz.c:70 @ 16b0) [85]
+-----------------------------------------------
+                0.00    0.00       1/1           main (main.c:48 @ 138d) [537]
+[86]     0.0    0.00    0.00       1         SparILU_destroy (matriz.c:210 @ 1d30) [86]
+-----------------------------------------------
+                0.00    0.00       1/1           main (main.c:31 @ 134e) [531]
+[87]     0.0    0.00    0.00       1         SparILU_to_CSR (matriz.c:189 @ 1c50) [87]
+-----------------------------------------------
+                0.00    0.00       1/1           main (main.c:50 @ 139d) [539]
+[88]     0.0    0.00    0.00       1         SparMAT_destroy (matriz.c:195 @ 1ca0) [88]
+-----------------------------------------------
+                0.00    0.00       1/1           main (main.c:28 @ 1318) [525]
+[89]     0.0    0.00    0.00       1         ilup (matriz.c:669 @ 2c30) [89]
+-----------------------------------------------
+                0.00    0.00       1/1           ilup (matriz.c:670 @ 2c5c) [335]
+[90]     0.0    0.00    0.00       1         ilup_setup (matriz.c:470 @ 2740) [90]
+-----------------------------------------------
+                0.00    0.00       1/1           main (main.c:19 @ 12da) [516]
+[91]     0.0    0.00    0.00       1         matriz_get_ordem (matriz.c:450 @ 2720) [91]
+-----------------------------------------------
+                0.00    0.00       1/1           main (main.c:9 @ 12ad) [508]
+[92]     0.0    0.00    0.00       1         matriz_read_mtx (matriz.c:356 @ 22e0) [92]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [84] CSR_to_SparMAT (matriz.c:100 @ 17b0) [58] ilup (matriz.c:717 @ 2d8f) [7] ilup_setup (matriz.c:572 @ 28e0)
+  [51] CSR_to_SparMAT (matriz.c:123 @ 18a0) [34] ilup (matriz.c:714 @ 2dc0) [44] ilup_setup (matriz.c:570 @ 28ec)
+  [52] CSR_to_SparMAT (matriz.c:121 @ 18bc) [35] ilup (matriz.c:715 @ 2dc3) [27] ilup_setup (matriz.c:579 @ 28f4)
+  [53] CSR_to_SparMAT (matriz.c:123 @ 18bf) [59] ilup (matriz.c:721 @ 2dd2) [78] ilup_setup (matriz.c:587 @ 2928)
+  [54] CSR_to_SparMAT (matriz.c:117 @ 1920) [60] ilup (matriz.c:712 @ 2dd6) [18] ilup_setup (matriz.c:602 @ 292a)
+  [79] SPARILU_row (matriz.c:41 @ 1540) [41] ilup (matriz.c:712 @ 2de4) [12] ilup_setup (matriz.c:605 @ 2954)
+  [38] SPARILU_row (matriz.c:45 @ 1590) [15] ilup (matriz.c:728 @ 2e35) [66] ilup_setup (matriz.c:602 @ 296d)
+  [31] SPARILU_row (matriz.c:46 @ 15a5) [11] ilup (matriz.c:731 @ 2e3b) [3] ilup_setup (matriz.c:605 @ 2976)
+  [85] SPARILU_setup (matriz.c:70 @ 16b0) [42] ilup (matriz.c:728 @ 2e3f) [13] ilup_setup (matriz.c:606 @ 2980)
+  [86] SparILU_destroy (matriz.c:210 @ 1d30) [6] ilup (matriz.c:733 @ 2e4c) [28] ilup_setup (matriz.c:564 @ 29cc)
+  [87] SparILU_to_CSR (matriz.c:189 @ 1c50) [22] ilup (matriz.c:737 @ 2e70) [45] ilup_setup (matriz.c:629 @ 29f0)
+  [88] SparMAT_destroy (matriz.c:195 @ 1ca0) [5] ilup (matriz.c:731 @ 2e80) [46] ilup_setup (matriz.c:630 @ 2a1b)
+  [55] SparMAT_destroy (matriz.c:197 @ 1cc1) [1] ilup (matriz.c:733 @ 2e89) [47] ilup_setup (matriz.c:643 @ 2a89)
+  [80] SparMAT_setup (matriz.c:59 @ 1600) [61] ilup (matriz.c:734 @ 2e90) [67] ilup_setup (matriz.c:646 @ 2aaf)
+  [82] SparMAT_to_CSR (matriz.c:134 @ 1940) [4] ilup (matriz.c:735 @ 2e94) [20] matriz_add_value (matriz.c:326 @ 255e)
+  [56] SparMAT_to_CSR (matriz.c:149 @ 1ac0) [2] ilup (matriz.c:737 @ 2e9d) [29] matriz_add_value (matriz.c:328 @ 2577)
+  [33] SparMAT_to_CSR (matriz.c:154 @ 1af4) [8] ilup (matriz.c:736 @ 2eac) [48] matriz_add_value (matriz.c:330 @ 2582)
+  [71] SparMAT_to_CSR (matriz.c:153 @ 1afa) [10] ilup (matriz.c:741 @ 2ebf) [14] matriz_add_value (matriz.c:330 @ 2589)
+  [24] SparMAT_to_CSR (matriz.c:154 @ 1afd) [49] ilup (matriz.c:731 @ 2ed3) [50] matriz_add_value (matriz.c:331 @ 2593)
+  [72] SparMAT_to_CSR (matriz.c:160 @ 1b2c) [43] ilup (matriz.c:724 @ 2edc) [83] matriz_build (matriz.c:320 @ 2190)
+  [73] SparMAT_to_CSR (matriz.c:161 @ 1b2f) [76] ilup (matriz.c:755 @ 2f40) [81] matriz_destroy (matriz.c:440 @ 26d0)
+  [19] SparMAT_to_CSR (matriz.c:177 @ 1bb9) [77] ilup (matriz.c:752 @ 2f47) [91] matriz_get_ordem (matriz.c:450 @ 2720)
+  [21] SparMAT_to_CSR (matriz.c:178 @ 1bbc) [25] ilup (matriz.c:739 @ 2fb0) [92] matriz_read_mtx (matriz.c:356 @ 22e0)
+  [70] _init                  [90] ilup_setup (matriz.c:470 @ 2740) [36] matriz_read_mtx (matriz.c:409 @ 24d0)
+   [9] fread (stdio2.h:293 @ 24e8) [26] ilup_setup (matriz.c:527 @ 286a) [37] matriz_read_mtx (matriz.c:412 @ 24d7)
+  [89] ilup (matriz.c:669 @ 2c30) [23] ilup_setup (matriz.c:528 @ 286e) [68] matriz_read_mtx (matriz.c:414 @ 24dc)
+  [74] ilup (matriz.c:705 @ 2d1f) [62] ilup_setup (matriz.c:535 @ 2873) [69] matriz_read_mtx (matriz.c:414 @ 24e4)
+  [75] ilup (matriz.c:702 @ 2d23) [63] ilup_setup (matriz.c:538 @ 2875) [16] matriz_read_mtx (matriz.c:407 @ 24fd)
+  [39] ilup (matriz.c:708 @ 2d58) [32] ilup_setup (matriz.c:525 @ 287d) [17] matriz_read_mtx (matriz.c:424 @ 2503)
+  [40] ilup (matriz.c:709 @ 2d5f) [64] ilup_setup (matriz.c:538 @ 2885) [30] matriz_read_mtx (matriz.c:416 @ 2538)
+  [57] ilup (matriz.c:705 @ 2d66) [65] ilup_setup (matriz.c:539 @ 2889)

@@ -660,7 +660,7 @@ void ilup_setup(SparMAT *m, SparILU *lu, int p)
 	}
 	free(ulvl);
 
-	printf("QUANTIDADE DE PREENCHIMENTO: %d\n", qtd_preenchimento);
+	// printf("QUANTIDADE DE PREENCHIMENTO: %d\n", qtd_preenchimento);
 
 	return;
 }

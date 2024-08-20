@@ -15,10 +15,8 @@ CSC_matrix/*.out
 CSC_matrix/main
 CSC_matrix/.vscode/
 
-CSR_matrix/resultados_gprof/
 CSR_matrix/*.out
 CSR_matrix/main
 
-LinkedList_matrix/resultados_gprof/
 LinkedList_matrix/*.out
 LinkedList_matrix/main
