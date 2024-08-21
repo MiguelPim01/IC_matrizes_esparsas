@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import os
 
-diretorio_matrizes = 'matrizes/lu/nnz/nofill'
+diretorio_matrizes = 'matrizes/lu/ordem/nofill'
 
 matrizes = os.listdir(diretorio_matrizes)
 
@@ -12,6 +12,7 @@ lista_result_geral = []
 for arq in matrizes:
 
     print(f"Matriz {arq} sendo utilizada.....")
+    print("======================================================")
 
     matriz = os.path.join(diretorio_matrizes, arq)
     
@@ -46,7 +47,7 @@ for arq in matrizes:
 # Criando um DataFrame do pandas com os resultados
 df = pd.DataFrame(lista_result_geral)
 
-nome_arquivo = "resultadoLuNoFill_nnz.csv"
+nome_arquivo = "resultadoLuNoFill_ordem.csv"
 
 # Salvar o DataFrame em uma planilha (por exemplo, um arquivo CSV)
 df.to_csv(nome_arquivo, index=False, sep=',', float_format='%.6f')

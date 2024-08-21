@@ -554,11 +554,14 @@ void ilup_setup(SparMAT *m, SparILU *lu, int p)
 	// ANÁLISE DE COMPLEXIDADE DA LINHA 564 ATÉ 589
 	//
 	/**
-	 * Linha 564 até 569:
+	 * Linha 567 até 572:
 	 *     - {3(nnz-n)/2} operações (=), {(nnz+n)/2} comparações, {(nnz+n)/2} incrementos, {(nnz-n)/2} acessos a array
 	 * 
-	 * Linha 570 até 577:
-	 *     - {(nnz-n)} operações (=), {} comparações, {} incrementos, {} acessos a array
+	 * Linha 573 até 580:
+	 *     - {} operações (=, +), {} comparações, {} incrementos, {} acessos a array --- FALTANDO FAZER
+	 * 
+	 * Linha 582 até 592:
+	 *     - {4(nnz-n)} operações (=), {(nnz-n)/2} comparações, {0} incrementos, {4(nnz-n)} acessos a array
 	 * 
 	*/
 		while (++jpiv < incl)
@@ -588,15 +591,29 @@ void ilup_setup(SparMAT *m, SparILU *lu, int p)
 				k           = kmin; 
 			}
 
-		/**
-		 * Total:
-		 *     - operações         = (n + nnz)
-		 *     - comparações       = (n + nnz)
-		 *     - incrementos       = (n + nnz)
-		 *     - acessos a array   = (n + nnz)
-		 *     - acessos a memória = ()
-		*/
-		// ===================================================================================
+	/**
+	 * Total:
+	 *     - operações         = (5nnz/2 - 5n/2)
+	 *     - comparações       = (nnz)
+	 *     - incrementos       = (nnz/2 + n/2)
+	 *     - acessos a array   = (9nnz/2 - 9n/2)
+	 *     - acessos a memória = (0)
+	*/
+	// ===================================================================================
+	// ANÁLISE DE COMPLEXIDADE DA LINHA 619 ATÉ 664 
+	//
+	/**
+	 * Linha 619 até 624:
+	 *     - {} operações (=, +), {} comparações, {} incrementos, {} acessos a array
+	 * 
+	 * Linha 625 até 642:
+	 *     - {} operações (=, +), {} comparações, {} incrementos, {} acessos a array
+	 * 
+	 * Linha 646 até 664:
+	 *     - {15n + 2nnz} operações (=, -, *, +), {4n + 2nnz} comparações, {2n + 2nnz} incrementos, {8n + 4nnz} acessos a array, {6n} acessos a memória
+	 * 
+	 * 
+	 */
 
 			/*-------------------- symbolic linear combinaiton of rows  */
 			for(j = 0; j < U->nzcount[k]; j++)
@@ -646,9 +663,23 @@ void ilup_setup(SparMAT *m, SparILU *lu, int p)
 			ulvl[i]  = (int *) malloc(k*sizeof(int)); 
 			memcpy(ulvl[i], levls+i, k*sizeof(int));
 		}
-
-		// printf("linha %02d\n", i);
+	/**
+	 * Total:
+	 *     - operações         = ()
+	 *     - comparações       = ()
+	 *     - incrementos       = ()
+	 *     - acessos a array   = ()
+	 *     - acessos a memória = ()
+	*/
+	// ===================================================================================
 	}
+	// ANÁLISE DE COMPLEXIDADE DAS LINHAS 685 ATÉ 692
+	//
+	/**
+	 * Linha 685 até 692:
+	 *     - {(n+1)} operações (=, -), {n} comparações, {n} incrementos, {(n-1)} acessos a array, {(n-1)} acessos a memória
+	 * 
+	 */
   
 	/*-------------------- free temp space and leave --*/
 	free(levls);
@@ -659,6 +690,16 @@ void ilup_setup(SparMAT *m, SparILU *lu, int p)
 			free(ulvl[i]) ; 
 	}
 	free(ulvl);
+
+	/**
+	 * Total GERAL:
+	 *     - operações         = ()
+	 *     - comparações       = ()
+	 *     - incrementos       = ()
+	 *     - acessos a array   = ()
+	 *     - acessos a memória = ()
+	*/
+	// ===================================================================================
 
 	// printf("QUANTIDADE DE PREENCHIMENTO: %d\n", qtd_preenchimento);
 

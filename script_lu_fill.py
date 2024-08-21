@@ -50,7 +50,7 @@ for i in fill_ins:
     # Criando um DataFrame do pandas com os resultados
     df = pd.DataFrame(lista_result_geral)
     
-    nome_arquivo = f"resultadoLuFill_nnz{i}.csv"
+    nome_arquivo = f"resultadoLuFill_nnz__{i}__.csv"
 
     # Salvar o DataFrame em uma planilha (por exemplo, um arquivo CSV)
     df.to_csv(nome_arquivo, index=False, sep=',', float_format='%.6f')
