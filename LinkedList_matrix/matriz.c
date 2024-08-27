@@ -358,6 +358,13 @@ void matriz_destroy(Matriz *m)
  * @param i index da linha
  * 
  * @param j index da coluna
+ * 
+ * Total GERAL:
+ *     - operações         = (8)
+ *     - comparações       = (2)
+ *     - incrementos       = (2)
+ *     - acessos a array   = (2)
+ *     - acessos a memória = (10)
 */
 void _matrix_add_node(Matriz *m, Node *n, int i, int j)
 {
@@ -400,6 +407,13 @@ void _matrix_add_node(Matriz *m, Node *n, int i, int j)
  * @param i index da linha
  * 
  * @param j index da coluna
+ * 
+ * Total GERAL:
+ *     - operações         = (2n + 9)
+ *     - comparações       = (2n + 3)
+ *     - incrementos       = (2)
+ *     - acessos a array   = (2)
+ *     - acessos a memória = (2n + 10)
 */
 void _matrix_add_node_fill_part(Matriz *m, Node *n, int i, int j)
 {
