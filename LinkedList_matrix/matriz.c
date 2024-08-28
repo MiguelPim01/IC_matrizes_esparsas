@@ -12,7 +12,7 @@ struct Vetor {
 };
 
 struct Node {
-    double valor;
+    float valor;
     int linha;
     int coluna;
     Node *nextRight;
@@ -201,7 +201,7 @@ Vetor *matriz_multiply_by_vector(Matriz *m, Vetor *v)
 
 // Essa função é para a inserção de um valor especificamente para o caso da leitura do arquivo .mtx
 //
-void matriz_add_value(Matriz *m, int linha, int coluna, double valor)
+void matriz_add_value(Matriz *m, int linha, int coluna, float valor)
 {
     LinkedList *lin_list = m->linhas[linha-1];
     LinkedList *col_list = m->colunas[coluna-1];
@@ -275,7 +275,7 @@ Matriz *matriz_read_mtx(char *filePath)
     Matriz *m = matriz_construct(qtdLinhas, qtdColunas, qtd_nnz);
 
     int lin, col;
-    double valor;
+    float valor;
 
     while (fread(&c, sizeof(char), 1, file) == 1) // fase 3: Ler os valores da matriz
     {
@@ -286,7 +286,7 @@ Matriz *matriz_read_mtx(char *filePath)
 
         if (flag)
         {
-            sscanf(linha, "%d %d %lf", &col, &lin, &valor);
+            sscanf(linha, "%d %d %f", &col, &lin, &valor);
 
             matriz_add_value(m, lin, col, valor);
             flag = 0;
