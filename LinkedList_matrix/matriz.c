@@ -795,23 +795,6 @@ void ilup(Matriz *m, Matriz *L, Matriz *U, int p)
                     jpos->valor -= node_i->valor * node_k->valor;
                 }
 
-                // if (col == i) {
-                //     D[i] -= node_i->valor * node_k->valor;
-                //     node_k = node_k->nextRight;
-                //     continue;
-                // }
-                // if (jpos == NULL) {
-                //     node_k = node_k->nextRight;
-                //     continue;
-                // }
-
-                // if (col < i) {
-                //     jpos->valor -= node_i->valor * node_k->valor;
-                // }
-                // else {
-                //     jpos->valor -= node_i->valor * node_k->valor;
-                // }
-
                 node_k = node_k->nextRight;
             }
 
