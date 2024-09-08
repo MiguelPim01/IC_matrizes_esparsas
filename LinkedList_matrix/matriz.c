@@ -98,6 +98,7 @@ void vector_destroy(Vetor *v)
 
 /* ============ NODE FUNCTIONS ============ */
 
+// 5 operações
 Node *_node_construct(int linha, int coluna, float valor, Node *right, Node *down)
 {
     Node *n = (Node *)malloc(sizeof(Node));
@@ -580,10 +581,19 @@ void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
      * 
      */
 
+    // ===================================================================================
+	// ANÁLISE DE COMPLEXIDADE DA LINHA _ ATÉ _
+	//
+	/**
+	 * Linha 594 até 628:
+	 *     - {20nnz+5N+2} operações , {5nnz+3N+2} comparações, {3nnz+2N} incrementos, {5nnz+2N} acessos a array, {12nnz+2N} acessos a memória
+	 * 
+	 */
+
 	/* initilize iw */
 	for(j = 0; j < n; j++) iw[j] = -1;
 
-	for(i = 0; i < n; i++) 
+	for(i = 0; i < n; i++)
 	{
 		incl = 0;
 		incu = i; 
@@ -615,7 +625,14 @@ void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
             node_i = node_i->nextRight;
         }
 		/*-------------------- symbolic k,i,j Gaussian elimination  */ 
-		jpiv = -1; 
+		jpiv = -1;
+    // ANÁLISE DE COMPLEXIDADE DA LINHA _ ATÉ _
+	//
+	/**
+	 * Linha 636 até 665:
+	 *     - {} operações , {} comparações, {} incrementos, {} acessos a array, {} acessos a memória
+	 * 
+	 */
 		while (++jpiv < incl)
 		{
 			k = jbuf[jpiv] ; 
@@ -733,6 +750,13 @@ void ilup(Matriz *m, Matriz *L, Matriz *U, int p)
     jw = (Node **)  malloc(n * sizeof(Node *));
     D  = (double *) malloc(n * sizeof(double));
 
+    // ANÁLISE DE COMPLEXIDADE DA LINHA _ ATÉ _
+	//
+	/**
+	 * Linha 760 até 802:
+	 *     - {9nnz+5N+2} operações, {3nnz+5N+2} comparações, {2N} incrementos, {2nnz+6N} acessos a array, {6nnz+7N} acessos a memória
+     */
+
     for (int i = 0; i < n; i++) {
         jw[i] = NULL;
     }
@@ -776,6 +800,13 @@ void ilup(Matriz *m, Matriz *L, Matriz *U, int p)
         }
 
         node_i = L->linhas[i]->head;
+
+    // ANÁLISE DE COMPLEXIDADE DA LINHA _ ATÉ _
+	//
+	/**
+	 * Linha 810 até 815:
+	 *     - {2nnz} operações, {nnz/2+N} comparações, {} incrementos, {nnz} acessos a array, {2nnz} acessos a memória
+     */
         while (node_i != NULL) {
             jrow = node_i->coluna-1;
 
