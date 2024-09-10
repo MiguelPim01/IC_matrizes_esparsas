@@ -481,6 +481,13 @@ void _alloc_L_diagonal(Matriz *L)
 
     LinkedList *column = NULL, *line = NULL;
 
+    // ANÁLISE DE COMPLEXIDADE DA LINHA _ ATÉ _
+	//
+	/**
+	 * Linha 479 até 512:
+	 *     - {14N+6} operações, {2N+1} comparações, {3N} incrementos, {2N} acessos a array, {9N+1} acessos a memória
+     */
+
     for (int i = 0; i < n; i++) {
 
         column = L->colunas[i];
@@ -519,6 +526,13 @@ void _alloc_U_diagonal(Matriz *U, double *D)
     Node *new_node = NULL, *tail = NULL;
 
     LinkedList *line = NULL, *column = NULL;
+
+    // ANÁLISE DE COMPLEXIDADE DA LINHA _ ATÉ _
+	//
+	/**
+	 * Linha 524 até 558:
+	 *     - {15N+6} operações, {2N+1} comparações, {3N} incrementos, {3N} acessos a array, {9N+1} acessos a memória
+     */
 
     for (int i = 0; i < n; i++) {
 
@@ -805,7 +819,7 @@ void ilup(Matriz *m, Matriz *L, Matriz *U, int p)
 	//
 	/**
 	 * Linha 810 até 815:
-	 *     - {2nnz} operações, {nnz/2+N} comparações, {} incrementos, {nnz} acessos a array, {2nnz} acessos a memória
+	 *     - {} operações, {} comparações, {} incrementos, {} acessos a array, {} acessos a memória
      */
         while (node_i != NULL) {
             jrow = node_i->coluna-1;
@@ -831,6 +845,13 @@ void ilup(Matriz *m, Matriz *L, Matriz *U, int p)
 
             node_i = node_i->nextRight;
         }
+
+    // ANÁLISE DE COMPLEXIDADE DA LINHA _ ATÉ _
+	//
+	/**      ----------------------------> Faltando analisar aloc de diagonal
+	 * Linha 843 até 877:
+	 *     - {36N+8} operações, {6N+3} comparações, {6N} incrementos, {6N-1} acessos a array, {22N} acessos a memória
+     */
 
         /* reseta os valores do array jw para NULL */
         node_i = L->linhas[i]->head;
