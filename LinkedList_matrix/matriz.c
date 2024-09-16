@@ -767,7 +767,7 @@ void ilup(Matriz *m, Matriz *L, Matriz *U, int p)
     // ANÁLISE DE COMPLEXIDADE DA LINHA _ ATÉ _
 	//
 	/**
-	 * Linha 760 até 802:
+	 * Linha 774 até 816:
 	 *     - {9nnz+5N+2} operações, {3nnz+5N+2} comparações, {2N} incrementos, {2nnz+6N} acessos a array, {6nnz+7N} acessos a memória
      */
 
@@ -818,8 +818,8 @@ void ilup(Matriz *m, Matriz *L, Matriz *U, int p)
     // ANÁLISE DE COMPLEXIDADE DA LINHA _ ATÉ _
 	//
 	/**
-	 * Linha 810 até 815:
-	 *     - {} operações, {} comparações, {} incrementos, {} acessos a array, {} acessos a memória
+	 * Linha 824 até 847:
+	 *     - {6nnz.N/2+5nnz/2} operações, {nnz.N/2+nnz+N} comparações, {} incrementos, {nnz.N/2+3nnz/2} acessos a array, {5nnz.N/2+5nnz/2} acessos a memória
      */
         while (node_i != NULL) {
             jrow = node_i->coluna-1;
@@ -848,8 +848,8 @@ void ilup(Matriz *m, Matriz *L, Matriz *U, int p)
 
     // ANÁLISE DE COMPLEXIDADE DA LINHA _ ATÉ _
 	//
-	/**      ----------------------------> Faltando analisar aloc de diagonal
-	 * Linha 843 até 877:
+	/**
+	 * Linha 857 até 891:
 	 *     - {36N+8} operações, {6N+3} comparações, {6N} incrementos, {6N-1} acessos a array, {22N} acessos a memória
      */
 

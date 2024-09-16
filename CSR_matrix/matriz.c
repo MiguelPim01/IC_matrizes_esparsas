@@ -36,6 +36,7 @@ struct Matriz {
 
 /*----------------------------------------------------------------------------
  * Prepare space of a row according to the result of level structure
+ - {4} operações, {2} comparações, {0} incrementos, {6} acessos a array, {12} acessos a memória
  *--------------------------------------------------------------------------*/
 void SPARILU_row (SparILU* lu, int nrow)
 {
@@ -554,15 +555,10 @@ void ilup_setup(SparMAT *m, SparILU *lu, int p)
 	// ANÁLISE DE COMPLEXIDADE DA LINHA 564 ATÉ 589
 	//
 	/**
-	 * Linha 567 até 572:
-	 *     - {3(nnz-n)/2} operações (=), {(nnz+n)/2} comparações, {(nnz+n)/2} incrementos, {(nnz-n)/2} acessos a array
-	 * 
-	 * Linha 573 até 580:
-	 *     - {} operações (=, +), {} comparações, {} incrementos, {} acessos a array --- FALTANDO FAZER
-	 * 
-	 * Linha 582 até 592:
-	 *     - {4(nnz-n)} operações (=), {(nnz-n)/2} comparações, {0} incrementos, {4(nnz-n)} acessos a array
-	 * 
+	 * Linha 563 até 588:
+	 *     - {13nnz/2} operações, {nnz+N} comparações, {nnz/2+N} incrementos, {9nnz/2} acessos a array, {} acessos a memória
+	 *
+	 *
 	*/
 		while (++jpiv < incl)
 		{
@@ -590,31 +586,19 @@ void ilup_setup(SparMAT *m, SparILU *lu, int p)
 				levls[jmin] = j;
 				k           = kmin; 
 			}
-
-	/**
-	 * Total:
-	 *     - operações         = (5nnz/2 - 5n/2)
-	 *     - comparações       = (nnz)
-	 *     - incrementos       = (nnz/2 + n/2)
-	 *     - acessos a array   = (9nnz/2 - 9n/2)
-	 *     - acessos a memória = (0)
-	*/
 	// ===================================================================================
 	// ANÁLISE DE COMPLEXIDADE DA LINHA 619 ATÉ 664 
 	//
 	/**
-	 * Linha 619 até 624:
-	 *     - {} operações (=, +), {} comparações, {} incrementos, {} acessos a array
+	 * Linha 604 até 628:
+	 *     - {7nnz.N/2 + nnz/2} operações, {5nnz.N/2 + nnz/2} comparações, {nnz.N} incrementos, {5nnz.N + nnz/2} acessos a array, {nnz.N + nnz/2} acessos a memória
 	 * 
-	 * Linha 625 até 642:
-	 *     - {} operações (=, +), {} comparações, {} incrementos, {} acessos a array
 	 * 
 	 * Linha 646 até 664:
-	 *     - {15n + 2nnz} operações (=, -, *, +), {4n + 2nnz} comparações, {2n + 2nnz} incrementos, {8n + 4nnz} acessos a array, {6n} acessos a memória
+	 *     - {15n + 2nnz} operações, {4n + 2nnz} comparações, {2n + 2nnz} incrementos, {8n + 4nnz} acessos a array, {6n} acessos a memória
 	 * 
 	 * 
 	 */
-
 			/*-------------------- symbolic linear combinaiton of rows  */
 			for(j = 0; j < U->nzcount[k]; j++)
 			{
@@ -721,6 +705,14 @@ void ilup(SparMAT *m, SparILU *lu, int p)
 	D = lu->D;
 
 	jw = lu->work;
+
+	// ANÁLISE DE COMPLEXIDADE DA LINHA _ ATÉ _
+	//
+	/**
+	 * Linha 734 até 772:
+	 *     - {6nnz+10N+2} operações, {4nnz+7N+2} comparações, {2nnz+2N} incrementos, {14nnz+12N} acessos a array, {7nnz+15N} acessos a memória
+     */
+
 	/* set indicator array jw to -1 */
 	for(j = 0; j < n; j++) jw[j] = -1;
 
@@ -760,7 +752,15 @@ void ilup(SparMAT *m, SparILU *lu, int p)
 				D[i] = m->ma[i][j];
 			else
 				U->ma[i][jpos] = m->ma[i][j];
-		} 
+		}
+
+	// ANÁLISE DE COMPLEXIDADE DA LINHA _ ATÉ _
+	//
+	/**
+	 * Linha 782 até 801:
+	 *     - {2nnz.N+3nnz/2+N} operações, {2nnz.N+nnz+N} comparações, {nnz.N/2+nnz/2} incrementos, {5nnz.N+7nnz/2+N} acessos a array, {5nnz.N/2+2nnz+N} acessos a memória
+     */
+
 		/* eliminate previous rows */
 		for(j = 0; j < L->nzcount[i]; j++)
 		{
@@ -782,6 +782,13 @@ void ilup(SparMAT *m, SparILU *lu, int p)
 					U->ma[i][jpos] -= L->ma[i][j] * U->ma[jrow][k];
 			}
 		}
+
+	// ANÁLISE DE COMPLEXIDADE DA LINHA _ ATÉ _
+	//
+	/**
+	 * Linha 811 até 835:
+	 *     - {4nnz+5N} operações, {nnz+3N} comparações, {nnz} incrementos, {7nnz+3N} acessos a array, {3nnz+2N} acessos a memória
+     */
 
 		/* reset double-pointer to -1 ( U-part) */
 		for(j = 0; j < L->nzcount[i]; j++)
