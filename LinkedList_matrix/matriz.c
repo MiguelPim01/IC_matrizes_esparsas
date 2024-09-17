@@ -98,7 +98,7 @@ void vector_destroy(Vetor *v)
 
 /* ============ NODE FUNCTIONS ============ */
 
-// 5 operações
+// 5 operações - 5 acessos a memória
 Node *_node_construct(int linha, int coluna, float valor, Node *right, Node *down)
 {
     Node *n = (Node *)malloc(sizeof(Node));
@@ -643,8 +643,8 @@ void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
     // ANÁLISE DE COMPLEXIDADE DA LINHA _ ATÉ _
 	//
 	/**
-	 * Linha 636 até 665:
-	 *     - {} operações , {} comparações, {} incrementos, {} acessos a array, {} acessos a memória
+	 * Linha 650 até 675:
+	 *     - {11nnz/2} operações , {nnz + N} comparações, {nnz/2 + N} incrementos, {9nnz/2} acessos a array, {} acessos a memória
 	 * 
 	 */
 		while (++jpiv < incl)
@@ -675,6 +675,13 @@ void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
 			}
 			/*-------------------- symbolic linear combinaiton of rows  */
             /*-------------------- mesmo algoritmo, mas transferido para o caso da lista encadeada */
+    // ANÁLISE DE COMPLEXIDADE DA LINHA _ ATÉ _
+	//
+	/**
+	 * Linha 685 até 730:
+	 *     - {nnz.N^2 + 27nnz.N/2 + nnz} operações , {nnz.N^2 + 7nnz.N/2 + nnz/2} comparações, {3nnz.N/2} incrementos, {9nnz.N/2 + nnz/2} acessos a array, {nnz.N^2 + 17nnz.N/2 + nnz} acessos a memória
+	 * 
+	 */
             node_i = U->linhas[k]->head;
             j = 0;
             while (node_i != NULL) {
@@ -721,6 +728,13 @@ void ilup_setup(Matriz *m, Matriz *L, Matriz *U, int p)
                 j++;
             }
 		}   /* end - while loop */
+    // ANÁLISE DE COMPLEXIDADE DA LINHA _ ATÉ _
+	//
+	/**
+	 * Linha 685 até 730:
+	 *     - {nnz + 8N} operações , {nnz + 2N + 1} comparações, {nnz + N - 2} incrementos, {2nnz + 3N - 2} acessos a array, {2N - 4} acessos a memória
+	 * 
+	 */
 		/*-------------------- reset iw */
 		for(j = 0; j < incl; j++) iw[jbuf[j]] = -1;
 		for(j = i; j < incu; j++) iw[jbuf[j]] = -1;
